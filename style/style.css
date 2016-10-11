@@ -1,0 +1,7 @@
+section#landing ul {
+	list-style: none;
+}
+
+section#landing li {
+	display: inline-block;
+}
