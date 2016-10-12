@@ -1,3 +1,22 @@
+header#pageHeader {
+	display: block;
+	height: auto;
+	overflow: visible;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background-color: blue;
+}
+
+nav.nav {
+	padding-left: 15px;
+	display: inline-block;
+}
+
+section#landing {
+	padding-top: 122px;
+}
+
 section#landing ul {
 	list-style: none;
 }
