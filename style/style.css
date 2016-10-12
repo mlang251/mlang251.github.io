@@ -5,12 +5,13 @@ header#pageHeader {
 	width: 100%;
 	position: fixed;
 	top: 0;
-	background-color: blue;
+	z-index: 1000;
 }
 
-nav.nav {
+header#pageHeader nav {
 	padding-left: 15px;
-	display: inline-block;
+	display: table;
+	margin: 0 auto;
 }
 
 section#landing {
