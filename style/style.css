@@ -24,7 +24,7 @@ footer p.col-sm-10 {
 
 a,
 a:visited,
-a:active {
+a:focus {
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
 	    -ms-transition: color 200ms;
@@ -95,7 +95,8 @@ header#pageHeader:hover {
 header#pageHeader nav {
 	padding-left: 15px;
 	display: table;
-	margin: 0 auto;
+	margin: 0;
+	width: 100%;
 }
 
 section#landing {
@@ -117,18 +118,26 @@ section#landing p {
 
 section#landing nav {
 	height: 25vh;
-	line-height: 25vh;
 }
 
-section#landing ul {
+section#landing ul.hidden-sm {
 	list-style: none;
-	vertical-align: middle;
 	text-align: right;
 	font-size: 1.8em;
 }
 
-section#landing li {
+section#landing ul.hidden-lg {
+	list-style: none;
+	text-align: left;
+	font-size: 1.3em;
+}
+
+section#landing ul.hidden-sm li {
 	display: inline-block;
+	padding: 0 5px;
+}
+
+section#landing ul.hidden-lg li {
 	padding: 0 5px;
 }
 
