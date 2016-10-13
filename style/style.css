@@ -4,6 +4,7 @@
 body {
 	font: 1.6em "Lato";
 	line-height: 1.6;
+	color: #FFFFB6;;
 }
 
 section h2.col-sm-2,
@@ -11,9 +12,38 @@ footer h2.col-sm-2 {
 	padding: 50px 15px 50px;
 }
 
+section h3.col-sm-10,
+footer h3.col-sm-10 {
+	padding: 15px;
+}
+
 section p.col-sm-10,
 footer p.col-sm-10 {
 	padding: 10px 15px;
+}
+
+a {
+	color: #E0E0A0;;
+}
+
+section#landing,
+section#goals {
+	background-color: #535A7A;	
+}
+
+section#about,
+section#experience {
+	background-color: #6E5750;
+}
+
+footer h2,
+footer h3 {
+	color: rgb(21, 27, 31);
+}
+
+section {
+	border-bottom: 0.4em solid #702D24;
+	padding-bottom: 50px
 }
 
 header#pageHeader {
@@ -21,6 +51,8 @@ header#pageHeader {
 	position: fixed;
 	top: 0;
 	z-index: 1000;
+	background-color: rgba(21, 27, 31, 0.8);
+	border-bottom: 0.3em solid rgba(21, 27, 31, 1);
 }
 
 header#pageHeader nav {
@@ -33,7 +65,7 @@ section#landing {
 	height: 100vh;
 }
 
-section#landing div {
+section#landing div.row {
 	height: 50vh;
 	margin-top: 25vh;
 	text-align: center;
@@ -60,6 +92,7 @@ section#landing ul {
 
 section#landing li {
 	display: inline-block;
+	padding: 0 5px;
 }
 
 section#about span{
@@ -68,15 +101,20 @@ section#about span{
 	padding: 15px
 }
 
+section#about ul {
+	list-style: none;
+}
+
 div.table-responsive {
 	padding: 50px 15px 0;
 }
+
 thead {
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid #702D24;
 }
 
 col#tableColumnLeft {
-	border-right: 1px solid black;
+	border-right: 2px solid #702D24;
 }
 
 td {
@@ -87,6 +125,11 @@ td:first-child {
 	text-align: right;
 }
 
-footer div.row:nth-child(2) {
-	padding-bottom: 50px;
+footer div.col-sm-2 {
+	padding-bottom: 15px;
+}
+
+footer div.row:nth-child(3) {
+	padding-top: 30px;
+	padding-bottom: 35px;
 }
