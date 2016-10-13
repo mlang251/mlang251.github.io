@@ -1,8 +1,5 @@
 var main = function() {
 
-
-
-
 	var $landingNav = $("section#landing ul"); 
 
 	var navigationLayout = function() {
@@ -17,6 +14,9 @@ var main = function() {
 	navigationLayout();
 
 
+	$(window).resize(function() {
+		navigationLayout();
+	})
 
 
 	$(function() {
@@ -33,11 +33,6 @@ var main = function() {
 	    }
 	  });
 	});
-
-	$(window).resize(function() {
-		navigationLayout();
-	})
-
 
 }
 
