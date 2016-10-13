@@ -48,12 +48,12 @@ a:hover {
 
 section#landing,
 section#goals {
-	background-color: #002963;	
+	background-color: #06557A;	
 }
 
 section#about,
 section#experience {
-	background-color: #6E5750;
+	background-color: #856A5A;
 }
 
 footer h2,
@@ -169,11 +169,11 @@ div.table-responsive {
 }
 
 thead {
-	border-bottom: 2px solid #702D24;
+	border-bottom: 2px solid rgb(21, 27, 31);
 }
 
 col#tableColumnLeft {
-	border-right: 2px solid #702D24;
+	border-right: 2px solid rgb(21, 27, 31);
 }
 
 td {
