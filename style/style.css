@@ -120,24 +120,24 @@ section#landing nav {
 	height: 25vh;
 }
 
-section#landing ul.hidden-sm {
+section#landing ul.windowLarge {
 	list-style: none;
 	text-align: right;
 	font-size: 1.8em;
 }
 
-section#landing ul.hidden-lg {
+section#landing ul.windowSmall {
 	list-style: none;
 	text-align: left;
 	font-size: 1.3em;
 }
 
-section#landing ul.hidden-sm li {
+section#landing ul.windowLarge li {
 	display: inline-block;
 	padding: 0 5px;
 }
 
-section#landing ul.hidden-lg li {
+section#landing ul.windowSmall li {
 	padding: 0 5px;
 }
 

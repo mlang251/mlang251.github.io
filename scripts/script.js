@@ -1,4 +1,24 @@
 var main = function() {
+
+
+
+
+	var $landingNav = $("section#landing ul"); 
+
+	var navigationLayout = function() {
+		$landingNav.removeClass("windowLarge windowSmall");
+		if ($(window).width() >= 975) {
+			$landingNav.addClass("windowLarge");
+		} else {
+			$landingNav.addClass("windowSmall");
+		}
+	}
+
+	navigationLayout();
+
+
+
+
 	$(function() {
 	  $('a[href*="#"]:not([href="#"])').click(function() {
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -13,6 +33,12 @@ var main = function() {
 	    }
 	  });
 	});
+
+	$(window).resize(function() {
+		navigationLayout();
+	})
+
+
 }
 
 $(document).ready(main);
