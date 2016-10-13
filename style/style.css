@@ -9,7 +9,7 @@ body {
 
 section h2.col-sm-2,
 footer h2.col-sm-2 {
-	padding: 50px 15px 50px;
+	padding: 141px 15px 15px;
 }
 
 section h3.col-sm-10,
@@ -22,8 +22,28 @@ footer p.col-sm-10 {
 	padding: 10px 15px;
 }
 
-a {
-	color: #E0E0A0;;
+a,
+a:visited,
+a:active {
+	-webkit-transition: color 200ms;
+	   -moz-transition: color 200ms;
+	    -ms-transition: color 200ms;
+	     -o-transition: color 200ms;
+	     	transition: color 200ms;
+
+	color: #E0E0A0;
+	text-decoration: none;
+}
+
+a:hover {
+	-webkit-transition: color 200ms;
+	   -moz-transition: color 200ms;
+	    -ms-transition: color 200ms;
+	     -o-transition: color 200ms;
+	     	transition: color 200ms;
+
+	color: #FFFFFF;
+	text-decoration: none;
 }
 
 section#landing,
@@ -51,8 +71,25 @@ header#pageHeader {
 	position: fixed;
 	top: 0;
 	z-index: 1000;
+
+	-webkit-transition: background-color 400ms;
+	   -moz-transition: background-color 400ms;
+	    -ms-transition: background-color 400ms;
+	     -o-transition: background-color 400ms;
+	     	transition: background-color 400ms;
+
 	background-color: rgba(21, 27, 31, 0.8);
 	border-bottom: 0.3em solid rgba(21, 27, 31, 1);
+}
+
+header#pageHeader:hover {
+	-webkit-transition: background-color 400ms;
+	   -moz-transition: background-color 400ms;
+	    -ms-transition: background-color 400ms;
+	     -o-transition: background-color 400ms;
+	     	transition: background-color 400ms;
+
+	background-color: rgba(21, 27, 31, 1);	
 }
 
 header#pageHeader nav {
@@ -106,7 +143,7 @@ section#about ul {
 }
 
 div.table-responsive {
-	padding: 50px 15px 0;
+	margin-top: 50px;
 }
 
 thead {
