@@ -141,6 +141,13 @@ section#landing ul.windowSmall li {
 	padding: 0 5px;
 }
 
+section#about img {
+	height: 200px;
+	width: 200px;
+	float: left;
+	margin-right: 10px;
+}
+
 section#about span{
 	display: block;
 	font-size: 0.9em;
