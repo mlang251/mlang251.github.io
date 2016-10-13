@@ -48,7 +48,7 @@ a:hover {
 
 section#landing,
 section#goals {
-	background-color: #535A7A;	
+	background-color: #002963;	
 }
 
 section#about,
@@ -142,10 +142,12 @@ section#landing ul.windowSmall li {
 }
 
 section#about img {
-	height: 200px;
-	width: 200px;
+	height: 150px;
+	width: 150px;
 	float: left;
 	margin-right: 10px;
+	border-radius: 7px;
+	box-shadow: 2px 2px rgb(21, 27, 31);
 }
 
 section#about span{
@@ -156,6 +158,10 @@ section#about span{
 
 section#about ul {
 	list-style: none;
+}
+
+section#about li + li {
+	padding-top: 5px;
 }
 
 div.table-responsive {
