@@ -17,18 +17,6 @@ var main = function() {
 	navigationLayout();
 
 
-	$(function() {
-		var $landingNavOffset = $landingNav.offset().top;
-		$(window).scroll(function() {
-			var headerOffset = $landingNavOffset - $(window).scrollTop() - $("#pageHeader").height();
-			if (headerOffset <= 0) {
-				$landingNav.detach();
-				$("#landingNavContainer").after($landingNav);
-			}
-		})
-	})
-
-
 
 
 	$(function() {
