@@ -1,11 +1,6 @@
-/*Import Lato font-family*/
- @import url(http://fonts.googleapis.com/css?family=Lato:400,300,700);
-
-
-
 /*Initialize global attributes*/
 body {
-	font: 1.6em "Lato";
+	font: 1.6em "Lato", verdana;
 	line-height: 1.6;
 	color: #FFFFB6;;
 }
