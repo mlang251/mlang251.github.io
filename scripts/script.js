@@ -1,5 +1,20 @@
 var main = function() {
 
+	//Determines if the user's device has touch capability
+	var isTouch = function(){
+		if(("ontouchstart" in window) || (navigator.maxTouchPoints > 0)) {
+			return true;		//if device has touch capability or supports multitouch
+		} else {
+			return false;		//otherwise return false, if OS is less than windows 8 the if statement is undefined,
+		};						//function still returns false
+	};
+
+	//if device does not have touch capability, add a hover class to anchors and page header
+	if(!isTouch()) {
+		$("a").addClass("isHoverable");
+		$("header#pageHeader").addClass("isHoverable");
+	}
+
 	//Create variable for a jQuery selector
 	var $landingNav = $("section#landing ul"); 
 

@@ -27,8 +27,7 @@ footer p.col-sm-10 {
 
 /*Link stylings, with vendor prefixes for color transitions*/
 a,
-a:visited,
-a:focus {
+a:visited {
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
 	    -ms-transition: color 200ms;
@@ -39,7 +38,7 @@ a:focus {
 	text-decoration: none;
 }
 
-a:hover {
+a.isHoverable:hover {
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
 	    -ms-transition: color 200ms;
@@ -85,7 +84,9 @@ header#pageHeader {
 	border-bottom: 0.3em solid rgb(21, 27, 31);
 }
 
-header#pageHeader:hover {
+/*Transition only applies to devices without touch capability,
+otherwise these hover states would stick when clicked on touchscreen*/
+header#pageHeader.isHoverable:hover {
 	-webkit-transition: background-color 400ms;
 	   -moz-transition: background-color 400ms;
 	    -ms-transition: background-color 400ms;
