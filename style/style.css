@@ -1,12 +1,18 @@
+/*Import Lato font-family*/
  @import url(http://fonts.googleapis.com/css?family=Lato:400,300,700);
 
 
+
+/*Initialize global attributes*/
 body {
 	font: 1.6em "Lato";
 	line-height: 1.6;
 	color: #FFFFB6;;
 }
 
+
+
+/*Override Bootstrap default paddings for headings and paragraphs*/
 section h2.col-sm-2,
 footer h2.col-sm-2 {
 	padding: 141px 15px 15px;
@@ -22,6 +28,9 @@ footer p.col-sm-10 {
 	padding: 10px 15px;
 }
 
+
+
+/*Link stylings, with vendor prefixes for color transitions*/
 a,
 a:visited,
 a:focus {
@@ -46,6 +55,9 @@ a:hover {
 	text-decoration: none;
 }
 
+
+
+/*Color scheme for entire document*/
 section#landing,
 section#goals {
 	background-color: #06557A;	
@@ -61,11 +73,7 @@ footer h3 {
 	color: rgb(21, 27, 31);
 }
 
-section {
-	border-bottom: 0.4em solid #702D24;
-	padding-bottom: 50px
-}
-
+/* #pageHeader background color transitions from 80% opaque to 100% when hovering*/
 header#pageHeader {
 	width: 100%;
 	position: fixed;
@@ -79,7 +87,7 @@ header#pageHeader {
 	     	transition: background-color 400ms;
 
 	background-color: rgba(21, 27, 31, 0.8);
-	border-bottom: 0.3em solid rgba(21, 27, 31, 1);
+	border-bottom: 0.3em solid rgb(21, 27, 31);
 }
 
 header#pageHeader:hover {
@@ -92,6 +100,9 @@ header#pageHeader:hover {
 	background-color: rgba(21, 27, 31, 1);	
 }
 
+
+
+/*Set spacing and display for page header navigation*/
 header#pageHeader nav {
 	padding-left: 15px;
 	display: table;
@@ -99,48 +110,75 @@ header#pageHeader nav {
 	width: 100%;
 }
 
+
+
+/*Add border to bottom of all sections*/
+section {
+	border-bottom: 0.4em solid #702D24;
+	padding-bottom: 50px
+}
+
+
+
+
+
+/*---LANDING SECTION---*/
+
+
+/*Landing takes up 100% of viewport height and responds to window resizes*/
 section#landing {
 	height: 100vh;
 }
 
+/*center the objective statement vertically*/
 section#landing div.row {
 	height: 50vh;
 	margin-top: 25vh;
-	text-align: center;
 }
 
 section#landing p {
-	display: inline-block;
 	vertical-align: middle;
 	margin-top: 25vh;
 	text-align: left;
 }
 
+/*Let the landing navigation take up the remaining space in the viewport*/
 section#landing nav {
 	height: 25vh;
 }
 
-section#landing ul.windowLarge {
+section#landing ul {
 	list-style: none;
+}
+
+section#landing li {
+	padding: 0 5px;
+}
+
+/*When viewport width >= 975px*/
+section#landing ul.windowLarge {
 	text-align: right;
 	font-size: 1.8em;
 }
 
+section#landing ul.windowLarge li {
+	display: inline-block;
+}
+
+/*When viewport width < 975px*/
 section#landing ul.windowSmall {
-	list-style: none;
 	text-align: left;
 	font-size: 1.3em;
 }
 
-section#landing ul.windowLarge li {
-	display: inline-block;
-	padding: 0 5px;
-}
 
-section#landing ul.windowSmall li {
-	padding: 0 5px;
-}
 
+
+
+/*---ABOUT SECTION---*/
+
+
+/*Style image and float left so text wraps*/
 section#about img {
 	height: 150px;
 	width: 150px;
@@ -150,6 +188,7 @@ section#about img {
 	box-shadow: 2px 2px rgb(21, 27, 31);
 }
 
+/*Size span smaller so it reads like an inner thought*/
 section#about span{
 	display: block;
 	font-size: 0.9em;
@@ -160,19 +199,28 @@ section#about ul {
 	list-style: none;
 }
 
+/*List items except the first one will have a top padding, this is so that when the text wraps to a new line on a small viewport it is still readable*/
 section#about li + li {
 	padding-top: 5px;
 }
 
-div.table-responsive {
+
+
+
+
+/*---GOALS SECTION---*/
+
+
+table {
 	margin-top: 50px;
 }
 
+/*Apply border to bottom of table head and vertical divider between columns*/
 thead {
 	border-bottom: 2px solid rgb(21, 27, 31);
 }
 
-col#tableColumnLeft {
+col:first-child {
 	border-right: 2px solid rgb(21, 27, 31);
 }
 
@@ -180,14 +228,24 @@ td {
 	padding: 5px 20px;
 }
 
+/*For all table data cells in the left column*/
 td:first-child {
 	text-align: right;
 }
 
+
+
+
+
+/*---RESUME SECTION---*/
+
+
+/*Links get a bottom padding so that they don't crowd each other when they stack vertically on extra-small viewport*/
 footer div.col-sm-2 {
 	padding-bottom: 15px;
 }
 
+/*Row with the links gets extra padding from the heading and bottom of document*/
 footer div.row:nth-child(3) {
 	padding-top: 30px;
 	padding-bottom: 35px;
