@@ -2,7 +2,7 @@
 body {
 	font: 1.6em "Lato", verdana;
 	line-height: 1.6;
-	color: #FFFFB6;;
+	color: #FFFFDD;
 }
 
 
@@ -238,7 +238,7 @@ td:first-child {
 /*---RESUME SECTION---*/
 
 
-/*Links get a bottom padding so that they don't crowd each other when they stack vertically on extra-small viewport*/
+/*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
 footer img {
 	display: inline-block;
 	margin: 0 10px 10px 0;
