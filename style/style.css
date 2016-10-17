@@ -36,7 +36,7 @@ body {
 
 	/*Move objective statement up a bit to make room for mobile device browser controls*/
 	section#landing div.row {
-		margin-top: 20vh;
+		margin-top: 15vh;
 	}
 
 	/*Page header is a little bit smaller on mobile*/
