@@ -261,6 +261,7 @@ col:first-child {
 }
 
 td {
+	font-weight: bold;
 	padding: 5px 20px;
 }
 
