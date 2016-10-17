@@ -2,6 +2,15 @@ var main = function() {
 
 
 
+	//---VARIABLES---//
+
+	//Create variable for a jQuery selector
+	var $landingNav = $("section#landing ul"); 
+
+
+
+	//---FUNCTIONS---//
+
 	//Determines if the user's device has touch capability
 	var isTouch = function(){
 		if(("ontouchstart" in window) || (navigator.maxTouchPoints > 0)) {
@@ -17,11 +26,10 @@ var main = function() {
 		$("header#pageHeader").addClass("isHoverable");
 	}
 
-
-
 	//Create variable for a jQuery selector
 	var $landingNav = $("section#landing ul"); 
 
+	//Detects window size and adds/remove window size dependant classes
 	var navigationLayout = function() {
 		$landingNav.removeClass("windowLarge windowSmall");		//Remove classes initially so that both don't appear at same time
 		if ($(window).width() >= 975) {
@@ -31,17 +39,22 @@ var main = function() {
 		}
 	};
 
-	navigationLayout();						//Call function as part of main so that the navigation responds to the intial viewport width
 
 
-	$(window).resize(function() {			//Call function whenever the window gets resized
+	//---FUNCTION CALLS---//
+
+	navigationLayout();		//Call function as part of main so that the navigation responds to the intial viewport width
+
+
+
+	//---EVENT HANDLERS---//
+
+	//Call function whenever the window gets resized
+	$(window).resize(function() {			
 		navigationLayout();
 	})
 
-
-
-
-	//SMOOTH SCROLL FUNCTION
+	//Smooth scroll function
 	$(function() {
 	  $('a[href*="#"]:not([href="#"])').click(function() {
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {

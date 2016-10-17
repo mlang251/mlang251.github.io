@@ -2,7 +2,7 @@
 body {
 	font: 1.6em "Lato", verdana;
 	line-height: 1.6;
-	color: #FFFFB6;;
+	color: #FFFFDD;
 }
 
 
@@ -145,8 +145,10 @@ section#landing nav {
 	height: 25vh;
 }
 
+/*Initial styling of navigation list and list items*/
 section#landing ul {
 	list-style: none;
+	text-align: right;
 }
 
 section#landing li {
@@ -155,7 +157,6 @@ section#landing li {
 
 /*When viewport width >= 975px*/
 section#landing ul.windowLarge {
-	text-align: right;
 	font-size: 1.8em;
 }
 
@@ -165,8 +166,7 @@ section#landing ul.windowLarge li {
 
 /*When viewport width < 975px*/
 section#landing ul.windowSmall {
-	text-align: left;
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 
 
@@ -238,9 +238,12 @@ td:first-child {
 /*---RESUME SECTION---*/
 
 
-/*Links get a bottom padding so that they don't crowd each other when they stack vertically on extra-small viewport*/
-footer div.col-sm-2 {
-	padding-bottom: 15px;
+/*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
+footer img {
+	display: inline-block;
+	margin: 0 10px 10px 0;
+	height: 50px;
+	width: 50px;
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
