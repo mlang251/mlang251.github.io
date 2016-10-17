@@ -1,5 +1,7 @@
 var main = function() {
 
+
+
 	//Determines if the user's device has touch capability
 	var isTouch = function(){
 		if(("ontouchstart" in window) || (navigator.maxTouchPoints > 0)) {
@@ -14,6 +16,8 @@ var main = function() {
 		$("a").addClass("isHoverable");
 		$("header#pageHeader").addClass("isHoverable");
 	}
+
+
 
 	//Create variable for a jQuery selector
 	var $landingNav = $("section#landing ul"); 
@@ -33,6 +37,7 @@ var main = function() {
 	$(window).resize(function() {			//Call function whenever the window gets resized
 		navigationLayout();
 	})
+
 
 
 
