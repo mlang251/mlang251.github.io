@@ -158,7 +158,7 @@ header#pageHeader.isHoverable:hover {
 
 
 /*Set spacing and display for page header navigation*/
-header#pageHeader nav#name {
+header#pageHeader nav {
 	padding-left: 15px;
 	display: table;
 	margin: 0;
