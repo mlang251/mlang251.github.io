@@ -7,10 +7,60 @@ body {
 
 
 
+/*When viewport >= 975px*/
+@media(min-width: 975px) {
+	/*Style the landing nav to be inline-block display items and larger font size*/
+	section#landing li {
+		font-size: 1.8em;
+		display: inline-block;
+	}
+
+	/*Keep objective statement in the center of the screen*/
+	section#landing div.row {
+		margin-top: 25vh;
+	}
+
+	/*When scrolling to the top of a section, there is just enough padding to make room for page header*/
+	section h2.col-sm-2,
+	footer h2.col-sm-2 {
+		padding-top: 141px;
+	}
+}
+
+/*When viewport width < 975px*/
+@media(max-width: 974px) {
+	/*Landing nav list items are block display and smaller font*/
+	section#landing li {
+		font-size: 1.2em;
+	}
+
+	/*Move objective statement up a bit to make room for mobile device browser controls*/
+	section#landing div.row {
+		margin-top: 20vh;
+	}
+
+	/*Page header is a little bit smaller on mobile*/
+	header#pageHeader h1 {
+		font-size: 32px;
+	}
+
+	header#pageHeader h2 {
+		font-size: 26px;
+	}
+
+	/*When scrolling to the top of a section, there is just enough padding to make room for page header*/
+	section h2.col-sm-2,
+	footer h2.col-sm-2 {
+		padding-top: 132px;
+	}
+}
+
+
+
 /*Override Bootstrap default paddings for headings and paragraphs*/
 section h2.col-sm-2,
 footer h2.col-sm-2 {
-	padding: 141px 15px 15px;
+	padding-bottom: 15px;
 }
 
 section h3.col-sm-10,
@@ -68,6 +118,13 @@ footer h2,
 footer h3 {
 	color: rgb(21, 27, 31);
 }
+
+
+
+
+
+/*---PAGE HEADER---*/
+
 
 /* #pageHeader background color transitions from 80% opaque to 100% when hovering*/
 header#pageHeader {
@@ -131,7 +188,6 @@ section#landing {
 /*center the objective statement vertically*/
 section#landing div.row {
 	height: 50vh;
-	margin-top: 25vh;
 }
 
 section#landing p {
@@ -140,33 +196,15 @@ section#landing p {
 	text-align: left;
 }
 
-/*Let the landing navigation take up the remaining space in the viewport*/
-section#landing nav {
-	height: 25vh;
-}
-
 /*Initial styling of navigation list and list items*/
 section#landing ul {
 	list-style: none;
 	text-align: right;
+	padding-right: 15px;
 }
 
 section#landing li {
 	padding: 0 5px;
-}
-
-/*When viewport width >= 975px*/
-section#landing ul.windowLarge {
-	font-size: 1.8em;
-}
-
-section#landing ul.windowLarge li {
-	display: inline-block;
-}
-
-/*When viewport width < 975px*/
-section#landing ul.windowSmall {
-	font-size: 1.2em;
 }
 
 

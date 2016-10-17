@@ -2,13 +2,6 @@ var main = function() {
 
 
 
-	//---VARIABLES---//
-
-	//Create variable for a jQuery selector
-	var $landingNav = $("section#landing ul"); 
-
-
-
 	//---FUNCTIONS---//
 
 	//Determines if the user's device has touch capability
@@ -26,33 +19,9 @@ var main = function() {
 		$("header#pageHeader").addClass("isHoverable");
 	}
 
-	//Create variable for a jQuery selector
-	var $landingNav = $("section#landing ul"); 
-
-	//Detects window size and adds/remove window size dependant classes
-	var navigationLayout = function() {
-		$landingNav.removeClass("windowLarge windowSmall");		//Remove classes initially so that both don't appear at same time
-		if ($(window).width() >= 975) {
-			$landingNav.addClass("windowLarge");				//On medium and large viewports, landing navigation appears with inline-block list items
-		} else {
-			$landingNav.addClass("windowSmall");				//Otherwise it appears with block list items
-		}
-	};
-
-
-
-	//---FUNCTION CALLS---//
-
-	navigationLayout();		//Call function as part of main so that the navigation responds to the intial viewport width
-
 
 
 	//---EVENT HANDLERS---//
-
-	//Call function whenever the window gets resized
-	$(window).resize(function() {			
-		navigationLayout();
-	})
 
 	//Smooth scroll function
 	$(function() {
