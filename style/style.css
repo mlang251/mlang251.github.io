@@ -5,3 +5,19 @@ section#landing ul {
 section#landing li {
 	display: inline-block;
 }
+
+thead {
+	border-bottom: 1px solid black;
+}
+
+col#tableColumnLeft {
+	border-right: 1px solid black;
+}
+
+td {
+	padding: 5px 20px;
+}
+
+td:first-child {
+	text-align: right;
+}
