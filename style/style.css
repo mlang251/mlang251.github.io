@@ -10,18 +10,18 @@ body {
 /*When viewport >= 975px*/
 @media(min-width: 975px) {
 	/*Style the landing nav to be inline-block display items and larger font size*/
-	section#landing li {
+	article#landing li {
 		font-size: 1.8em;
 		display: inline-block;
 	}
 
 	/*Keep objective statement in the center of the screen*/
-	section#landing div.row {
+	article#landing section.row {
 		margin-top: 25vh;
 	}
 
-	/*When scrolling to the top of a section, there is just enough padding to make room for page header*/
-	section h2.col-sm-2,
+	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
+	article h2.col-sm-2,
 	footer h2.col-sm-2 {
 		padding-top: 141px;
 	}
@@ -30,12 +30,12 @@ body {
 /*When viewport width < 975px*/
 @media(max-width: 974px) {
 	/*Landing nav list items are block display and smaller font*/
-	section#landing li {
+	article#landing li {
 		font-size: 1.2em;
 	}
 
 	/*Move objective statement up a bit to make room for mobile device browser controls*/
-	section#landing div.row {
+	article#landing div.row {
 		margin-top: 15vh;
 	}
 
@@ -48,8 +48,8 @@ body {
 		font-size: 20px;
 	}
 
-	/*When scrolling to the top of a section, there is just enough padding to make room for page header*/
-	section h2.col-sm-2,
+	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
+	article h2.col-sm-2,
 	footer h2.col-sm-2 {
 		padding-top: 124px;
 	}
@@ -58,17 +58,17 @@ body {
 
 
 /*Override Bootstrap default paddings for headings and paragraphs*/
-section h2.col-sm-2,
+article h2.col-sm-2,
 footer h2.col-sm-2 {
 	padding-bottom: 15px;
 }
 
-section h3.col-sm-10,
+article h3.col-sm-10,
 footer h3.col-sm-10 {
 	padding: 15px;
 }
 
-section p.col-sm-10,
+article p.col-sm-10,
 footer p.col-sm-10 {
 	padding: 10px 15px;
 }
@@ -104,13 +104,13 @@ a.isHoverable:hover {
 
 
 /*Color scheme for entire document*/
-section#landing,
-section#goals {
+article#landing,
+article#goals {
 	background-color: #06557A;	
 }
 
-section#about,
-section#experience {
+article#about,
+article#experience {
 	background-color: #856A5A;
 }
 
@@ -167,8 +167,8 @@ header#pageHeader nav {
 
 
 
-/*Add border to bottom of all sections*/
-section {
+/*Add border to bottom of all articles*/
+article {
 	border-bottom: 0.4em solid #702D24;
 	padding-bottom: 50px
 }
@@ -177,33 +177,33 @@ section {
 
 
 
-/*---LANDING SECTION---*/
+/*---LANDING ARTICLE---*/
 
 
 /*Landing takes up 100% of viewport height and responds to window resizes*/
-section#landing {
+article#landing {
 	height: 100vh;
 }
 
 /*center the objective statement vertically*/
-section#landing div.row {
+article#landing section.row {
 	height: 50vh;
 }
 
-section#landing p {
+article#landing p {
 	vertical-align: middle;
 	margin-top: 25vh;
 	text-align: left;
 }
 
 /*Initial styling of navigation list and list items*/
-section#landing ul {
+article#landing ul {
 	list-style: none;
 	text-align: right;
 	padding-right: 15px;
 }
 
-section#landing li {
+article#landing li {
 	padding: 0 5px;
 }
 
@@ -211,11 +211,11 @@ section#landing li {
 
 
 
-/*---ABOUT SECTION---*/
+/*---ABOUT ARTICLE---*/
 
 
 /*Style image and float left so text wraps*/
-section#about img {
+article#about img {
 	height: 150px;
 	width: 150px;
 	float: left;
@@ -225,18 +225,18 @@ section#about img {
 }
 
 /*Size span smaller so it reads like an inner thought*/
-section#about span{
+article#about span{
 	display: block;
 	font-size: 0.9em;
 	padding: 15px
 }
 
-section#about ul {
+article#about ul {
 	list-style: none;
 }
 
 /*List items except the first one will have a top padding, this is so that when the text wraps to a new line on a small viewport it is still readable*/
-section#about li + li {
+article#about li + li {
 	padding-top: 5px;
 }
 
@@ -244,7 +244,7 @@ section#about li + li {
 
 
 
-/*---GOALS SECTION---*/
+/*---GOALS ARTICLE---*/
 
 
 table {
@@ -274,7 +274,7 @@ td:first-child {
 
 
 
-/*---RESUME SECTION---*/
+/*---RESUME ARTICLE---*/
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
