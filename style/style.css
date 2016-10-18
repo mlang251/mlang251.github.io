@@ -253,6 +253,7 @@ table {
 
 /*Apply border to bottom of table head and vertical divider between columns*/
 thead {
+	font-weight: bold;
 	border-bottom: 2px solid rgb(21, 27, 31);
 }
 
@@ -261,7 +262,6 @@ col:first-child {
 }
 
 td {
-	font-weight: bold;
 	padding: 5px 20px;
 }
 
