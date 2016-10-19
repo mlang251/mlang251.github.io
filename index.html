@@ -17,14 +17,14 @@
 
 	<!--FIXED POSITION HEADER-->
 	<header id = "pageHeader">
-		<nav class = "nav container-fluid">
+		<div class = "container-fluid">
 			<div class = "row">
-				<div class = "col-xs-6 navbar-header">
+				<div class = "col-xs-6">
 					<h1><a href = "#landing">Mark Lang</a></h1>
 					<h2><a href = "mailto:lang.m@husky.neu.edu">lang.m@husky.neu.edu</a></h2>
 				</div>
 			</div>
-		</nav>
+		</div>
 	</header>
 
 
@@ -59,40 +59,38 @@
 		<!--ABOUT SECTION-->
 		<article id = "about"> 
 			<div class = "container"> 
-				<section>
-					<div class = "row">
-						<h2 class = "col-sm-2">About</h2>
-					</div>
+				<header class = "row">
+					<h2 class = "col-sm-2">About</h2>
+				</header>
 
 
-					<div class = "row">
-						<div class = "col-sm-offset-2 col-sm-10">
+				<div class = "row">
+					<div class = "col-sm-offset-2 col-sm-10">
 
-							<!--Image is floated left so that text wraps around it-->
-							<img src = "images/headshot.png" />
+						<!--Image is floated left so that text wraps around it-->
+						<img src = "images/headshot.png" />
 
-							<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
+						<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
 
-							<p>I am currently in my senior year at Northeastern University in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
+						<p>I am currently in my senior year at Northeastern University in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
 
-							<p>Over the past year, I have been considering what sort of career I want to commit to. After the rigorous and strictly defined coursework I completed in engineering school, I felt I wanted a career that would allow for more artistic creativity and freedom</p>
+						<p>Over the past year, I have been considering what sort of career I want to commit to. After the rigorous and strictly defined coursework I completed in engineering school, I felt I wanted a career that would allow for more artistic creativity and freedom</p>
 
-							<div class = "row">
-								<!--This paragraph appears to the right side so that it reads like an inner thought-->
-								<p class = "col-sm-offset-8 col-sm-4"><span>[This is where web development comes in]</span></p>
-							</div>
-
-							<p>I see web development as a perfect combination of the skills I learned throughout my coursework and the artistic mode of thinking which I exhibit in many facets of my life. A job in web development will bring me satisfaction and a welcome challenge.</p>
+						<div class = "row">
+							<!--This paragraph appears to the right side so that it reads like an inner thought-->
+							<p class = "col-sm-offset-8 col-sm-4"><span>[This is where web development comes in]</span></p>
 						</div>
-					</div>
 
-				</section>
+						<p>I see web development as a perfect combination of the skills I learned throughout my coursework and the artistic mode of thinking which I exhibit in many facets of my life. A job in web development will bring me satisfaction and a welcome challenge.</p>
+					</div>
+				</div>
+
 
 
 				<section>
-					<div class = "row">
+					<header class = "row">
 						<h3 class = "col-sm-offset-2 col-sm-10">Aside from school and web development, there are many other things I am passionate about:</h3>
-					</div>
+					</header>
 
 
 					<div class = "row">
@@ -116,17 +114,15 @@
 		<!--GOALS SECTION-->
 		<article id = "goals" >
 			<div class = "container">
-				<section>
-					<div class = "row">
-						<h2 class = "col-sm-2">Goals</h2>
-					</div>
-					
+				<header class = "row">
+					<h2 class = "col-sm-2">Goals</h2>
+				</header>
+				
 
-					<div class = "row">
-						<p class = "col-sm-offset-2 col-sm-10">My main goal is to graduate from college in May and begin a career in web development, working with a small group of developers and creative designers to learn from and bounce ideas off of. So far my area of focus in web development has been front end static sites, but I have interest in learning full stack development, as well as how to make more complicated web and mobile apps.</p>
-					</div>
+				<div class = "row">
+					<p class = "col-sm-offset-2 col-sm-10">My main goal is to graduate from college in May and begin a career in web development, working with a small group of developers and creative designers to learn from and bounce ideas off of. So far my area of focus in web development has been front end static sites, but I have interest in learning full stack development, as well as how to make more complicated web and mobile apps.</p>
+				</div>
 
-				</section>
 
 
 				<section class = "row">
@@ -187,9 +183,9 @@
 		<!--EXPERIENCE SECTION-->
 		<article id = "experience">
 			<div class = "container">
-				<div class = "row">
+				<header class = "row">
 					<h2 class = "col-sm-2">Experience</h2>
-				</div>
+				</header>
 
 
 				<div class = "row">
@@ -197,7 +193,6 @@
 				</div>
 
 			</div>
-
 		</article>
 
 	</main>
@@ -205,18 +200,21 @@
 
 
 
-		<!--RESUME SECTION-->
-		<footer id = "resume" class = "container">
-			<div class = "row">
-				<h2 class = "col-sm-2">Resume</h2>
-			</div>
-
-
-			<div class = "row">
-				<h3 class = "col-sm-offset-2 col-sm-10">View my resume and social media:</h3>
-			</div>
-
-
+	<!--RESUME SECTION-->
+	<aside>
+		<div class = "container">
+			<header>
+				<div class = "row">
+					<h2 class = "col-sm-2">Resume</h2>
+				</div>
+				
+				
+				<div class = "row">
+					<h3 class = "col-sm-offset-2 col-sm-10">View my resume and social media:</h3>
+				</div>
+			</header>
+	
+	
 			<div class = "row">
 				<div class = "col-sm-offset-2 col-xs-10">
 					<a href = "attachments/Resume.pdf"><img src = "images/pdf64px.png" /></a>
@@ -224,15 +222,17 @@
 					<a href = "https://www.linkedin.com/profile/preview?locale=en_US&amp;trk=prof-0-sb-preview-primary-button"><img src = "images/linkedin64px.png" /></a>
 				</div>
 			</div>
+		
+		</div>
 
-		</footer>
+	</aside>
 
 
 
 
-		<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script type = "text/javascript" src = "scripts/script.js"></script>
+	<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type = "text/javascript" src = "scripts/script.js"></script>
 
 </body>
 </html>

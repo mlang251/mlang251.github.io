@@ -22,7 +22,7 @@ body {
 
 	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
 	article h2.col-sm-2,
-	footer h2.col-sm-2 {
+	aside h2.col-sm-2 {
 		padding-top: 141px;
 	}
 }
@@ -50,7 +50,7 @@ body {
 
 	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
 	article h2.col-sm-2,
-	footer h2.col-sm-2 {
+	aside h2.col-sm-2 {
 		padding-top: 124px;
 	}
 }
@@ -59,17 +59,16 @@ body {
 
 /*Override Bootstrap default paddings for headings and paragraphs*/
 article h2.col-sm-2,
-footer h2.col-sm-2 {
+aside h2.col-sm-2 {
 	padding-bottom: 15px;
 }
 
 article h3.col-sm-10,
-footer h3.col-sm-10 {
+aside h3.col-sm-10 {
 	padding: 15px;
 }
 
-article p.col-sm-10,
-footer p.col-sm-10 {
+article p.col-sm-10 {
 	padding: 10px 15px;
 }
 
@@ -114,8 +113,8 @@ article#experience {
 	background-color: #856A5A;
 }
 
-footer h2,
-footer h3 {
+aside h2,
+aside h3 {
 	color: rgb(21, 27, 31);
 }
 
@@ -158,7 +157,7 @@ header#pageHeader.isHoverable:hover {
 
 
 /*Set spacing and display for page header navigation*/
-header#pageHeader nav {
+header#pageHeader > div {
 	padding-left: 15px;
 	display: table;
 	margin: 0;
@@ -278,7 +277,7 @@ td:first-child {
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
-footer img {
+aside img {
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	height: 50px;
@@ -286,7 +285,7 @@ footer img {
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
-footer div.row:nth-child(3) {
+aside > div > div.row {
 	padding-top: 30px;
 	padding-bottom: 35px;
 }
