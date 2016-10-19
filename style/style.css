@@ -10,13 +10,13 @@ body {
 /*When viewport >= 975px*/
 @media(min-width: 975px) {
 	/*Style the landing nav to be inline-block display items and larger font size*/
-	article#landing li {
+	section#landing li {
 		font-size: 1.8em;
 		display: inline-block;
 	}
 
 	/*Keep objective statement in the center of the screen*/
-	article#landing header{
+	section#landing header{
 		margin-top: 25vh;
 	}
 
@@ -30,12 +30,12 @@ body {
 /*When viewport width < 975px*/
 @media(max-width: 974px) {
 	/*Landing nav list items are block display and smaller font*/
-	article#landing li {
+	section#landing li {
 		font-size: 1.2em;
 	}
 
 	/*Move objective statement up a bit to make room for mobile device browser controls*/
-	article#landing header {
+	section#landing header {
 		margin-top: 15vh;
 	}
 
@@ -105,7 +105,7 @@ a.isHoverable:hover {
 
 
 /*Color scheme for entire document*/
-article#landing,
+section#landing,
 article#goals {
 	background-color: #06557A;	
 }
@@ -178,8 +178,9 @@ header#pageHeader a {
 
 
 
-/*Add border to bottom of all articles*/
-article {
+/*Add border to bottom of all main sections*/
+article,
+section#landing {
 	border-bottom: 0.4em solid #702D24;
 	padding-bottom: 50px
 }
@@ -188,33 +189,33 @@ article {
 
 
 
-/*---LANDING ARTICLE---*/
+/*---LANDING SECTION---*/
 
 
 /*Landing takes up 100% of viewport height and responds to window resizes*/
-article#landing {
+section#landing {
 	height: 100vh;
 }
 
 /*center the objective statement vertically*/
-article#landing header {
+section#landing header {
 	height: 50vh;
 }
 
-article#landing p {
+section#landing p {
 	vertical-align: middle;
 	margin-top: 25vh;
 	text-align: left;
 }
 
 /*Initial styling of navigation list and list items*/
-article#landing ul {
+section#landing ul {
 	list-style: none;
 	text-align: right;
 	padding-right: 15px;
 }
 
-article#landing li {
+section#landing li {
 	padding: 0 5px;
 }
 
