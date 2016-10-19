@@ -64,7 +64,7 @@ aside h2.col-sm-2 {
 }
 
 article h3.col-sm-10,
-aside h3.col-sm-10 {
+aside p.col-sm-10 {
 	padding: 15px;
 }
 
@@ -116,7 +116,7 @@ article#experience {
 }
 
 aside h2,
-aside h3 {
+aside p.h3 {
 	color: rgb(21, 27, 31);
 }
 
