@@ -166,6 +166,12 @@ header#pageHeader > div {
 	width: 100%;
 }
 
+/*Override address initial values*/
+header#pageHeader address {
+	margin-bottom: 0;
+	line-height: inherit;
+}
+
 header#pageHeader a {
 	display: block;
 }
@@ -284,7 +290,7 @@ td:first-child {
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
-article#resume aside img {
+aside#resume img {
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	height: 50px;
@@ -292,7 +298,7 @@ article#resume aside img {
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
-article#resume aside > div > div.row {
+aside#resume > div > div.row {
 	padding-top: 30px;
 	padding-bottom: 35px;
 }
