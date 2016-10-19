@@ -17,39 +17,38 @@
 
 	<!--FIXED POSITION HEADER-->
 	<header id = "pageHeader">
-		<nav class = "nav container-fluid">
+		<div class = "container-fluid">
 			<div class = "row">
-				<div class = "col-xs-6 navbar-header">
-					<h1><a href = "#landing">Mark Lang</a></h1>
-					<h2><a href = "mailto:lang.m@husky.neu.edu">lang.m@husky.neu.edu</a></h2>
-				</div>
+				<address class = "col-xs-6">
+					<h1><a href = "#landing" rel = "tag">Mark Lang</a></h1>
+					<a href = "mailto:lang.m@husky.neu.edu" class = "h2" rel = "author external">lang.m@husky.neu.edu</a>
+				</address>
 			</div>
-		</nav>
+		</div>
 	</header>
 
 
 
 
 	<!--LANDING SECTION-->
-	<article id = "landing">
+	<section id = "landing">
 		<div class = "container">
-			<section class = "row">
-				<p class = "col-sm-offset-2 col-sm-8"><em>Self taught web developer and dedicated learner, aspiring to begin a career that helps inform, entertain, and educate people.</em></p>
-			</section>
+			<header class = "row">
+				<p class = "col-sm-offset-2 col-sm-8"><i>Self taught web developer and dedicated learner, aspiring to begin a career that helps inform, entertain, and educate people.</i></p>
+			</header>
 
 
 			<nav class = "row">
-				<!--Navigation ul will initially load with windowLarge class - displays with inline-block list items and no decoration. script.js then calculates viewport width, if width < 975px (the breakpoint between small and medium), the display is changed (windowSmall class) to have block list items with no decoration-->
 				<ul>
-					<li><a href = "#about">About</a></li>
-					<li><a href = "#goals">Goals</a></li>
-					<li><a href = "#experience">Experience</a></li>
-					<li><a href = "#resume">Resume</a></li>
+					<li><a href = "#about" rel = "tag">About</a></li>
+					<li><a href = "#goals" rel = "tag">Goals</a></li>
+					<li><a href = "#experience" rel = "tag">Experience</a></li>
+					<li><a href = "#resume" rel = "tag">Resume</a></li>
 				</ul>
 			</nav>
 		</div>
 
-	</article>
+	</section>
 
 
 
@@ -59,40 +58,37 @@
 		<!--ABOUT SECTION-->
 		<article id = "about"> 
 			<div class = "container"> 
-				<section>
-					<div class = "row">
-						<h2 class = "col-sm-2">About</h2>
-					</div>
+				<header class = "row">
+					<h2 class = "col-sm-2">About</h2>
+				</header>
 
 
-					<div class = "row">
-						<div class = "col-sm-offset-2 col-sm-10">
+				<div class = "row">
+					<div class = "col-sm-offset-2 col-sm-10">
 
-							<!--Image is floated left so that text wraps around it-->
-							<img src = "images/headshot.png" />
+						<!--Image is floated left so that text wraps around it-->
+						<img src = "images/headshot.png" />
 
-							<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
+						<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
 
-							<p>I am currently in my senior year at Northeastern University in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
+						<p>I am currently in my senior year at Northeastern University in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills, relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
 
-							<p>Over the past year, I have been considering what sort of career I want to commit to. After the rigorous and strictly defined coursework I completed in engineering school, I felt I wanted a career that would allow for more artistic creativity and freedom</p>
+						<p>Over the past year, I have been considering what sort of career I want to commit to. After the rigorous and strictly defined coursework I completed in engineering school, I felt I wanted a career that would allow for more artistic creativity and freedom.</p>
 
-							<div class = "row">
-								<!--This paragraph appears to the right side so that it reads like an inner thought-->
-								<p class = "col-sm-offset-8 col-sm-4"><span>[This is where web development comes in]</span></p>
-							</div>
-
-							<p>I see web development as a perfect combination of the skills I learned throughout my coursework and the artistic mode of thinking which I exhibit in many facets of my life. A job in web development will bring me satisfaction and a welcome challenge.</p>
+						<div class = "row">
+							<p class = "col-sm-offset-4 col-sm-8"><i id = "thought">[This is where web development comes in]</i></p>
 						</div>
+
+						<p>I see web development as a perfect combination of the skills I learned throughout my coursework and the artistic mode of thinking which I exhibit in many facets of my life. A job in web development will bring me satisfaction and a welcome challenge.</p>
 					</div>
+				</div>
 
-				</section>
 
 
-				<section>
-					<div class = "row">
-						<h3 class = "col-sm-offset-2 col-sm-10">Aside from school and web development, there are many other things I am passionate about:</h3>
-					</div>
+				<aside>
+					<header class = "row">
+						<h3 class = "col-sm-offset-3 col-sm-9"><i>Aside from school and web development, my other passions include:</i></h3>
+					</header>
 
 
 					<div class = "row">
@@ -105,7 +101,7 @@
 						</ul>
 					</div>
 
-				</section>
+				</aside>
 			</div>
 
 		</article>
@@ -116,67 +112,67 @@
 		<!--GOALS SECTION-->
 		<article id = "goals" >
 			<div class = "container">
-				<section>
-					<div class = "row">
-						<h2 class = "col-sm-2">Goals</h2>
+				<header class = "row">
+					<h2 class = "col-sm-2">Goals</h2>
+				</header>
+				
+
+				<div class = "row">
+					<p class = "col-sm-offset-2 col-sm-10">My main goal is to graduate from college in May and begin a career in web development, working with a small group of developers and creative designers to learn from and bounce ideas off of. So far my area of focus in web development has been front end static sites, but I have interest in learning full stack development, as well as how to make more complicated web and mobile apps.</p>
+				</div>
+
+
+
+				<aside class = "row">
+					<div class = "col-sm-offset-3 col-sm-6">
+						<table>
+							<!--Colgroup makes it easy to style the vertical border between the two-->
+							<colgroup>
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<td>Languages and tools I know</td>
+									<td>Interested in learning</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>HTML5</td>
+									<td>AngularJS</td>
+								</tr>
+								<tr>
+									<td>CSS3</td>
+									<td>Django</td>
+								</tr>
+								<tr>
+									<td>Javascript</td>
+									<td>LESS/Sass</td>
+								</tr>
+								<tr>
+									<td>jQuery</td>
+									<td>React</td>
+								</tr>
+								<tr>
+									<td>Bootstrap</td>
+									<td>Server side programming</td>
+								</tr>
+								<tr>
+									<td>Git</td>
+									<td>Android and IOS programming</td>
+								</tr>
+								<tr>
+									<td>Python</td>
+								</tr>
+								<tr>
+									<td>C++</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					
 
-					<div class = "row">
-						<p class = "col-sm-offset-2 col-sm-10">My main goal is to graduate from college in May and begin a career in web development, working with a small group of developers and creative designers to learn from and bounce ideas off of. So far my area of focus in web development has been front end static sites, but I have interest in learning full stack development, as well as how to make more complicated web and mobile apps.</p>
-					</div>
-
-				</section>
-
-
-				<section class = "row">
-					<table class = "col-sm-offset-3 col-sm-6">
-						<!--Colgroup makes it easy to style the vertical border between the two-->
-						<colgroup>
-							<col>
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<td>Languages and tools I know</td>
-								<td>Interested in learning</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>HTML5</td>
-								<td>AngularJS</td>
-							</tr>
-							<tr>
-								<td>CSS3</td>
-								<td>Django</td>
-							</tr>
-							<tr>
-								<td>Javascript</td>
-								<td>LESS/Sass</td>
-							</tr>
-							<tr>
-								<td>jQuery</td>
-								<td>React</td>
-							</tr>
-							<tr>
-								<td>Bootstrap</td>
-								<td>Server side programming</td>
-							</tr>
-							<tr>
-								<td>Git</td>
-								<td>Android and IOS programming</td>
-							</tr>
-							<tr>
-								<td>Python</td>
-							</tr>
-							<tr>
-								<td>C++</td>
-							</tr>
-						</tbody>
-					</table>
-
-				</section>
+				</aside>
 			</div>
 
 		</article>
@@ -187,9 +183,9 @@
 		<!--EXPERIENCE SECTION-->
 		<article id = "experience">
 			<div class = "container">
-				<div class = "row">
+				<header class = "row">
 					<h2 class = "col-sm-2">Experience</h2>
-				</div>
+				</header>
 
 
 				<div class = "row">
@@ -197,7 +193,6 @@
 				</div>
 
 			</div>
-
 		</article>
 
 	</main>
@@ -205,34 +200,39 @@
 
 
 
-		<!--RESUME SECTION-->
-		<footer id = "resume" class = "container">
-			<div class = "row">
-				<h2 class = "col-sm-2">Resume</h2>
-			</div>
-
-
-			<div class = "row">
-				<h3 class = "col-sm-offset-2 col-sm-10">View my resume and social media:</h3>
-			</div>
-
-
+	<!--RESUME SECTION-->
+	<aside id = "resume">
+		<div class = "container">
+			<header>
+				<div class = "row">
+					<h2 class = "col-sm-2">Resume</h2>
+				</div>
+				
+				
+				<div class = "row">
+					<p class = "h3 col-sm-offset-2 col-sm-10">View my resume and social media:</p>
+				</div>
+			</header>
+	
+	
 			<div class = "row">
 				<div class = "col-sm-offset-2 col-xs-10">
-					<a href = "attachments/Resume.pdf"><img src = "images/pdf64px.png" /></a>
-					<a href = "https://github.com/mlang251"><img src = "images/GitHub-Mark-64px.png" /></a>
-					<a href = "https://www.linkedin.com/profile/preview?locale=en_US&amp;trk=prof-0-sb-preview-primary-button"><img src = "images/linkedin64px.png" /></a>
+					<a href = "attachments/Resume.pdf" rel = "author external" title = "Mark Lang's Resume"><img src = "images/pdf64px.png" /></a>
+					<a href = "https://github.com/mlang251" rel = "author external"><img src = "images/GitHub-Mark-64px.png" /></a>
+					<a href = "https://www.linkedin.com/profile/preview?locale=en_US&amp;trk=prof-0-sb-preview-primary-button" rel = "author external"><img src = "images/linkedin64px.png" /></a>
 				</div>
 			</div>
+		
+		</div>
 
-		</footer>
+	</aside>
 
 
 
 
-		<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script type = "text/javascript" src = "scripts/script.js"></script>
+	<script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type = "text/javascript" src = "scripts/script.js"></script>
 
 </body>
 </html>

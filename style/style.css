@@ -10,19 +10,19 @@ body {
 /*When viewport >= 975px*/
 @media(min-width: 975px) {
 	/*Style the landing nav to be inline-block display items and larger font size*/
-	article#landing li {
+	section#landing li {
 		font-size: 1.8em;
 		display: inline-block;
 	}
 
 	/*Keep objective statement in the center of the screen*/
-	article#landing section.row {
+	section#landing header{
 		margin-top: 25vh;
 	}
 
 	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
 	article h2.col-sm-2,
-	footer h2.col-sm-2 {
+	aside h2.col-sm-2 {
 		padding-top: 141px;
 	}
 }
@@ -30,12 +30,12 @@ body {
 /*When viewport width < 975px*/
 @media(max-width: 974px) {
 	/*Landing nav list items are block display and smaller font*/
-	article#landing li {
+	section#landing li {
 		font-size: 1.2em;
 	}
 
 	/*Move objective statement up a bit to make room for mobile device browser controls*/
-	article#landing div.row {
+	section#landing header {
 		margin-top: 15vh;
 	}
 
@@ -44,13 +44,13 @@ body {
 		font-size: 30px;
 	}
 
-	header#pageHeader h2 {
+	header#pageHeader a {
 		font-size: 20px;
 	}
 
 	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
 	article h2.col-sm-2,
-	footer h2.col-sm-2 {
+	aside h2.col-sm-2 {
 		padding-top: 124px;
 	}
 }
@@ -59,27 +59,28 @@ body {
 
 /*Override Bootstrap default paddings for headings and paragraphs*/
 article h2.col-sm-2,
-footer h2.col-sm-2 {
+aside h2.col-sm-2 {
 	padding-bottom: 15px;
 }
 
 article h3.col-sm-10,
-footer h3.col-sm-10 {
+aside p.col-sm-10 {
 	padding: 15px;
 }
 
-article p.col-sm-10,
-footer p.col-sm-10 {
+article p.col-sm-10 {
 	padding: 10px 15px;
 }
 
 
 
-/*Link stylings, with vendor prefixes for color transitions*/
-a,
-a:visited,
-a:active,
-a:focus {
+/*Link stylings, with vendor prefixes for color transitions
+Need to override .h2 bootstrap class because it causes the pageHeader email anchor to inherit color from body*/
+a,				a.h2,
+a:visited,		a.h2:visited,
+a:active,		a.h2:active,
+a:focus,		a.h2:focus
+{
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
 	    -ms-transition: color 200ms;
@@ -104,7 +105,7 @@ a.isHoverable:hover {
 
 
 /*Color scheme for entire document*/
-article#landing,
+section#landing,
 article#goals {
 	background-color: #06557A;	
 }
@@ -114,8 +115,8 @@ article#experience {
 	background-color: #856A5A;
 }
 
-footer h2,
-footer h3 {
+aside h2,
+aside p.h3 {
 	color: rgb(21, 27, 31);
 }
 
@@ -158,17 +159,28 @@ header#pageHeader.isHoverable:hover {
 
 
 /*Set spacing and display for page header navigation*/
-header#pageHeader nav {
+header#pageHeader > div {
 	padding-left: 15px;
 	display: table;
 	margin: 0;
 	width: 100%;
 }
 
+/*Override address initial values*/
+header#pageHeader address {
+	margin-bottom: 0;
+	line-height: inherit;
+}
+
+header#pageHeader a {
+	display: block;
+}
 
 
-/*Add border to bottom of all articles*/
-article {
+
+/*Add border to bottom of all main sections*/
+article,
+section#landing {
 	border-bottom: 0.4em solid #702D24;
 	padding-bottom: 50px
 }
@@ -177,33 +189,33 @@ article {
 
 
 
-/*---LANDING ARTICLE---*/
+/*---LANDING SECTION---*/
 
 
 /*Landing takes up 100% of viewport height and responds to window resizes*/
-article#landing {
+section#landing {
 	height: 100vh;
 }
 
 /*center the objective statement vertically*/
-article#landing section.row {
+section#landing header {
 	height: 50vh;
 }
 
-article#landing p {
+section#landing p {
 	vertical-align: middle;
 	margin-top: 25vh;
 	text-align: left;
 }
 
 /*Initial styling of navigation list and list items*/
-article#landing ul {
+section#landing ul {
 	list-style: none;
 	text-align: right;
 	padding-right: 15px;
 }
 
-article#landing li {
+section#landing li {
 	padding: 0 5px;
 }
 
@@ -211,7 +223,7 @@ article#landing li {
 
 
 
-/*---ABOUT ARTICLE---*/
+/*---ABOUT SECTION---*/
 
 
 /*Style image and float left so text wraps*/
@@ -224,11 +236,21 @@ article#about img {
 	box-shadow: 2px 2px rgb(21, 27, 31);
 }
 
-/*Size span smaller so it reads like an inner thought*/
-article#about span{
-	display: block;
-	font-size: 0.9em;
+article#about i#thought {
+	float: right;
 	padding: 15px
+}
+
+article#about aside {
+	margin-top: 40px;
+	border: 1px solid rgb(21, 27, 31);
+	border-radius: 7px;
+	background-color: rgba(21, 27, 31,0.2);
+}
+
+article#about aside header,
+article#about aside div {
+	padding: 20px;
 }
 
 article#about ul {
@@ -240,15 +262,25 @@ article#about li + li {
 	padding-top: 5px;
 }
 
+article#about h3 {
+	padding: 15px;
+}
 
 
 
 
-/*---GOALS ARTICLE---*/
+/*---GOALS SECTION---*/
 
 
 table {
 	margin-top: 50px;
+	float: left;
+	width: auto;
+	display: block;
+	padding: 15px;
+	border: 1px solid rgb(21, 27, 31);
+	border-radius: 4px;
+	background-color: rgba(21, 27, 31,0.2);
 }
 
 /*Apply border to bottom of table head and vertical divider between columns*/
@@ -274,11 +306,11 @@ td:first-child {
 
 
 
-/*---RESUME ARTICLE---*/
+/*---RESUME SECTION---*/
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
-footer img {
+aside#resume img {
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	height: 50px;
@@ -286,7 +318,7 @@ footer img {
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
-footer div.row:nth-child(3) {
+aside#resume > div > div.row {
 	padding-top: 30px;
 	padding-bottom: 35px;
 }
