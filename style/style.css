@@ -274,6 +274,13 @@ article#about h3 {
 
 table {
 	margin-top: 50px;
+	float: left;
+	width: auto;
+	display: block;
+	padding: 15px;
+	border: 1px solid rgb(21, 27, 31);
+	border-radius: 4px;
+	background-color: rgba(21, 27, 31,0.2);
 }
 
 /*Apply border to bottom of table head and vertical divider between columns*/
