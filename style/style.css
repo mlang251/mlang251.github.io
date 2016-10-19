@@ -223,7 +223,7 @@ section#landing li {
 
 
 
-/*---ABOUT ARTICLE---*/
+/*---ABOUT SECTION---*/
 
 
 /*Style image and float left so text wraps*/
@@ -239,6 +239,18 @@ article#about img {
 article#about i#thought {
 	float: right;
 	padding: 15px
+}
+
+article#about aside {
+	margin-top: 15px;
+	border: 2px solid rgb(21, 27, 31);
+	border-radius: 7px;
+	background-color: rgba(21, 27, 31,0.2);
+}
+
+article#about aside header,
+article#about aside div {
+	padding: 20px;
 }
 
 article#about ul {
@@ -257,7 +269,7 @@ article#about h3 {
 
 
 
-/*---GOALS ARTICLE---*/
+/*---GOALS SECTION---*/
 
 
 table {
@@ -287,7 +299,7 @@ td:first-child {
 
 
 
-/*---RESUME ARTICLE---*/
+/*---RESUME SECTION---*/
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
