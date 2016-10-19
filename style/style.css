@@ -16,7 +16,7 @@ body {
 	}
 
 	/*Keep objective statement in the center of the screen*/
-	article#landing section.row {
+	article#landing header{
 		margin-top: 25vh;
 	}
 
@@ -35,7 +35,7 @@ body {
 	}
 
 	/*Move objective statement up a bit to make room for mobile device browser controls*/
-	article#landing div.row {
+	article#landing header {
 		margin-top: 15vh;
 	}
 
@@ -44,7 +44,7 @@ body {
 		font-size: 30px;
 	}
 
-	header#pageHeader h2 {
+	header#pageHeader a {
 		font-size: 20px;
 	}
 
@@ -74,11 +74,13 @@ article p.col-sm-10 {
 
 
 
-/*Link stylings, with vendor prefixes for color transitions*/
-a,
-a:visited,
-a:active,
-a:focus {
+/*Link stylings, with vendor prefixes for color transitions
+Need to override .h2 bootstrap class because it causes the pageHeader email anchor to inherit color from body*/
+a,				a.h2,
+a:visited,		a.h2:visited,
+a:active,		a.h2:active,
+a:focus,		a.h2:focus
+{
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
 	    -ms-transition: color 200ms;
@@ -164,6 +166,10 @@ header#pageHeader > div {
 	width: 100%;
 }
 
+header#pageHeader a {
+	display: block;
+}
+
 
 
 /*Add border to bottom of all articles*/
@@ -185,7 +191,7 @@ article#landing {
 }
 
 /*center the objective statement vertically*/
-article#landing section.row {
+article#landing header {
 	height: 50vh;
 }
 
