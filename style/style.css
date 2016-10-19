@@ -229,7 +229,7 @@ article#about img {
 	box-shadow: 2px 2px rgb(21, 27, 31);
 }
 
-article#about i {
+article#about i#thought {
 	float: right;
 	padding: 15px
 }
@@ -243,6 +243,9 @@ article#about li + li {
 	padding-top: 5px;
 }
 
+article#about h3 {
+	padding: 15px;
+}
 
 
 
@@ -281,7 +284,7 @@ td:first-child {
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
-aside img {
+article#resume aside img {
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	height: 50px;
@@ -289,7 +292,7 @@ aside img {
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
-aside > div > div.row {
+article#resume aside > div > div.row {
 	padding-top: 30px;
 	padding-bottom: 35px;
 }
