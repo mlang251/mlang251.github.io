@@ -242,8 +242,8 @@ article#about i#thought {
 }
 
 article#about aside {
-	margin-top: 15px;
-	border: 2px solid rgb(21, 27, 31);
+	margin-top: 40px;
+	border: 1px solid rgb(21, 27, 31);
 	border-radius: 7px;
 	background-color: rgba(21, 27, 31,0.2);
 }
