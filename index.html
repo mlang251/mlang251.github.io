@@ -14,17 +14,21 @@
 
 
 
-<body>
+<body itemscope itemtype = "http://schema.org/Person">
 
 	<!--FIXED POSITION HEADER-->
 	<header id = "pageHeader">
 		<div class = "container-fluid">
 			<div class = "row">
-				<address class = "col-xs-6" role = "contentinfo tablist">
-					<h1><a href = "#landing" rel = "tag" role = "tab">Mark Lang</a></h1>
+				<address class = "col-xs-6" role = "contentinfo tablist"
+					itemprop = "contactPoint" itemscope itemtype = "http://schema.org/ContactPoint">
+					<h1><a href = "#landing" 
+						rel = "tag" role = "tab"
+						itemprop = "name">Mark Lang</a></h1>
 					<a href = "mailto:lang.m@husky.neu.edu" 
 						id = "authorEmail" class = "h2" 
-						rel = "author external">lang.m@husky.neu.edu
+						rel = "author external"
+						itemprop = "email">lang.m@husky.neu.edu
 					</a>
 				</address>
 			</div>
@@ -68,14 +72,14 @@
 
 
 				<div class = "row">
-					<div class = "col-sm-offset-2 col-sm-10">
+					<div class = "col-sm-offset-2 col-sm-10" itemscope itemtype = "http://schema.org/ImageObject">
 
 						<!--Image is floated left so that text wraps around it-->
-						<img src = "images/headshot.png" />
+						<img src = "images/headshot.png" itemprop = "representativeOfPage"/>
 
 						<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
 
-						<p>I am currently in my senior year at Northeastern University in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills, relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
+						<p>I am currently in my senior year at <span itemprop = "alumniOf">Northeastern University</span> in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills, relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
 
 						<p>Over the past year, I have been considering what sort of career I want to commit to. After the rigorous and strictly defined coursework I completed in engineering school, I felt I wanted a career that would allow for more artistic creativity and freedom.</p>
 
