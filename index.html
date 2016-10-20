@@ -73,11 +73,12 @@
 					<div class = "col-sm-offset-2 col-sm-10">
 
 						<!--Image is floated left so that text wraps around it-->
-						<img itemscope itemtype = "http://schema.org/ImageObject" itemprop = "image" src = "images/headshot.png"/>
+						<img itemprop = "image" src = "images/headshot.png"/>
 
 						<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
 
-						<p>I am currently in my senior year at <span itemprop = "alumniOf">Northeastern University</span> in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills, relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
+						<!--The confusing amount of spans used for microdata reads "Northeastern University in Boston, MA"-->
+						<p>I am currently in my senior year at <span itemprop = "affiliation" itemscope itemtype = "https://schema.org/Organization"><span itemprop = "name">Northeastern University</span> in <span itemprop = "location" itemscope itemtype = "https://schema.org/PostalAddress"><span itemprop = "addressLocality">Boston</span>, <span itemprop = "addressRegion">MA</span></span></span>, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills, relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
 
 						<p>Over the past year, I have been considering what sort of career I want to commit to. After the rigorous and strictly defined coursework I completed in engineering school, I felt I wanted a career that would allow for more artistic creativity and freedom.</p>
 
@@ -222,16 +223,18 @@
 	
 	
 			<div class = "row">
-				<div class = "col-sm-offset-2 col-xs-10" itemscope itemtype = "http://schema.org/TextDigitalDocument">
+				<div class = "col-sm-offset-2 col-xs-10">
 					<a href = "attachments/Resume.pdf" 
 						rel = "author external"
-						itemprop = "url">
+						itemprop = "mainEntityOfPage">
 						<img src = "images/pdf64px.png" /></a>
 					<a href = "https://github.com/mlang251" 
-						rel = "author external">
+						rel = "author external"
+						itemprop = "sameAs">
 						<img src = "images/GitHub-Mark-64px.png" /></a>
 					<a href = "https://www.linkedin.com/profile/preview?locale=en_US&amp;trk=prof-0-sb-preview-primary-button" 
-						rel = "author external">
+						rel = "author external"
+						itemprop = "sameAs">
 						<img src = "images/linkedin64px.png" /></a>
 				</div>
 			</div>
