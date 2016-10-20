@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-	<title>Mark Lang | Developer</title>
 	<meta charset = "utf-8">
+	<title>Mark Lang | Developer</title>
+	<meta name = "description" content = "Online portfolio for Mark Lang, a self taught web developer and aspiring designer">
 	<meta http-equiv = "X-UA-Compatible" content = "IE = edge">
 	<meta name = "viewport" content = "width = device-width, initial-scale = 1">
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -13,15 +14,20 @@
 
 
 
-<body>
+<body itemscope itemtype = "http://schema.org/Person">
 
 	<!--FIXED POSITION HEADER-->
 	<header id = "pageHeader">
 		<div class = "container-fluid">
 			<div class = "row">
-				<address class = "col-xs-6">
-					<h1><a href = "#landing" rel = "tag">Mark Lang</a></h1>
-					<a href = "mailto:lang.m@husky.neu.edu" class = "h2" rel = "author external">lang.m@husky.neu.edu</a>
+				<address class = "col-xs-6" role = "contentinfo tablist">
+					<h1 itemprop = "name"><a href = "#landing" 
+						rel = "tag" role = "tab">Mark Lang</a></h1>
+					<a href = "mailto:lang.m@husky.neu.edu" 
+						id = "authorEmail" class = "h2" 
+						rel = "author external"
+						itemprop = "email">lang.m@husky.neu.edu
+					</a>
 				</address>
 			</div>
 		</div>
@@ -34,16 +40,16 @@
 	<section id = "landing">
 		<div class = "container">
 			<header class = "row">
-				<p class = "col-sm-offset-2 col-sm-8"><i>Self taught web developer and dedicated learner, aspiring to begin a career that helps inform, entertain, and educate people.</i></p>
+				<p class = "col-sm-offset-2 col-sm-8"><i itemprop = "description">Self taught web developer and dedicated learner, aspiring to begin a career that helps inform, entertain, and educate people.</i></p>
 			</header>
 
 
-			<nav class = "row">
-				<ul>
-					<li><a href = "#about" rel = "tag">About</a></li>
-					<li><a href = "#goals" rel = "tag">Goals</a></li>
-					<li><a href = "#experience" rel = "tag">Experience</a></li>
-					<li><a href = "#resume" rel = "tag">Resume</a></li>
+			<nav id = "pageNav" class = "row">
+				<ul role = "tablist">
+					<li role = "tab"><a href = "#about" rel = "tag">About</a></li>
+					<li role = "tab"><a href = "#goals" rel = "tag">Goals</a></li>
+					<li role = "tab"><a href = "#experience" rel = "tag">Experience</a></li>
+					<li role = "tab"><a href = "#resume" rel = "tag">Resume</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -53,7 +59,7 @@
 
 
 
-	<main>
+	<main id = "portfolioInfo">
 
 		<!--ABOUT SECTION-->
 		<article id = "about"> 
@@ -67,11 +73,12 @@
 					<div class = "col-sm-offset-2 col-sm-10">
 
 						<!--Image is floated left so that text wraps around it-->
-						<img src = "images/headshot.png" />
+						<img itemprop = "image" src = "images/headshot.png"/>
 
 						<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
 
-						<p>I am currently in my senior year at Northeastern University in Boston, MA, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills, relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
+						<!--The confusing amount of spans used for microdata reads "Northeastern University in Boston, MA"-->
+						<p>I am currently in my senior year at <span itemprop = "affiliation" itemscope itemtype = "https://schema.org/Organization"><span itemprop = "name">Northeastern University</span> in <span itemprop = "location" itemscope itemtype = "https://schema.org/PostalAddress"><span itemprop = "addressLocality">Boston</span>, <span itemprop = "addressRegion">MA</span></span></span>, and will be graduating in May with a Bachelor's Degree in Electrical Engineering. In school I acquired many technical skills, relating to both electrical hardware and software, as well as problem solving skills such as troubleshooting and critical thinking. Many of these skills apply not only to engineering, but also to a wide range of fields and careers.</p>
 
 						<p>Over the past year, I have been considering what sort of career I want to commit to. After the rigorous and strictly defined coursework I completed in engineering school, I felt I wanted a career that would allow for more artistic creativity and freedom.</p>
 
@@ -85,7 +92,7 @@
 
 
 
-				<aside>
+				<aside id = "otherInterests">
 					<header class = "row">
 						<h3><i>Aside from school and web development, my other passions include:</i></h3>
 					</header>
@@ -123,7 +130,7 @@
 
 
 
-				<aside class = "row">
+				<aside id = "skills" class = "row">
 					<div class = "col-sm-offset-3 col-sm-6">
 						<table>
 							<!--Colgroup makes it easy to style the vertical border between the two-->
@@ -217,9 +224,18 @@
 	
 			<div class = "row">
 				<div class = "col-sm-offset-2 col-xs-10">
-					<a href = "attachments/Resume.pdf" rel = "author external" title = "Mark Lang's Resume"><img src = "images/pdf64px.png" /></a>
-					<a href = "https://github.com/mlang251" rel = "author external"><img src = "images/GitHub-Mark-64px.png" /></a>
-					<a href = "https://www.linkedin.com/profile/preview?locale=en_US&amp;trk=prof-0-sb-preview-primary-button" rel = "author external"><img src = "images/linkedin64px.png" /></a>
+					<a href = "attachments/Resume.pdf" 
+						rel = "author external"
+						itemprop = "mainEntityOfPage">
+						<img src = "images/pdf64px.png" /></a>
+					<a href = "https://github.com/mlang251" 
+						rel = "author external"
+						itemprop = "sameAs">
+						<img src = "images/GitHub-Mark-64px.png" /></a>
+					<a href = "https://www.linkedin.com/profile/preview?locale=en_US&amp;trk=prof-0-sb-preview-primary-button" 
+						rel = "author external"
+						itemprop = "sameAs">
+						<img src = "images/linkedin64px.png" /></a>
 				</div>
 			</div>
 		
