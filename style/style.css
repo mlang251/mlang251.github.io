@@ -248,8 +248,8 @@ article#about aside {
 	background-color: rgba(21, 27, 31,0.2);
 }
 
-article#about aside header,
-article#about aside div {
+aside#otherInterests header,
+aside#otherInterests div {
 	padding: 20px;
 }
 
