@@ -20,8 +20,8 @@
 	<header id = "pageHeader">
 		<div class = "container-fluid">
 			<div class = "row">
-				<address class = "col-xs-6">
-					<h1><a href = "#landing" rel = "tag">Mark Lang</a></h1>
+				<address class = "col-xs-6" role = "contentinfo tablist">
+					<h1><a href = "#landing" rel = "tag" role = "tab">Mark Lang</a></h1>
 					<a href = "mailto:lang.m@husky.neu.edu" 
 						id = "authorEmail" class = "h2" 
 						rel = "author external">lang.m@husky.neu.edu
@@ -43,11 +43,11 @@
 
 
 			<nav id = "pageNav" class = "row">
-				<ul>
-					<li><a href = "#about" rel = "tag">About</a></li>
-					<li><a href = "#goals" rel = "tag">Goals</a></li>
-					<li><a href = "#experience" rel = "tag">Experience</a></li>
-					<li><a href = "#resume" rel = "tag">Resume</a></li>
+				<ul role = "tablist">
+					<li role = "tab"><a href = "#about" rel = "tag">About</a></li>
+					<li role = "tab"><a href = "#goals" rel = "tag">Goals</a></li>
+					<li role = "tab"><a href = "#experience" rel = "tag">Experience</a></li>
+					<li role = "tab"><a href = "#resume" rel = "tag">Resume</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -57,7 +57,7 @@
 
 
 
-	<main id = portfolioInfo>
+	<main id = "portfolioInfo">
 
 		<!--ABOUT SECTION-->
 		<article id = "about"> 
