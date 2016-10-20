@@ -241,7 +241,9 @@ article#about i#thought {
 	padding: 15px
 }
 
-article#about aside {
+article#about aside#otherInterests {
+	display: block;
+	float: right;
 	margin-top: 40px;
 	border: 1px solid rgb(21, 27, 31);
 	border-radius: 7px;
