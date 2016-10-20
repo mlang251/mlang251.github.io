@@ -20,11 +20,9 @@
 	<header id = "pageHeader">
 		<div class = "container-fluid">
 			<div class = "row">
-				<address class = "col-xs-6" role = "contentinfo tablist"
-					itemprop = "contactPoint" itemscope itemtype = "http://schema.org/ContactPoint">
-					<h1><a href = "#landing" 
-						rel = "tag" role = "tab"
-						itemprop = "name">Mark Lang</a></h1>
+				<address class = "col-xs-6" role = "contentinfo tablist">
+					<h1 itemprop = "name"><a href = "#landing" 
+						rel = "tag" role = "tab">Mark Lang</a></h1>
 					<a href = "mailto:lang.m@husky.neu.edu" 
 						id = "authorEmail" class = "h2" 
 						rel = "author external"
@@ -42,7 +40,7 @@
 	<section id = "landing">
 		<div class = "container">
 			<header class = "row">
-				<p class = "col-sm-offset-2 col-sm-8"><i>Self taught web developer and dedicated learner, aspiring to begin a career that helps inform, entertain, and educate people.</i></p>
+				<p class = "col-sm-offset-2 col-sm-8"><i itemprop = "description">Self taught web developer and dedicated learner, aspiring to begin a career that helps inform, entertain, and educate people.</i></p>
 			</header>
 
 
@@ -72,10 +70,10 @@
 
 
 				<div class = "row">
-					<div class = "col-sm-offset-2 col-sm-10" itemscope itemtype = "http://schema.org/ImageObject">
+					<div class = "col-sm-offset-2 col-sm-10">
 
 						<!--Image is floated left so that text wraps around it-->
-						<img src = "images/headshot.png" itemprop = "representativeOfPage"/>
+						<img itemscope itemtype = "http://schema.org/ImageObject" itemprop = "image" src = "images/headshot.png"/>
 
 						<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
 
@@ -224,9 +222,10 @@
 	
 	
 			<div class = "row">
-				<div class = "col-sm-offset-2 col-xs-10">
+				<div class = "col-sm-offset-2 col-xs-10" itemscope itemtype = "http://schema.org/TextDigitalDocument">
 					<a href = "attachments/Resume.pdf" 
-						rel = "author external">
+						rel = "author external"
+						itemprop = "url">
 						<img src = "images/pdf64px.png" /></a>
 					<a href = "https://github.com/mlang251" 
 						rel = "author external">
