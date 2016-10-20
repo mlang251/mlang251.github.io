@@ -10,7 +10,7 @@ body {
 /*When viewport >= 975px*/
 @media(min-width: 975px) {
 	/*Style the landing nav to be inline-block display items and larger font size*/
-	section#landing li {
+	nav#pageNav li {
 		font-size: 1.8em;
 		display: inline-block;
 	}
@@ -22,7 +22,7 @@ body {
 
 	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
 	article h2.col-sm-2,
-	aside h2.col-sm-2 {
+	aside#resume h2.col-sm-2 {
 		padding-top: 141px;
 	}
 }
@@ -30,7 +30,7 @@ body {
 /*When viewport width < 975px*/
 @media(max-width: 974px) {
 	/*Landing nav list items are block display and smaller font*/
-	section#landing li {
+	nav#pageNav li {
 		font-size: 1.2em;
 	}
 
@@ -50,7 +50,7 @@ body {
 
 	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
 	article h2.col-sm-2,
-	aside h2.col-sm-2 {
+	aside#resume h2.col-sm-2 {
 		padding-top: 124px;
 	}
 }
@@ -59,12 +59,12 @@ body {
 
 /*Override Bootstrap default paddings for headings and paragraphs*/
 article h2.col-sm-2,
-aside h2.col-sm-2 {
+aside#resume h2.col-sm-2 {
 	padding-bottom: 15px;
 }
 
-article h3.col-sm-10,
-aside p.col-sm-10 {
+aside h3.col-sm-10,
+aside#resume p.col-sm-10 {
 	padding: 15px;
 }
 
@@ -115,8 +115,8 @@ article#experience {
 	background-color: #856A5A;
 }
 
-aside h2,
-aside p.h3 {
+aside#resume h2,
+aside#resume p.h3 {
 	color: rgb(21, 27, 31);
 }
 
@@ -167,7 +167,7 @@ header#pageHeader > div {
 }
 
 /*Override address initial values*/
-header#pageHeader address {
+address {
 	margin-bottom: 0;
 	line-height: inherit;
 }
@@ -209,13 +209,13 @@ section#landing p {
 }
 
 /*Initial styling of navigation list and list items*/
-section#landing ul {
+nav#pageNav ul {
 	list-style: none;
 	text-align: right;
 	padding-right: 15px;
 }
 
-section#landing li {
+nav#pageNav li {
 	padding: 0 5px;
 }
 
@@ -227,7 +227,7 @@ section#landing li {
 
 
 /*Style image and float left so text wraps*/
-article#about img {
+img[src*= "headshot"] {
 	height: 150px;
 	width: 150px;
 	float: left;
@@ -236,12 +236,12 @@ article#about img {
 	box-shadow: 2px 2px rgb(21, 27, 31);
 }
 
-article#about i#thought {
+i#thought {
 	float: right;
 	padding: 15px
 }
 
-article#about aside#otherInterests {
+aside#otherInterests {
 	display: block;
 	float: right;
 	margin-top: 40px;
@@ -255,16 +255,16 @@ aside#otherInterests div {
 	padding: 20px;
 }
 
-article#about ul {
+aside#otherInterests ul {
 	list-style: none;
 }
 
 /*List items except the first one will have a top padding, this is so that when the text wraps to a new line on a small viewport it is still readable*/
-article#about li + li {
+aside#otherInterests li + li {
 	padding-top: 5px;
 }
 
-article#about h3 {
+aside#otherInterests h3 {
 	padding: 15px;
 }
 
