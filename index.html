@@ -21,17 +21,20 @@
 		<div class = "container-fluid">
 			<div class = "row">
 				<address class = "col-xs-6" 
-					role = "contentinfo tablist">
+					role = "contentinfo tablist"
+					aria-orientation = "horizontal"
+					tabindex = "0">
 					<h1 itemprop = "name"
-						role = "tab">
+						role = "tab"
+						tabindex = "0">
 						<a href = "#landing" 
 						rel = "tag">Mark Lang</a></h1>
 					<a href = "mailto:lang.m@husky.neu.edu" 
 						id = "authorEmail" class = "h2" 
 						rel = "author external"
 						role = "tab"
-						itemprop = "email">lang.m@husky.neu.edu
-					</a>
+						tabindex = "-1"
+						itemprop = "email">lang.m@husky.neu.edu</a>
 				</address>
 			</div>
 		</div>
@@ -48,13 +51,14 @@
 			</header>
 
 
-			<nav id = "pageNav" class = "row"
-				role = "navigation">
-				<ul role = "tablist">
-					<li role = "tab"><a href = "#about" rel = "tag">About</a></li>
-					<li role = "tab"><a href = "#goals" rel = "tag">Goals</a></li>
-					<li role = "tab"><a href = "#experience" rel = "tag">Experience</a></li>
-					<li role = "tab"><a href = "#resume" rel = "tag">Resume</a></li>
+			<nav id = "pageNav" class = "row">
+				<ul role = "tablist"
+					aria-orientation = "horizontal"
+					tabindex = "0">
+					<li role = "tab" tabindex = "0"><a href = "#about" rel = "tag">About</a></li>
+					<li role = "tab" tabindex = "-1"><a href = "#goals" rel = "tag">Goals</a></li>
+					<li role = "tab" tabindex = "-1"><a href = "#experience" rel = "tag">Experience</a></li>
+					<li role = "tab" tabindex = "-1"><a href = "#resume" rel = "tag">Resume</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -236,20 +240,25 @@
 	
 			<div class = "row">
 				<div class = "col-sm-offset-2 col-xs-10"
-				role = "tablist">
+				role = "tablist"
+				aria-orientation = "horizontal"
+				tabindex = "0">
 					<a href = "attachments/Resume.pdf" 
 						rel = "author external"
 						role = "tab"
+						tabindex = "0"
 						itemprop = "mainEntityOfPage">
 						<img src = "images/pdf64px.png" /></a>
 					<a href = "https://github.com/mlang251" 
 						rel = "author external"
 						role = "tab"
+						tabindex = "-1"
 						itemprop = "sameAs">
 						<img src = "images/GitHub-Mark-64px.png" /></a>
 					<a href = "https://www.linkedin.com/in/mark-lang-a05143102" 
 						rel = "author external"
 						role = "tab"
+						tabindex = "-1"
 						itemprop = "sameAs">
 						<img src = "images/linkedin64px.png" /></a>
 				</div>
