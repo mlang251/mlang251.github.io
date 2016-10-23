@@ -39,6 +39,11 @@ var main = function() {
 	  });
 	});
 
+
+
+
+	//add handlers for managing focus with ARIA, also the landing page nav needs aria-orientation = vertical with small viewports"
+
 }
 
 $(document).ready(main);
