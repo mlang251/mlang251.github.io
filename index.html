@@ -22,17 +22,18 @@
 			<div class = "row">
 				<address class = "col-xs-6" 
 					role = "contentinfo tablist"
-					aria-orientation = "horizontal"
 					tabindex = "0">
 					<h1 itemprop = "name"
 						role = "tab"
-						tabindex = "0">
+						aria-labelledby = "pageNav"
+						tabindex = "-1">
 						<a href = "#landing" 
 						rel = "tag">Mark Lang</a></h1>
 					<a href = "mailto:lang.m@husky.neu.edu" 
 						id = "authorEmail" class = "h2" 
 						rel = "author external"
 						role = "tab"
+						aria-label = "Contact email"
 						tabindex = "-1"
 						itemprop = "email">lang.m@husky.neu.edu</a>
 				</address>
@@ -51,11 +52,12 @@
 			</header>
 
 
-			<nav id = "pageNav" class = "row">
+			<nav id = "pageNav" class = "row" aria-label = "Site navigation">
 				<ul role = "tablist"
 					aria-orientation = "horizontal"
+					aria-labelledby = "pageNav"
 					tabindex = "0">
-					<li role = "tab" tabindex = "0"><a href = "#about" rel = "tag">About</a></li>
+					<li role = "tab" tabindex = "-1"><a href = "#about" rel = "tag">About</a></li>
 					<li role = "tab" tabindex = "-1"><a href = "#goals" rel = "tag">Goals</a></li>
 					<li role = "tab" tabindex = "-1"><a href = "#experience" rel = "tag">Experience</a></li>
 					<li role = "tab" tabindex = "-1"><a href = "#resume" rel = "tag">Resume</a></li>
@@ -241,12 +243,12 @@
 			<div class = "row">
 				<div class = "col-sm-offset-2 col-xs-10"
 				role = "tablist"
-				aria-orientation = "horizontal"
+				aria-label = "Resume and social"
 				tabindex = "0">
 					<a href = "attachments/Resume.pdf" 
 						rel = "author external"
 						role = "tab"
-						tabindex = "0"
+						tabindex = "-1"
 						itemprop = "mainEntityOfPage">
 						<img src = "images/pdf64px.png" /></a>
 					<a href = "https://github.com/mlang251" 
