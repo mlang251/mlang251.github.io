@@ -1,5 +1,7 @@
 var main = function() {
 
+
+
 	//---VARIABLES---//
 
 	//Dictionary of keys that will be used for keydown event handlers
@@ -15,29 +17,32 @@ var main = function() {
 
  	//Constructor to work with interactive tablists with ARIA enabled navigation
 	function Tablist(selector) {
-		this.$id = $(selector);				//jQuery element 
-		this.$childNodeList = {};			//Initialize with an empty array
-		this.hasFocusedChild = false;
+		this.$id = $(selector);						//jQuery element 
+		this.$childNodeList = new Array();			//Initialize with an empty array
+		this.hasFocusedChild = false;				//Boolean that represents whether or not a tablist has received focus yet
 
 		//Fill the empty $childNodeList array with jquery handlers of the child nodes
-		function() {
-			var initialList = $id.childNodes();
+		this.init = function() {
+			var initialList = this.$id.childNodes();
 			for (node in initialList) {
-				$childNodeList[node] = $(selector + " li:nth-item(" + node + ")");
+				this.$childNodeList[node] = $(selector + " li:nth-item(" + node + ")");
 				node++;
 			}
-		}
+		};
 
 		//When tablist is focused, and has no currently focused child list item, set the focus to the first child list item
 		this.$id.focus(function() {
-			if (hasFocusedChild === false) {
-				$childNodeList(0).setAttribute("tabindex", 0);
-				$childNodeList(0).focus();
-				hasFocusedChild = true;
+			if (this.hasFocusedChild === false) {
+				this.$childNodeList[0].setAttribute("tabindex", 0);
+				for (node in this.$childNodeList) {
+					this.$childNodeList[node].setAttribute("tabindex", -1);
+				}
+				this.$childNodeList[0].focus();
+				this.hasFocusedChild = true;
 			} else {}
-		})
+		});
 
-		//Add case expressions for navigating through lists
+		//Event handler for keydown - add case expressions for navigating through lists
 		this.$id.keydown(function(key) {
 			switch(key) {
 				case(keys.tab):
@@ -55,9 +60,19 @@ var main = function() {
 				default:
 					break;
 			}
-		})
+		});
+
+		this.init();	//At the end of the constructor, call init
 
 	}
+
+
+
+	//Instantiate an object for each of the tablists on the page
+	var headerNav = new Tablist("address");
+	var pageNav = new Tablist("nav#pageNav ul");
+	var resumeNav = new Tablist("aside#resume div[role = 'tablist']");
+
 
 
 
