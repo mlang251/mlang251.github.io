@@ -62,6 +62,9 @@ var main = function() {
 		}
 
 
+		//---CREATE FUNCTION: roveTabReverse---//
+
+
 		//When tablist is focused, and has no currently focused child list item, set the focus to the first child list item
 		this.$id.focus(function() {
 			if (this.hasChildFocus === false) {
