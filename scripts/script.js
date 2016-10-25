@@ -17,20 +17,21 @@ var main = function() {
 
  	//Constructor to work with interactive tablists with ARIA enabled navigation
 	function Tablist(selector) {
-		this.$id = $(selector);							//jQuery element 
-		this.$childNodeList = new Array();				//Instantiate empty array, fill array with jQuery selectors to children
-		this.hasFocusedChild = false;					//Boolean that represents whether or not a tablist has received focus yet
+		this.$id = $(selector);						//jQuery element 
+		this.childrenObject = this.$id.children();	//jQuery object that contains child elements - these are NOT jQuery elements
+		this.$childList = new Array();				//Instantiate empty array - this gets filled with jQuery elements of children
+		this.hasFocusedChild = false;				//Boolean that represents whether or not a tablist has received focus yet
 
 
 
 		//When tablist is focused, and has no currently focused child list item, set the focus to the first child list item
 		this.$id.focus(function() {
 			if (this.hasFocusedChild === false) {
-				this.$childNodeList[0].setAttribute("tabindex", 0);
-				for (i = 1; i < this.$childNodeList.length(); i++) {
-					this.$childNodeList[i].setAttribute("tabindex", -1);
+				this.$childList[0].setAttribute("tabindex", 0);
+				for (i = 1; i < this.$childList.length(); i++) {
+					this.$childList[i].setAttribute("tabindex", -1);
 				}
-				this.$childNodeList[0].focus();
+				this.$childList[0].focus();
 				this.hasFocusedChild = true;
 			} else {}
 		});
@@ -54,6 +55,11 @@ var main = function() {
 					break;
 			}
 		});
+
+		//Fill $childList with jQuery elements for each of the children, in the order they appear in the DOM
+		for (i = 0; i < this.childrenObject.length; i++) {
+			this.$childList[i] = this.childrenObject.eq(i);
+		}
 
 	}
 
