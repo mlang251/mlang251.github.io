@@ -1,5 +1,64 @@
 var main = function() {
 
+	//---VARIABLES---//
+
+	//Dictionary of keys that will be used for keydown event handlers
+	var keys = {
+          	tab:      9,
+          	enter:    13,
+          	space:    32,
+          	left:     37,
+          	up:       38,
+          	right:    39,
+          	down:     40,
+ 	};
+
+ 	//Constructor to work with interactive tablists with ARIA enabled navigation
+	function Tablist(selector) {
+		this.$id = $(selector);				//jQuery element 
+		this.$childNodeList = {};			//Initialize with an empty array
+		this.hasFocusedChild = false;
+
+		//Fill the empty $childNodeList array with jquery handlers of the child nodes
+		function() {
+			var initialList = $id.childNodes();
+			for (node in initialList) {
+				$childNodeList[node] = $(selector + " li:nth-item(" + node + ")");
+				node++;
+			}
+		}
+
+		//When tablist is focused, and has no currently focused child list item, set the focus to the first child list item
+		this.$id.focus(function() {
+			if (hasFocusedChild === false) {
+				$childNodeList(0).setAttribute("tabindex", 0);
+				$childNodeList(0).focus();
+				hasFocusedChild = true;
+			} else {}
+		})
+
+		//Add case expressions for navigating through lists
+		this.$id.keydown(function(key) {
+			switch(key) {
+				case(keys.tab):
+
+				case(keys.left):
+
+				case(keys.right):
+
+				case(keys.up):
+
+				case(keys.down):
+
+				case(keys.enter || keys.space):
+
+				default:
+					break;
+			}
+		})
+
+	}
+
 
 
 	//---FUNCTIONS---//
@@ -43,6 +102,7 @@ var main = function() {
 
 
 	//add handlers for managing focus with ARIA, also the landing page nav needs aria-orientation = vertical with small viewports"
+
 
 }
 
