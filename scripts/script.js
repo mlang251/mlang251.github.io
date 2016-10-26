@@ -123,9 +123,10 @@ var main = function() {
 			}
 		});
 
+		//$childList init function
 		//Fill $childList with jQuery elements for each of the children, in the order they appear in the DOM
-		for (i = 0; i < this.childrenObject.length; i++) {
-			this.$childList[i] = this.childrenObject.eq(i);
+		for (prop = 0; prop < this.childrenObject.length; prop++) {
+			this.$childList[prop] = this.childrenObject.eq(prop);
 		}
 
 	}
