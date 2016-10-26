@@ -80,7 +80,7 @@ var main = function() {
 		//When tablist is focused, and has no currently focused child list item, set the focus to the first child list item
 		this.$id.focus(function() {
 			if (!this.hasChildFocus) {
-				this.setTabIndex(0, tabindexFocus);							//Set tabindex of first child to 0
+				this.setTabIndex(0, tabindexFocus);	//Set tabindex of first child to 0
 				this.$childList[0].focus();			//Give focus to the first child
 				this.hasChildFocus = true;			//Set to true so this function doesn't run again when tablist is focused
 			}
