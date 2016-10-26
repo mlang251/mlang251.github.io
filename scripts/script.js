@@ -24,6 +24,9 @@ var main = function() {
 		this.hasChildFocus = false;					//Boolean to keep track of whether or not a tablist has been focused yet
 		this.orientation = this.$id.attr("aria-orientation");	//Either horizontal or vertical depending on the list
 
+		const tabindexFocus = 0;	//For setting tabindex of a child to 0
+		const tabindexBlur = -1;	//For setting tabindex of a child to -1
+
 		//Create function to set the tabindex attribute - this command can get called in many different contexts
 		this.setTabIndex = function(listItemIndex, value) {
 			this.$childList[listItemIndex].setAttribute("tabindex", value);
@@ -41,8 +44,6 @@ var main = function() {
 			var increment = null;		//Stores the value of the increment for the loop, either +1 or -1 depending on the direction
 			const forward = 1;			//For roving through tablist children forwards
 			const reverse = -1;			//For roving through tablist children in reverse
-			const tabindexFocus = 0;	//For setting tabindex of a child to 0
-			const tabindexBlur = -1;	//For setting tabindex of a child to -1
 
 			if (directionForward) {		//If moving forwards through list, move from first child to last child with an increment
 				startIndex = 0;
@@ -80,12 +81,8 @@ var main = function() {
 		this.$id.focus(function() {
 			if (this.hasChildFocus === false) {
 				this.setTabIndex(0, tabindexFocus);							//Set tabindex of first child to 0
-				for (index = 1; i < this.$childList.length(); i++) {		//Iterate through the rest of the children
-					this.setTabIndex(index, tabindexBlur);					//Set tabindex to -1 for rest
-				}
-
-				this.$childList[0].focus();		//Give focus to the first child
-				this.hasChildFocus = true;		//Set to true so this function doesn't run again when tablist is focused
+				this.$childList[0].focus();			//Give focus to the first child
+				this.hasChildFocus = true;			//Set to true so this function doesn't run again when tablist is focused
 			}
 		});
 
