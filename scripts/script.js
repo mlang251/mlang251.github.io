@@ -94,27 +94,27 @@ var main = function() {
 		this.$id.keydown(function(key) {
 			switch(key.which) {
 				case(keys.left):
-					if (this.orientation === "horizontal") {
-						roveTabForward();
-					}
+					if (this.orientation === "horizontal") {		//If left key is pressed and list is horizontal, roveTab in reverse
+						roveTab(false);
+					}												//Otherwise do nothing
 					break;
 
 				case(keys.right):
-					if (this.orientation === "horizontal") {
-						roveTabReverse();
-					}
+					if (this.orientation === "horizontal") {		//If right key is pressed and list is horizontal, roveTab forwards
+						roveTab(true);
+					}												//Otherwise do nothing
 					break;
 
 				case(keys.up):
-					if (this.orientation === "vertical") {
-						roveTabForward();
-					}
+					if (this.orientation === "vertical") {			//If left up is pressed and list is vertical, roveTab in reverse
+						roveTab(false);
+					}												//Otherwise do nothing
 					break;
 
 				case(keys.down):
-					if (this.orientation === "vertical") {
-						roveTabReverse();
-					}
+					if (this.orientation === "vertical") {			//If left down is pressed and list is vertical, roveTab forwards
+						roveTab(true);
+					}												//Otherwise do nothing
 					break;
 
 				case(keys.enter || keys.space):
