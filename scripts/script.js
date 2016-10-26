@@ -23,10 +23,6 @@ var main = function() {
 		this.$childList = new Array();				//Instantiate empty array - this gets filled with jQuery elements of children
 		this.hasChildFocus = false;					//Boolean to keep track of whether or not a tablist has been focused yet
 		this.orientation = this.$id.attr("aria-orientation");	//Either horizontal or vertical depending on the list
-		const forward = 1;			//For roving through tablist children forwards
-		const reverse = -1;			//For roving through tablist children in reverse
-		const tabindexFocus = 0;	//For setting tabindex of a child to 0
-		const tabindexBlur = -1;	//For setting tabindex of a child to -1
 
 		//Create function to set the tabindex attribute - this command can get called in many different contexts
 		this.setTabIndex = function(listItemIndex, value) {
@@ -37,12 +33,16 @@ var main = function() {
 		//Rove forwards through Tablist children
 		//Remove focus from currently focused child, change tabindex to -1
 		//Add focus to the next child, change tabindex to 0
-		this.roveTab = function(directionForward) {
+		this.roveTabs = function(directionForward) {
 			var addFocus = null;		//Stores the index of the child to set focus to
 			var removeFocus = null;		//Stores the index of the child to remove focus from
 			var startIndex = null;		//Stores the index to start the loop from, either first child or last child in list, depending on direction
 			var endIndex = null;		//Stores the index to end the loop on, either last child or first child in list, depending on direction
 			var increment = null;		//Stores the value of the increment for the loop, either +1 or -1 depending on the direction
+			const forward = 1;			//For roving through tablist children forwards
+			const reverse = -1;			//For roving through tablist children in reverse
+			const tabindexFocus = 0;	//For setting tabindex of a child to 0
+			const tabindexBlur = -1;	//For setting tabindex of a child to -1
 
 			if (directionForward) {		//If moving forwards through list, move from first child to last child with an increment
 				startIndex = 0;
@@ -76,9 +76,6 @@ var main = function() {
 		}
 
 
-		//---CREATE FUNCTION: roveTabReverse---//
-
-
 		//When tablist is focused, and has no currently focused child list item, set the focus to the first child list item
 		this.$id.focus(function() {
 			if (this.hasChildFocus === false) {
@@ -97,26 +94,26 @@ var main = function() {
 		this.$id.keydown(function(key) {
 			switch(key.which) {
 				case(keys.left):
-					if (this.orientation === "horizontal") {		//If left key is pressed and list is horizontal, roveTab in reverse
-						roveTab(false);
+					if (this.orientation === "horizontal") {		//If left key is pressed and list is horizontal, roveTabs in reverse
+						roveTabs(false);
 					}												//Otherwise do nothing
 					break;
 
 				case(keys.right):
-					if (this.orientation === "horizontal") {		//If right key is pressed and list is horizontal, roveTab forwards
-						roveTab(true);
+					if (this.orientation === "horizontal") {		//If right key is pressed and list is horizontal, roveTabs forwards
+						roveTabs(true);
 					}												//Otherwise do nothing
 					break;
 
 				case(keys.up):
-					if (this.orientation === "vertical") {			//If left up is pressed and list is vertical, roveTab in reverse
-						roveTab(false);
+					if (this.orientation === "vertical") {			//If left up is pressed and list is vertical, roveTabs in reverse
+						roveTabs(false);
 					}												//Otherwise do nothing
 					break;
 
 				case(keys.down):
-					if (this.orientation === "vertical") {			//If left down is pressed and list is vertical, roveTab forwards
-						roveTab(true);
+					if (this.orientation === "vertical") {			//If left down is pressed and list is vertical, roveTabs forwards
+						roveTabs(true);
 					}												//Otherwise do nothing
 					break;
 
