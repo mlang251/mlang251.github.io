@@ -23,9 +23,12 @@ var main = function() {
 		this.$childList = new Array();				//Instantiate empty array - this gets filled with jQuery elements of children
 		this.hasChildFocus = false;					//Boolean to keep track of whether or not a tablist has been focused yet
 		this.orientation = this.$id.attr("aria-orientation");	//Either horizontal or vertical depending on the list
+		const forward = 1;			//For roving through tablist children forwards
+		const reverse = -1;			//For roving through tablist children in reverse
+		const tabindexFocus = 0;	//For setting tabindex of a child to 0
+		const tabindexBlur = -1;	//For setting tabindex of a child to -1
 
-
-		//Create function to set the tabindex attribute because this command can get called in many different contexts
+		//Create function to set the tabindex attribute - this command can get called in many different contexts
 		this.setTabIndex = function(listItemIndex, value) {
 			this.$childList[listItemIndex].setAttribute("tabindex", value);
 		}
@@ -44,24 +47,24 @@ var main = function() {
 			if (directionForward) {		//If moving forwards through list, move from first child to last child with an increment
 				startIndex = 0;
 				endIndex = this.$childList.length() - 1;
-				increment = 1;
+				increment = forward;
 			} else {					//If moving backwards through list, move from last child to first child with a decrement
 				startIndex = this.$childList.length() - 1;
 				endIndex = 0;
-				increment = -1;
+				increment = reverse;
 			}
 
 			for (index = startIndex; Math.abs(index - startIndex) < this.$childList.length(); index += increment) {
 				if (this.$childList[index].attr("tabindex") === 0) {
-					this.setTabIndex(index, -1);						//If child is currently focused, set tabindex to -1
+					this.setTabIndex(index, tabindexBlur);				//If child is currently focused, set tabindex to -1
 					removeFocus = index;								//Store this child's index in removeFocus
 
 					if (index === endIndex) {							//If at the end/beginning for forwards/reverse roving of the list of children
-						this.setTabIndex(startIndex, 0);				//Set tabindex of the child at startIndex to 0
+						this.setTabIndex(startIndex, tabindexFocus);	//Set tabindex of the child at startIndex to 0
 						addFocus = startIndex;							//Store startIndex in addFocus
 					} else {											//If not at the end/beginning of the list of children
 						index += increment;								//Fast-forward/reverse to the next/previous child for forwards/reverse roving
-						this.setTabIndex(index, 0);						//Set tabindex to 0
+						this.setTabIndex(index, tabindexFocus);			//Set tabindex to 0
 						addFocus = index;								//Store this child's index in addFocus
 					}
 				}
@@ -79,9 +82,9 @@ var main = function() {
 		//When tablist is focused, and has no currently focused child list item, set the focus to the first child list item
 		this.$id.focus(function() {
 			if (this.hasChildFocus === false) {
-				this.setTabIndex(0, 0);										//Set tabindex of first child to 0
+				this.setTabIndex(0, tabindexFocus);							//Set tabindex of first child to 0
 				for (index = 1; i < this.$childList.length(); i++) {		//Iterate through the rest of the children
-					this.setTabIndex(index, -1);							//Set tabindex to -1 for rest
+					this.setTabIndex(index, tabindexBlur);					//Set tabindex to -1 for rest
 				}
 
 				this.$childList[0].focus();		//Give focus to the first child
