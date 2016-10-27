@@ -39,9 +39,9 @@ var main = function() {
 														//Pass a jQuery element that points to the clicked child element
 		this.$children.keydown(function(e) {
 			return self.handleKeydown($(this), e);		//Inside the event handlers, the scope of "this" is equal to the specific element that fired the event
-		});												//This is why we set self = this at the beginning, so that we don't lose a reference to the Tablist
+		});												//This is why self = this at the beginning, so that a reference to the parent Tablist is not lost
 
-		this.$children.focus(function() {
+		this.$children.focus(function() {				//Pass the event as a second parameter for click and keydown handlers in order to tell which key is pressed
 			return self.handleFocus($(this));
 		});
 
