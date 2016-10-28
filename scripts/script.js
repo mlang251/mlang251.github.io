@@ -21,7 +21,7 @@ var main = function() {
  	//The Tablists are container widgets that contain children that either are anchor elements, or have their own children that are anchor elements
 	function Tablist(selector) {
 		this.$id = $(selector);									//jQuery element for the tablist being constructed
-		this.$children = this.$id.children();					//jQuery object that contains child elements - the elements themselves are jQuery objects
+		this.$children = this.$id.find("a");					//jQuery object that contains child elements - the elements themselves are jQuery objects
 		this.$focusedChild = null;								//Keeps track of the currently focused child
 		this.orientation = this.$id.attr("aria-orientation");	//Either horizontal or vertical depending on the list
 
@@ -154,7 +154,7 @@ var main = function() {
 
 
 
-	//add handlers for managing focus with ARIA, also the landing page nav needs aria-orientation = vertical with small viewports"
+	//Need to write a function to detect and set aria-orientation of the pageNav Tablist
 
 
 };
