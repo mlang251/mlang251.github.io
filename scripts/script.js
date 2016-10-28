@@ -13,7 +13,7 @@ var main = function() {
           	left:     37,
           	up:       38,
           	right:    39,
-          	down:     40,
+          	down:     40
  	};
 
 
@@ -26,15 +26,19 @@ var main = function() {
 		this.orientation = this.$id.attr("aria-orientation");	//Either horizontal or vertical depending on the list
 
 		this.bindHandlers();
-	}
+	};
 
-	Tablist.prototype.handleClick($item, e) {
-		//If e.altkey || e.shiftkey || e.ctrlkey do nothing
-		//Set tabindex of all children to -1
-		//Set tabindex of $item to 0
-	}
+	//Member function of Tablist constructor
+	//Gets called when a Tablist child element is clicked
+	Tablist.prototype.handleClick = function($item) {
+		$item.siblings().each(function() {				//Set the tabindex of other child items to -1
+			this.attr("tabindex", "-1");
+		})
+		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
+		this.$focusedChild.focus();						//Set the focus to the clicked item
+	};
 
-	Tablist.prototype.handleKeydown($item, e) {
+	Tablist.prototype.handleKeydown = function($item, e) {
 		switch (e.which) {
 			case keys.tab: {
 				//Move to next Tablist on page
@@ -62,38 +66,39 @@ var main = function() {
 				//do nothing
 			}
 		}
-	}
+	};
 
-	Tablist.prototype.handleFocus($item) {
+	Tablist.prototype.handleFocus = function($item) {
 		//if $focusedChild === null, set $focusedChild = $item
+		//Set tabindex of $item to 0
 		//Add focus styling to $item
-	}
+	};
 
-	Tablist.prototype.handleBlur($item) {
+	Tablist.prototype.handleBlur = function($item) {
 		//Remove focus styling from $item
-	}
+	};
 
 	//Member function of Tablist constructor
 	//Binds event handlers to the children of each constructed Tablist
 	Tablist.prototype.bindHandlers = function() {
 		var self = this;								//To avoid confusion with this, set "self" equal to the Tablist that is currently being constructed
 
-		this.$children.click(function(e) {				//In Tablist that is currently being constructed, create event handler for each event.
-			return self.handleClick($(this), e);		//When a child item of the Tablist that is currently being constructed is the target of an event,
+		this.$children.click(function() {				//In Tablist that is currently being constructed, create event handler for each event.
+			return self.handleClick($(this));		//When a child item of the Tablist that is currently being constructed is the target of an event,
 		});												//call the necessary event handler from that same Tablist.
 														//Pass a jQuery element that points to the clicked child element
 		this.$children.keydown(function(e) {
 			return self.handleKeydown($(this), e);		//Inside the event handlers, the scope of "this" is equal to the specific element that fired the event
 		});												//This is why self = this at the beginning, so that a reference to the parent Tablist is not lost
 
-		this.$children.focus(function() {				//Pass the event as a second parameter for click and keydown handlers in order to tell which key is pressed
+		this.$children.focus(function() {				//Pass the event as a second parameter for keydown handler in order to tell which key is pressed
 			return self.handleFocus($(this));
 		});
 
 		this.$children.blur(function() {
 			return self.handleBlur($(this));
 		});
-	}
+	};
 
 
 
@@ -152,6 +157,6 @@ var main = function() {
 	//add handlers for managing focus with ARIA, also the landing page nav needs aria-orientation = vertical with small viewports"
 
 
-}
+};
 
 $(document).ready(main);
