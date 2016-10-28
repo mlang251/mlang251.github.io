@@ -31,8 +31,8 @@ var main = function() {
 	//Member function of Tablist constructor
 	//Gets called when a Tablist child element is clicked
 	Tablist.prototype.handleClick = function($item) {
-		$item.siblings().each(function() {				//Set the tabindex of other child items to -1
-			this.attr("tabindex", "-1");
+		$item.siblings().each(function() {				//Iterates through the siblings of the clicked item
+			$(this).attr("tabindex", "-1");				//Set the tabindex of the current item iteration to -1
 		})
 		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
 		this.$focusedChild.focus();						//Set the focus to the clicked item
