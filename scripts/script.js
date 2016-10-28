@@ -7,6 +7,7 @@ var main = function() {
 	//Dictionary of keys that will be used for keydown event handlers
 	var keys = {
           	tab:      9,
+          	shift:    16, 
           	enter:    13,
           	space:    32,
           	left:     37,
@@ -27,6 +28,50 @@ var main = function() {
 		this.bindHandlers();
 	}
 
+	Tablist.prototype.handleClick($item, e) {
+		//If e.altkey || e.shiftkey || e.ctrlkey do nothing
+		//Set tabindex of all children to -1
+		//Set tabindex of $item to 0
+	}
+
+	Tablist.prototype.handleKeydown($item, e) {
+		switch (e.which) {
+			case keys.tab: {
+				//Move to next Tablist on page
+			}
+			case (keys.tab && keys.shift): {
+				//Move to previous Tablist on page 
+			}
+			case keys.up: {
+				//If orientation === vertical move focus to previous sibling
+			}
+			case keys.right: {
+				//If orientation === horizontal move focus to next sibling
+			}
+			case keys.down: {
+				//If orientation === vertical move focus to next sibling
+			}
+			case keys.left: {
+				//If orientation === horizontal move focus to previous sibling
+			}
+			case (keys.enter || keys.space): {
+				//If current item is not an anchor, drill down to anchor child element
+				//Click element
+			}
+			default: {
+				//do nothing
+			}
+		}
+	}
+
+	Tablist.prototype.handleFocus($item) {
+		//if $focusedChild === null, set $focusedChild = $item
+		//Add focus styling to $item
+	}
+
+	Tablist.prototype.handleBlur($item) {
+		//Remove focus styling from $item
+	}
 
 	//Member function of Tablist constructor
 	//Binds event handlers to the children of each constructed Tablist
@@ -49,6 +94,8 @@ var main = function() {
 			return self.handleBlur($(this));
 		});
 	}
+
+
 
 
 
