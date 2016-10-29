@@ -33,7 +33,7 @@ var main = function() {
 	Tablist.prototype.handleClick = function($item) {
 		$item.siblings().each(function() {				//Iterates through the siblings of the clicked item
 			$(this).attr("tabindex", "-1");				//Set the tabindex of the current item iteration to -1
-		})
+		});
 		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
 		this.$focusedChild.focus();						//Set the focus to the clicked item
 	};
@@ -84,7 +84,7 @@ var main = function() {
 		var self = this;								//To avoid confusion with this, set "self" equal to the Tablist that is currently being constructed
 
 		this.$children.click(function() {				//In Tablist that is currently being constructed, create event handler for each event.
-			return self.handleClick($(this));		//When a child item of the Tablist that is currently being constructed is the target of an event,
+			return self.handleClick($(this));			//When a child item of the Tablist that is currently being constructed is the target of an event,
 		});												//call the necessary event handler from that same Tablist.
 														//Pass a jQuery element that points to the clicked child element
 		this.$children.keydown(function(e) {
