@@ -44,11 +44,14 @@ var main = function() {
 
 			//If tab key is hit, move to the next Tablist on the page and focus on that Tablist's $focusedChild
 			case keys.tab: {
-				tablistArray.nextTablist().$focusedChild.focus();			//Set the document's focus to the next Tablist's $focusedChild		
+				tablistArray.nextTablist().$focusedChild.focus();			//Set the document's focus to the next Tablist's $focusedChild
 			}
+
+			//If tab key is hit, move to the previous Tablist on the page and focus on that Tablist's $focusedChild
 			case (keys.tab && keys.shift): {
-				//Move to previous Tablist on page 
+				tablistArray.prevTablist().$focusedChild.focus();			//Set the document's focus to the previous Tablist's $focusedChild
 			}
+			
 			case keys.up: {
 				//If orientation === vertical move focus to previous sibling
 			}
