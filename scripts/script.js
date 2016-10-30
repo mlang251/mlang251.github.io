@@ -29,7 +29,7 @@ var main = function() {
 		this.bindHandlers();
 	};
 
-	//Member function of Tablist constructor
+	//Member function of Tablist prototype
 	//Gets called when a Tablist child element is clicked
 	Tablist.prototype.handleClick = function($item) {
 		this.$children.each(function() {				//Iterates through the children of the parent Tablist
@@ -69,11 +69,10 @@ var main = function() {
 		}
 	};
 
+	//Member function of Tablist prototype
+	//Sets the tabindex of the focused item to 0
 	Tablist.prototype.handleFocus = function($item) {
-		if (this.$focusedChild === null) {
-			this.$focusedChild = $item;
-		}
-		this.$focusedChild.attr("tabindex", "0");
+		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
 		//Add focus styling to $item
 	};
 
@@ -81,7 +80,7 @@ var main = function() {
 		//Remove focus styling from $item
 	};
 
-	//Member function of Tablist constructor
+	//Member function of Tablist prototype
 	//Binds event handlers to the children of each constructed Tablist
 	Tablist.prototype.bindHandlers = function() {
 		var self = this;								//To avoid confusion with this, set "self" equal to the Tablist that is currently being constructed
@@ -107,16 +106,19 @@ var main = function() {
 
 	//Create an array and instantiate an object for each of the tablists on the page
  	function TablistArray() {
- 		this.currentTablistIndex = 0;
+ 		this.currentTablistIndex = 0;				//Stores the index of the currently focused Tablist
  	}
 
-	TablistArray.prototype = new Array();
+	TablistArray.prototype = new Array();			//Inherit the properties and methods of Arrays
 
+
+	//Member function of TablistArray prototype
+	//Used to move to the next Tablist on the page
 	TablistArray.prototype.nextTablist = function(tablist) {
-		if (currentTablistIndex === tablistArray.length - 1) {
-			this.currentTablistIndex = 0;
+		if (currentTablistIndex === tablistArray.length - 1) {		//If at the last Tablist on the page
+			this.currentTablistIndex = 0;							//Move to the first Tablist on the page
 		} else {
-			this.currentTablistIndex++;
+			this.currentTablistIndex++;								//Otherwise, move to the next Tablist
 		}
 	};
 
