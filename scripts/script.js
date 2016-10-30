@@ -6,15 +6,16 @@ var main = function() {
 
 	//Dictionary of keys that will be used for keydown event handlers
 	var keys = {
-          	tab:      9,
-          	shift:    16, 
-          	enter:    13,
-          	space:    32,
-          	left:     37,
-          	up:       38,
-          	right:    39,
-          	down:     40
+    	tab:      9,
+    	shift:    16, 
+    	enter:    13,
+    	space:    32,
+    	left:     37,
+    	up:       38,
+    	right:    39,
+    	down:     40
  	};
+
 
 
  	//Constructor to work with interactive tablists with ARIA enabled navigation
@@ -33,7 +34,7 @@ var main = function() {
 	Tablist.prototype.handleClick = function($item) {
 		this.$children.each(function() {				//Iterates through the children of the parent Tablist
 			$(this).attr("tabindex", "-1");				//Set the tabindex of the current item iteration to -1
-		}
+		});
 		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
 		this.$focusedChild.focus();						//Set the focus to the clicked item
 	};
@@ -69,8 +70,10 @@ var main = function() {
 	};
 
 	Tablist.prototype.handleFocus = function($item) {
-		//if $focusedChild === null, set $focusedChild = $item
-		//Set tabindex of $item to 0
+		if (this.$focusedChild === null) {
+			this.$focusedChild = $item;
+		}
+		this.$focusedChild.attr("tabindex", "0");
 		//Add focus styling to $item
 	};
 
@@ -102,14 +105,14 @@ var main = function() {
 
 
 
+	//Create an array and instantiate an object for each of the tablists on the page
+ 	var tablistArray = new Array();
+	tablistArray[0] = new Tablist("address");								//The main header navigation
+	tablistArray[1] = new Tablist("nav#pageNav ul");						//The main page navigation
+	tablistArray[2] = new Tablist("aside#resume div[role = 'tablist']");	//The resume section navigation
 
 
 
-
-	//Instantiate an object for each of the tablists on the page
-	var headerNav = new Tablist("address");
-	var pageNav = new Tablist("nav#pageNav ul");
-	var resumeNav = new Tablist("aside#resume div[role = 'tablist']");
 
 
 
