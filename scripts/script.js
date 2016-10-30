@@ -107,13 +107,12 @@ var main = function() {
 
 	//Create an array and instantiate an object for each of the tablists on the page
  	function TablistArray() {
- 		this.currentTablistIndex = null;
+ 		this.currentTablistIndex = 0;
  	}
 
 	TablistArray.prototype = new Array();
 
 	TablistArray.prototype.nextTablist = function(tablist) {
-		this.currentTablistIndex = this.indexOf(tablist);
 		if (currentTablistIndex === tablistArray.length - 1) {
 			this.currentTablistIndex = 0;
 		} else {
