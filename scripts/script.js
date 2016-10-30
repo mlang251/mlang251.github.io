@@ -108,11 +108,11 @@ var main = function() {
 
 	//Create an array and instantiate an object for each of the tablists on the page
  	function TablistArray() {
- 		this.currentTablistIndex = 0;				//Stores the index of the currently focused Tablist
+ 		this.currentTablistIndex = 0;			//Stores the index of the currently focused Tablist
  	}
-
-	TablistArray.prototype = new Array();			//Inherit the properties and methods of Arrays
-
+	
+	//Inherit the properties and methods of Arrays
+	TablistArray.prototype = new Array();
 
 	//Member function of TablistArray prototype
 	//Used to move to the next Tablist on the page
@@ -126,6 +126,20 @@ var main = function() {
 		return this[currentTablistIndex];							//Return this Tablist to whatever called the function
 	};
 
+	//Member function of TablistArray prototype
+	//Used to move to the previous Tablist on the page
+	TablistArray.prototype.prevTablist = function() {
+		if (currentTablistIndex === 0) {							//If at the first Tablist on the page
+			this.currentTablistIndex = this.length -1;				//Move to the last Tablist on the page
+		} else {
+			this.currentTablistIndex--;								//Otherwise, move to the previous Tablist
+		}	
+
+		return this[currentTablistIndex];							//Return this Tablist to whatever called the function
+	};
+
+
+	//Create a TablistArray to keep track of the page's Tablists
 	var tablistArray = new TablistArray();
 	tablistArray[0] = new Tablist("address");								//The main header navigation
 	tablistArray[1] = new Tablist("nav#pageNav ul");						//The main page navigation
