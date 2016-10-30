@@ -41,8 +41,10 @@ var main = function() {
 
 	Tablist.prototype.handleKeydown = function($item, e) {
 		switch (e.which) {
-			case keys.tab: {
 
+			//If tab key is hit, move to the next Tablist on the page and focus on that Tablist's $focusedChild
+			case keys.tab: {
+				tablistArray.nextTablist().$focusedChild.focus();			//Set the document's focus to the next Tablist's $focusedChild		
 			}
 			case (keys.tab && keys.shift): {
 				//Move to previous Tablist on page 
@@ -114,12 +116,14 @@ var main = function() {
 
 	//Member function of TablistArray prototype
 	//Used to move to the next Tablist on the page
-	TablistArray.prototype.nextTablist = function(tablist) {
+	TablistArray.prototype.nextTablist = function() {
 		if (currentTablistIndex === tablistArray.length - 1) {		//If at the last Tablist on the page
 			this.currentTablistIndex = 0;							//Move to the first Tablist on the page
 		} else {
 			this.currentTablistIndex++;								//Otherwise, move to the next Tablist
-		}
+		}	
+
+		return this[currentTablistIndex];							//Return this Tablist to whatever called the function
 	};
 
 	var tablistArray = new TablistArray();
