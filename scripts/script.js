@@ -47,11 +47,11 @@ var main = function() {
 				tablistArray.nextTablist().$focusedChild.focus();			//Set the document's focus to the next Tablist's $focusedChild
 			}
 
-			//If tab key is hit, move to the previous Tablist on the page and focus on that Tablist's $focusedChild
+			//If shift+tab key is hit, move to the previous Tablist on the page and focus on that Tablist's $focusedChild
 			case (keys.tab && keys.shift): {
 				tablistArray.prevTablist().$focusedChild.focus();			//Set the document's focus to the previous Tablist's $focusedChild
 			}
-			
+
 			case keys.up: {
 				//If orientation === vertical move focus to previous sibling
 			}
@@ -112,33 +112,38 @@ var main = function() {
 	//Create an array and instantiate an object for each of the tablists on the page
  	function TablistArray() {
  		this.currentTablistIndex = 0;			//Stores the index of the currently focused Tablist
- 	}
+ 	};
 	
 	//Inherit the properties and methods of Arrays
 	TablistArray.prototype = new Array();
 
+
+	//TODO
+	//Add edge case detection - if the next tablist hasn't been focused on yet set the $focusedChild to the first item
 	//Member function of TablistArray prototype
 	//Used to move to the next Tablist on the page
 	TablistArray.prototype.nextTablist = function() {
-		if (currentTablistIndex === tablistArray.length - 1) {		//If at the last Tablist on the page
+		if (this.currentTablistIndex === this.length - 1) {			//If at the last Tablist on the page
 			this.currentTablistIndex = 0;							//Move to the first Tablist on the page
 		} else {
 			this.currentTablistIndex++;								//Otherwise, move to the next Tablist
 		}	
 
-		return this[currentTablistIndex];							//Return this Tablist to whatever called the function
+		return this[this.currentTablistIndex];						//Return this Tablist
 	};
 
+	//TODO
+	//Add edge case detection - if the prev tablist hasn't been focused on yet set the $focusedChild to the first item
 	//Member function of TablistArray prototype
 	//Used to move to the previous Tablist on the page
 	TablistArray.prototype.prevTablist = function() {
-		if (currentTablistIndex === 0) {							//If at the first Tablist on the page
+		if (this.currentTablistIndex === 0) {						//If at the first Tablist on the page
 			this.currentTablistIndex = this.length -1;				//Move to the last Tablist on the page
 		} else {
 			this.currentTablistIndex--;								//Otherwise, move to the previous Tablist
 		}	
 
-		return this[currentTablistIndex];							//Return this Tablist to whatever called the function
+		return this[this.currentTablistIndex];						//Return this Tablist
 	};
 
 
