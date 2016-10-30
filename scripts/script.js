@@ -42,7 +42,7 @@ var main = function() {
 	Tablist.prototype.handleKeydown = function($item, e) {
 		switch (e.which) {
 			case keys.tab: {
-				//Move to next Tablist on page
+
 			}
 			case (keys.tab && keys.shift): {
 				//Move to previous Tablist on page 
@@ -106,7 +106,22 @@ var main = function() {
 
 
 	//Create an array and instantiate an object for each of the tablists on the page
- 	var tablistArray = new Array();
+ 	function TablistArray() {
+ 		this.currentTablistIndex = null;
+ 	}
+
+	TablistArray.prototype = new Array();
+
+	TablistArray.prototype.nextTablist = function(tablist) {
+		this.currentTablistIndex = this.indexOf(tablist);
+		if (currentTablistIndex === tablistArray.length - 1) {
+			this.currentTablistIndex = 0;
+		} else {
+			this.currentTablistIndex++;
+		}
+	};
+
+	var tablistArray = new TablistArray();
 	tablistArray[0] = new Tablist("address");								//The main header navigation
 	tablistArray[1] = new Tablist("nav#pageNav ul");						//The main page navigation
 	tablistArray[2] = new Tablist("aside#resume div[role = 'tablist']");	//The resume section navigation
