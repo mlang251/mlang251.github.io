@@ -42,14 +42,16 @@ var main = function() {
 	Tablist.prototype.handleKeydown = function($item, e) {
 		switch (e.which) {
 
+			//TODO
+			//Make a single case for tab key, but call different functions based on whether e.shiftKey is true or not
 			//If tab key is hit, move to the next Tablist on the page and focus on that Tablist's $focusedChild
 			case keys.tab: {
-				tablistArray.nextTablist().$focusedChild.focus();			//Set the document's focus to the next Tablist's $focusedChild
+				tablistArray.moveThroughTabOrder().$focusedChild.focus();			//Set the document's focus to the next Tablist's $focusedChild
 			}
 
 			//If shift+tab key is hit, move to the previous Tablist on the page and focus on that Tablist's $focusedChild
 			case (keys.tab && keys.shift): {
-				tablistArray.prevTablist().$focusedChild.focus();			//Set the document's focus to the previous Tablist's $focusedChild
+				tablistArray.moveThroughTabOrder().$focusedChild.focus();			//Set the document's focus to the previous Tablist's $focusedChild
 			}
 
 			case keys.up: {
@@ -117,34 +119,40 @@ var main = function() {
 	//Inherit the properties and methods of Arrays
 	TablistArray.prototype = new Array();
 
-
-	//TODO
-	//Add edge case detection - if the next tablist hasn't been focused on yet set the $focusedChild to the first item
 	//Member function of TablistArray prototype
-	//Used to move to the next Tablist on the page
-	TablistArray.prototype.nextTablist = function() {
-		if (this.currentTablistIndex === this.length - 1) {			//If at the last Tablist on the page
-			this.currentTablistIndex = 0;							//Move to the first Tablist on the page
-		} else {
-			this.currentTablistIndex++;								//Otherwise, move to the next Tablist
-		}	
+	//Used to move to the next or previous Tablist on the page, depending on whether tab or shift + tab was pressed
+	TablistArray.prototype.moveThroughTabOrder = function(shiftPressed) {
+		var firstIndex = null;		//Stores the first index in the TablistArray (relative to the direction of movement)
+		var lastIndex = null;		//Stores the last index in the TablistArray (relative to the direction of movement)
+		var increment = null;		//Stores the increment, dependant on the direction of movement
 
-		return this[this.currentTablistIndex];						//Return this Tablist
+		if (!shiftPressed) {				//If only pressing tab
+			firstIndex = 0;					//The firstIndex is the first Tablist in the array
+			lastIndex = this.length - 1;	//The lastIndex is the last Tablist in the array
+			increment = 1;					//Move to the next Tablist in the array
+		} else {							//If pressing shift + tab
+			firstIndex = this.length - 1;	//The firstIndex is the last Tablist in the array
+			lastIndex = 0;					//The lastIndex is the first Tablist in the array
+			increment = -1;					//Move to the previous Tablist in the array
+		}
+
+
+		if (this.currentTablistIndex === lastIndex) {				//If at the last Tablist (relative to direction)
+			this.currentTablistIndex = firstIndex;					//Move to the first Tablist (relative to direction)
+		} else {
+			this.currentTablistIndex += increment;					//Otherwise, move to the next Tablist (relative to direction)
+		}
+
+		var newTablist = this[this.currentTablistIndex];			//Store this Tablist object in a variable
+
+		if (newTablist.$focusedChild === null) {					//If this Tablist has not been focused on yet
+			newTablist.$focusedChild = newTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
+		}
+
+		return newTablist;											//Return this Tablist
 	};
 
-	//TODO
-	//Add edge case detection - if the prev tablist hasn't been focused on yet set the $focusedChild to the first item
-	//Member function of TablistArray prototype
-	//Used to move to the previous Tablist on the page
-	TablistArray.prototype.prevTablist = function() {
-		if (this.currentTablistIndex === 0) {						//If at the first Tablist on the page
-			this.currentTablistIndex = this.length -1;				//Move to the last Tablist on the page
-		} else {
-			this.currentTablistIndex--;								//Otherwise, move to the previous Tablist
-		}	
 
-		return this[this.currentTablistIndex];						//Return this Tablist
-	};
 
 
 	//Create a TablistArray to keep track of the page's Tablists
