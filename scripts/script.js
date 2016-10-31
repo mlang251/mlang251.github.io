@@ -42,16 +42,13 @@ var main = function() {
 	Tablist.prototype.handleKeydown = function($item, e) {
 		switch (e.which) {
 
-			//TODO
-			//Make a single case for tab key, but call different functions based on whether e.shiftKey is true or not
-			//If tab key is hit, move to the next Tablist on the page and focus on that Tablist's $focusedChild
+			//Tab key without/with shift key causes the document's focus to move to the next/previous Tablist
 			case keys.tab: {
-				tablistArray.moveThroughTabOrder().$focusedChild.focus();			//Set the document's focus to the next Tablist's $focusedChild
-			}
-
-			//If shift+tab key is hit, move to the previous Tablist on the page and focus on that Tablist's $focusedChild
-			case (keys.tab && keys.shift): {
-				tablistArray.moveThroughTabOrder().$focusedChild.focus();			//Set the document's focus to the previous Tablist's $focusedChild
+				if (!e.shiftKey) {		//If only pressing tab, set the document's focus to the next Tablist's $focusedChild
+					tablistArray.moveThroughTabOrder(false).$focusedChild.focus();
+				} else {				//If pressing shift + tab, set the document's focus to the previous Tablist's $focusedChild					
+					tablistArray.moveThroughTabOrder(true).$focusedChild.focus();
+				}
 			}
 
 			case keys.up: {
