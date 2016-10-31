@@ -43,14 +43,25 @@ var main = function() {
 		switch (e.which) {
 
 			//TODO
-			//$focusedChild.focus() is not being called
+			//$focusedChild.focus() is not working properly
 			//Tab key without/with shift key causes the document's focus to move to the next/previous Tablist
 			case keys.tab: {
 				if (!e.shiftKey) {		//If only pressing tab, set the document's focus to the next Tablist's $focusedChild
-					tablistArray.moveThroughTabOrder(false).$focusedChild.focus();
-					console.log(document.activeElement);
+					//Store a variable with the next Tablist in the tablistArray
+					var nextTablist = tablistArray[tablistArray.moveThroughTabOrder(false)];
+					if (nextTablist.$focusedChild === null) {						//If this Tablist has not been focused on yet
+						nextTablist.$focusedChild = nextTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
+					}
+					nextTablist.$focusedChild.focus();								//Set the focus to the $focusedChild
+					nextTablist.handleFocus($(nextTablist.$focusedChild));			//Call handleFocus to set tabindex to 0
 				} else {				//If pressing shift + tab, set the document's focus to the previous Tablist's $focusedChild					
-					tablistArray.moveThroughTabOrder(true).$focusedChild.focus();
+					//Store a variable with the previous Tablist in the tablistArray
+					var nextTablist = tablistArray[tablistArray.moveThroughTabOrder(true)];
+					if (nextTablist.$focusedChild === null) {						//If this Tablist has not been focused on yet
+						nextTablist.$focusedChild = nextTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
+					}
+					nextTablist.$focusedChild.focus();								//Set the focus to the $focusedChild
+					nextTablist.handleFocus($(nextTablist.$focusedChild));			//Call handleFocus to set tabindex to 0
 				}
 			}
 
@@ -143,14 +154,7 @@ var main = function() {
 			this.currentTablistIndex += increment;					//Otherwise, move to the next Tablist (relative to direction)
 		}
 
-		var newTablist = new Tablist(null)
-		newTablist = this[this.currentTablistIndex];				//Store this Tablist object in a variable
-
-		if (newTablist.$focusedChild === null) {					//If this Tablist has not been focused on yet
-			newTablist.$focusedChild = newTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
-		}
-
-		return newTablist;											//Return this Tablist
+		return this.currentTablistIndex;							//Return the index of this Tablist
 	};
 
 
