@@ -42,26 +42,12 @@ var main = function() {
 	Tablist.prototype.handleKeydown = function($item, e) {
 		switch (e.which) {
 
-			//TODO
-			//$focusedChild.focus() is not working properly
 			//Tab key without/with shift key causes the document's focus to move to the next/previous Tablist
 			case keys.tab: {
 				if (!e.shiftKey) {		//If only pressing tab, set the document's focus to the next Tablist's $focusedChild
-					//Store a variable with the next Tablist in the tablistArray
-					var nextTablist = tablistArray[tablistArray.moveThroughTabOrder(false)];
-					if (nextTablist.$focusedChild === null) {						//If this Tablist has not been focused on yet
-						nextTablist.$focusedChild = nextTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
-					}
-					nextTablist.$focusedChild.focus();								//Set the focus to the $focusedChild
-					nextTablist.handleFocus($(nextTablist.$focusedChild));			//Call handleFocus to set tabindex to 0
+					tablistArray.moveThroughTabOrder(false);
 				} else {				//If pressing shift + tab, set the document's focus to the previous Tablist's $focusedChild					
-					//Store a variable with the previous Tablist in the tablistArray
-					var nextTablist = tablistArray[tablistArray.moveThroughTabOrder(true)];
-					if (nextTablist.$focusedChild === null) {						//If this Tablist has not been focused on yet
-						nextTablist.$focusedChild = nextTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
-					}
-					nextTablist.$focusedChild.focus();								//Set the focus to the $focusedChild
-					nextTablist.handleFocus($(nextTablist.$focusedChild));			//Call handleFocus to set tabindex to 0
+					tablistArray.moveThroughTabOrder(true);
 				}
 			}
 
@@ -94,7 +80,6 @@ var main = function() {
 	};
 
 	Tablist.prototype.handleBlur = function($item) {
-		$item.attr("tabindex", "-1");					//Set the tabindex of the focused item to 0
 		//Remove focus styling from $item
 	};
 
@@ -130,6 +115,8 @@ var main = function() {
  	};
 	
 
+ 	//TODO
+ 	//handleFocus does not get called at $focusedChild.focus()
 	//Member function of TablistArray prototype
 	//Used to move to the next or previous Tablist on the page, depending on whether tab or shift + tab was pressed
 	TablistArray.prototype.moveThroughTabOrder = function(shiftPressed) {
@@ -154,7 +141,14 @@ var main = function() {
 			this.currentTablistIndex += increment;					//Otherwise, move to the next Tablist (relative to direction)
 		}
 
-		return this.currentTablistIndex;							//Return the index of this Tablist
+		var newTablist = this[this.currentTablistIndex];			//Store the new Tablist to move to
+
+		if (newTablist.$focusedChild === null) {					//If this Tablist has not been focused on yet
+			newTablist.$focusedChild = newTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
+		}
+
+		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
+		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
 	};
 
 
