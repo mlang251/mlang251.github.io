@@ -13,6 +13,13 @@ body {
 	nav#pageNav li {
 		font-size: 1.8em;
 		display: inline-block;
+		padding: 0 10px;
+	}
+
+	/*Add border between list items to separate them, set line height so border height matches font size*/
+	nav#pageNav li + li {
+		border-left: 1px solid #FFFFFF;
+		line-height: 1.1;
 	}
 
 	/*Keep objective statement in the center of the screen*/
@@ -32,6 +39,13 @@ body {
 	/*Landing nav list items are block display and smaller font*/
 	nav#pageNav li {
 		font-size: 1.2em;
+		padding: 0 5px;
+	}
+
+	/*Get rid of border between list items, inherit line height from body*/
+	nav#pageNav li + li {
+		border-left: none;
+		line-height: inherit;
 	}
 
 	/*Move objective statement up a bit to make room for mobile device browser controls*/
@@ -215,9 +229,6 @@ nav#pageNav ul {
 	padding-right: 15px;
 }
 
-nav#pageNav li {
-	padding: 0 5px;
-}
 
 
 
