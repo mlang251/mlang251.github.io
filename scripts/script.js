@@ -55,11 +55,14 @@ var main = function() {
 
 	//Member function of Tablist prototype
 	//Used to move to the next or previous child element in the Tablist, depending on the direction the user intends
-	Tablist.prototype.roveChildren = function(currentIndex, moveDownList) {
+	Tablist.prototype.roveChildren = function(itemRef, moveDownList) {
 		var firstIndex = null;		//Stores the first index in the Tablist children object (relative to the direction of movement)
 		var lastIndex = null;		//Stores the last index in the Tablist children object (relative to the direction of movement)
 		var increment = null;		//Stores the increment, dependant on the direction of movement
 		var newIndex = null;		//Stores the target index in the Tablist children object
+		//Access the Array.prototype indexOf function to get the index of the clicked item
+		//The clicked item is passed by reference so that indexOf can compare objects for equality
+		var currentIndex = Array.prototype.indexOf.call(this.$children, itemRef);
 
 		if (moveDownList) {							//If user wants to move down the list
 			firstIndex = 0;							//The firstIndex is the first element in this.$children
@@ -78,8 +81,11 @@ var main = function() {
 			newIndex += increment;					//Otherwise, move to the next element (relative to direction)
 		}
 
+		//TODO
+		//handleFocus does not get called after .focus(), maybe a reference error
 		this.$focusedChild = this.$children[newIndex];		//Set $focusedChild to the new element
 		this.$focusedChild.focus();							//Focus on the target child element
+		this.handleFocus($(this.$focusedChild));			//Call handleFocus on this.$focusedChild
 	};
 
 	//Member function of Tablist prototype
@@ -96,30 +102,38 @@ var main = function() {
 				}
 			}
 
-			//Up key moves the focus to the previous sibling if the orientation is vertical
+			//Up key - If orientation === vertical move focus to previous sibling
 			case keys.up: {
-				//If orientation === vertical move focus to previous sibling
 				if (this.vertical) {
-					//Access the Array.prototype indexOf function to get the index of the clicked item
-					//The clicked item is passed by reference so that indexOf can compare objects for equality
-					var currentIndex = Array.prototype.indexOf.call(this.$children, itemRef);
-					this.roveChildren(currentIndex, false);
-					//TODO
-					//Create a moveThroughTablist method similar to moveThroughTabOrder
+					this.roveChildren(itemRef, false);
 				}
 			}
+
+			//Right key - If orientation === horizontal move focus to next sibling
 			case keys.right: {
-				//If orientation === horizontal move focus to next sibling
+				if (this.horizontal) {
+					this.roveChildren(itemRef, true);
+				}
 			}
+
+			//Down key - If orientation === vertical move focus to next sibling
 			case keys.down: {
-				//If orientation === vertical move focus to next sibling
+				if (this.vertical) {
+					this.roveChildren(itemRef, true);
+				}
 			}
+
+			//Left key - If orientation === horizontal move focus to previous sibling
 			case keys.left: {
-				//If orientation === horizontal move focus to previous sibling
+				if (this.horizontal) {
+					this.roveChildren(itemRef, false);
+				}
 			}
+
 			case (keys.enter || keys.space): {
 				//Click element
 			}
+
 			default: {
 				//do nothing
 			}
