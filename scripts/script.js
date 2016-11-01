@@ -57,6 +57,35 @@ var main = function() {
 	};
 
 	//Member function of Tablist prototype
+	//Used to move to the next or previous child element in the Tablist, depending on the direction the user intends
+	Tablist.prototype.roveChildren = function(currentIndex, moveDownList) {
+		var firstIndex = null;		//Stores the first index in the Tablist children object (relative to the direction of movement)
+		var lastIndex = null;		//Stores the last index in the Tablist children object (relative to the direction of movement)
+		var increment = null;		//Stores the increment, dependant on the direction of movement
+		var newIndex = null;		//Stores the target index in the Tablist children object
+
+		if (moveDownList) {							//If user wants to move down the list
+			firstIndex = 0;							//The firstIndex is the first element in this.$children
+			lastIndex = this.$children.length - 1;	//The lastIndex is the last element in this.$children
+			increment = 1;							//Move to the next element in tthis.$children
+		} else {									//If pressing shift + tab
+			firstIndex = this.$children.length - 1;	//The firstIndex is the last element in this.$children
+			lastIndex = 0;							//The lastIndex is the first element in this.$children
+			increment = -1;							//Move to the previous element in tthis.$children
+		}
+
+
+		if (currentIndex === lastIndex) {			//If at the last element (relative to direction)
+			newIndex = firstIndex;					//Move to the first element (relative to direction)
+		} else {
+			newIndex += increment;					//Otherwise, move to the next element (relative to direction)
+		}
+
+		this.$focusedChild = this.$children[newIndex];		//Set $focusedChild to the new element
+		this.$focusedChild.focus();							//Focus on the target child element
+	};
+
+	//Member function of Tablist prototype
 	//When a key is pressed while focused on a Tablist child element, fulfill the appropriate function
 	Tablist.prototype.handleKeydown = function(itemRef, e) {
 		switch (e.which) {
