@@ -134,11 +134,11 @@ var main = function() {
 		});
 
 		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
-		//Add focus styling to $item
+		//OPTIONAL - Add focus styling to $item
 	};
 
 	Tablist.prototype.handleBlur = function($item) {
-		//Remove focus styling from $item
+		//OPTIONAL - Remove focus styling from $item
 	};
 
 	//Member function of Tablist prototype
