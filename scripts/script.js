@@ -49,9 +49,6 @@ var main = function() {
 	//Member function of Tablist prototype
 	//Gets called when a Tablist child element is clicked
 	Tablist.prototype.handleClick = function($item) {
-		this.$children.each(function() {				//Iterates through the children of the parent Tablist
-			$(this).attr("tabindex", "-1");				//Set the tabindex of the current item iteration to -1
-		});
 		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
 		this.$focusedChild.focus();						//Set the focus to the clicked item
 	};
@@ -106,6 +103,7 @@ var main = function() {
 					//Access the Array.prototype indexOf function to get the index of the clicked item
 					//The clicked item is passed by reference so that indexOf can compare objects for equality
 					var currentIndex = Array.prototype.indexOf.call(this.$children, itemRef);
+					this.roveChildren(currentIndex, false);
 					//TODO
 					//Create a moveThroughTablist method similar to moveThroughTabOrder
 				}
@@ -129,8 +127,12 @@ var main = function() {
 	};
 
 	//Member function of Tablist prototype
-	//Sets the tabindex of the focused item to 0
+	//Sets the tabindex of all children to -1 and then sets the tabindex of the focused item to 0
 	Tablist.prototype.handleFocus = function($item) {
+		this.$children.each(function() {				//Iterates through the children of the parent Tablist
+			$(this).attr("tabindex", "-1");				//Set the tabindex of the current item iteration to -1
+		});
+
 		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
 		//Add focus styling to $item
 	};
