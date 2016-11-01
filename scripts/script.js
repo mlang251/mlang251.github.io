@@ -134,8 +134,8 @@ var main = function() {
 				//Click element
 			}
 
-			default: {
-				//do nothing
+			default: {			//If none of the important keys are pressed
+				return false;	//Exit function and stop propagation
 			}
 		}
 	};
