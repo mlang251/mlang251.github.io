@@ -24,10 +24,27 @@ var main = function() {
 		this.$id = $(selector);									//jQuery element for the tablist being constructed
 		this.$children = this.$id.find("a");					//jQuery object that contains child elements - the elements themselves are jQuery objects
 		this.$focusedChild = null;								//Keeps track of the currently focused child
-		this.orientation = this.$id.attr("aria-orientation");	//Either horizontal or vertical depending on the list
+		this.vertical = null;									//Keeps track of aria-orientation
+		this.horizontal = null;									//Keeps track of aria-orientation
 
 		this.bindHandlers();
+		this.init();
 	};
+
+	//Member function of Tablist prototype
+	//Initializes properties upon construction of Tablist object
+	Tablist.prototype.init = function() {
+		//Set this.vertical and this.horizontal properties depending on the aria-orientation
+		if (this.$id.attr("aria-orientation") === "vertical") {
+			this.vertical = true;
+			this.horizontal = false;
+		} else {
+			this.vertical = false;
+			this.horizontal = true;
+		}
+
+		this.$focusedChild = this.$children[0];		//Set this.$focusedChild to be the first child anchor element
+	}
 
 	//Member function of Tablist prototype
 	//Gets called when a Tablist child element is clicked
@@ -53,6 +70,9 @@ var main = function() {
 
 			case keys.up: {
 				//If orientation === vertical move focus to previous sibling
+				if (this.vertical) {
+					//this.$children
+				}
 			}
 			case keys.right: {
 				//If orientation === horizontal move focus to next sibling
