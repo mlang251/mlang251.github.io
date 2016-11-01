@@ -56,7 +56,9 @@ var main = function() {
 		this.$focusedChild.focus();						//Set the focus to the clicked item
 	};
 
-	Tablist.prototype.handleKeydown = function($item, e) {
+	//Member function of Tablist prototype
+	//When a key is pressed while focused on a Tablist child element, fulfill the appropriate function
+	Tablist.prototype.handleKeydown = function(itemRef, e) {
 		switch (e.which) {
 
 			//Tab key without/with shift key causes the document's focus to move to the next/previous Tablist
@@ -68,12 +70,15 @@ var main = function() {
 				}
 			}
 
+			//Up key moves the focus to the previous sibling if the orientation is vertical
 			case keys.up: {
 				//If orientation === vertical move focus to previous sibling
 				if (this.vertical) {
+					//Access the Array.prototype indexOf function to get the index of the clicked item
+					//The clicked item is passed by reference so that indexOf can compare objects for equality
+					var currentIndex = Array.prototype.indexOf.call(this.$children, itemRef);
 					//TODO
-					//Need to iterate through this.$children and use Object.is() to compare with this.$focusedChild,
-					//Locate the index of this.$focusedChild
+					//Create a moveThroughTablist method similar to moveThroughTabOrder
 				}
 			}
 			case keys.right: {
@@ -115,12 +120,12 @@ var main = function() {
 		});												//call the necessary event handler from that same Tablist.
 														//Pass a jQuery element that points to the clicked child element
 		this.$children.keydown(function(e) {
-			return self.handleKeydown($(this), e);		//Inside the event handlers, the scope of "this" is equal to the specific element that fired the event
+			return self.handleKeydown(this, e);			//Inside the event handlers, the scope of "this" is equal to the specific element that fired the event
 		});												//This is why self = this at the beginning, so that a reference to the parent Tablist is not lost
 
 		this.$children.focus(function() {				//Pass the event as a second parameter for keydown handler in order to tell which key is pressed
-			return self.handleFocus($(this));
-		});
+			return self.handleFocus($(this));			
+		});												//For handleKeydown, need to pass the clicked object by reference
 
 		this.$children.blur(function() {
 			return self.handleBlur($(this));
@@ -161,13 +166,9 @@ var main = function() {
 		}
 
 		var newTablist = this[this.currentTablistIndex];			//Store the new Tablist to move to
-
-		if (newTablist.$focusedChild === null) {					//If this Tablist has not been focused on yet
-			newTablist.$focusedChild = newTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
-		}
  		
  		//TODO
-	 	//handleFocus does not get called at $focusedChild.focus()
+	 	//handleFocus does not get called at $focusedChild.focus(), probably need a reference to the newTablist
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
 	};
