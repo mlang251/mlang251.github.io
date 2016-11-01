@@ -71,7 +71,9 @@ var main = function() {
 			case keys.up: {
 				//If orientation === vertical move focus to previous sibling
 				if (this.vertical) {
-					//this.$children
+					//TODO
+					//Need to iterate through this.$children and use Object.is() to compare with this.$focusedChild,
+					//Locate the index of this.$focusedChild
 				}
 			}
 			case keys.right: {
@@ -126,17 +128,14 @@ var main = function() {
 	};
 
 
-	//TODO
-	//Make this prototype inherit from Array and use the Array.length property
 	//Create an array and instantiate an object for each of the tablists on the page
  	function TablistArray() {
  		this.currentTablistIndex = 0;			//Stores the index of the currently focused Tablist
+		//TODO
+		//Make this prototype inherit from Array and use the Array.length property
  		this.length = 3;
  	};
 	
-
- 	//TODO
- 	//handleFocus does not get called at $focusedChild.focus()
 	//Member function of TablistArray prototype
 	//Used to move to the next or previous Tablist on the page, depending on whether tab or shift + tab was pressed
 	TablistArray.prototype.moveThroughTabOrder = function(shiftPressed) {
@@ -166,7 +165,9 @@ var main = function() {
 		if (newTablist.$focusedChild === null) {					//If this Tablist has not been focused on yet
 			newTablist.$focusedChild = newTablist.$children[0];		//Set the $focusedChild to be the first child anchor element
 		}
-
+ 		
+ 		//TODO
+	 	//handleFocus does not get called at $focusedChild.focus()
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
 	};
@@ -181,7 +182,9 @@ var main = function() {
 	tablistArray[2] = new Tablist("aside#resume div[role = 'tablist']");	//The resume section navigation
 
 
-
+	//TODO
+	//When running tablistArray[1].init(), need to check viewport width and set this.vertical etc. accordingly
+	//Need to write a page resize handler for tablistArray[1] to detect and set aria-orientation
 
 
 
@@ -222,12 +225,6 @@ var main = function() {
 	    }
 	  });
 	});
-
-
-
-
-	//Need to write a function to detect and set aria-orientation of the pageNav Tablist
-
 
 };
 
