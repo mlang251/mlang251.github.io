@@ -21,11 +21,11 @@ var main = function() {
  	//Constructor to work with interactive tablists with ARIA enabled navigation
  	//The Tablists are container widgets that contain children that either are anchor elements, or have their own children that are anchor elements
 	function Tablist(selector) {
-		this.$id = $(selector);									//jQuery element for the tablist being constructed
-		this.$children = this.$id.find("a");					//jQuery object that contains child elements - the elements themselves are jQuery objects
-		this.$focusedChild = null;								//Keeps track of the currently focused child
-		this.vertical = null;									//Keeps track of aria-orientation
-		this.horizontal = null;									//Keeps track of aria-orientation
+		this.$id = $(selector);					//jQuery element for the tablist being constructed
+		this.$children = this.$id.find("a");	//jQuery object that contains child elements - the elements themselves are jQuery objects
+		this.$focusedChild = null;				//Keeps track of the currently focused child
+		this.vertical = null;					//Keeps track of aria-orientation
+		this.horizontal = null;					//Keeps track of aria-orientation
 
 		this.bindHandlers();
 		this.init();
@@ -145,8 +145,8 @@ var main = function() {
 				$(itemRef).click();		//Click the item
 				break;
 
-			default:			//If none of the important keys are pressed
-				break;			//Do nothing
+			default:		//If none of the important keys are pressed
+				break;		//Do nothing
 		}
 	};
 
