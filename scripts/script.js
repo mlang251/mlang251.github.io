@@ -202,11 +202,20 @@ var main = function() {
 
 
 	//Constructor to create an array and instantiate an object for each of the tablists on the page
- 	function TablistArray() {
+ 	function TablistArray(tablists) {
+ 		this.items = new Array();				//Array that stores the Tablists
  		this.currentTablistIndex = 0;			//Stores the index of the currently focused Tablist
-		//TODO
-		//Make this prototype inherit from Array and use the Array.length property
- 		this.length = 3;
+
+ 		//Initialize the tablistArray and fill items with the Tablists
+ 		this.init(tablists);
+ 	};
+
+ 	//Member function of TablistArray prototype
+ 	//Fills the items array with the Tablists that are on the page
+ 	TablistArray.prototype.init = function(tablists) {
+ 		for (i = 0; i < tablists.length; i++) {		//Iterate through the list of Tablists on the page
+ 			this.items.push(tablists[i]);			//Push each one to this.items
+ 		}
  	};
 
 	
@@ -218,14 +227,14 @@ var main = function() {
 		var increment = null;		//Stores the increment, dependant on the direction of movement
 		var newTablist = null;
 
-		if (!shiftPressed) {				//If only pressing tab
-			firstIndex = 0;					//The firstIndex is the first Tablist in the array
-			lastIndex = this.length - 1;	//The lastIndex is the last Tablist in the array
-			increment = 1;					//Move to the next Tablist in the array
-		} else {							//If pressing shift + tab
-			firstIndex = this.length - 1;	//The firstIndex is the last Tablist in the array
-			lastIndex = 0;					//The lastIndex is the first Tablist in the array
-			increment = -1;					//Move to the previous Tablist in the array
+		if (!shiftPressed) {					//If only pressing tab
+			firstIndex = 0;						//The firstIndex is the first Tablist in the array
+			lastIndex = this.items.length - 1;	//The lastIndex is the last Tablist in the array
+			increment = 1;						//Move to the next Tablist in the array
+		} else {								//If pressing shift + tab
+			firstIndex = this.items.length - 1;	//The firstIndex is the last Tablist in the array
+			lastIndex = 0;						//The lastIndex is the first Tablist in the array
+			increment = -1;						//Move to the previous Tablist in the array
 		}
 
 
@@ -235,7 +244,7 @@ var main = function() {
 			this.currentTablistIndex += increment;					//Otherwise, move to the next Tablist (relative to direction)
 		}
 
-		newTablist = this[this.currentTablistIndex];			//Store the new Tablist to move to
+		newTablist = this.items[this.currentTablistIndex];			//Store the new Tablist to move to
  		
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
@@ -243,14 +252,11 @@ var main = function() {
 
 	//TODO
 	//Add event handlers - $(document).keydown -> tab - return focus to currentTablist $focusedChild
-	//When running tablistArray[1].init(), need to check viewport width and set this.vertical etc. accordingly
-	//Need to write a page resize handler for tablistArray[1] to detect and set aria-orientation
+	//When running tablistArray.items[1].init(), need to check viewport width and set this.vertical etc. accordingly
+	//Need to write a page resize handler for tablistArray.items[1] to detect and set aria-orientation
 
 	//Create a TablistArray to keep track of the page's Tablists
-	var tablistArray = new TablistArray();
-	tablistArray[0] = headerNav;
-	tablistArray[1] = pageNav;
-	tablistArray[2] = resumeNav;
+	var tablistArray = new TablistArray([headerNav, pageNav, resumeNav]);
 
 
 
