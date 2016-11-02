@@ -94,49 +94,56 @@ var main = function() {
 		switch (e.which) {
 
 			//Tab key without/with shift key causes the document's focus to move to the next/previous Tablist
-			case keys.tab: {
+			case keys.tab:
+				e.preventDefault();		//Stop default action from being carried out
 				if (!e.shiftKey) {		//If only pressing tab, set the document's focus to the next Tablist's $focusedChild
 					tablistArray.moveThroughTabOrder(false);
 				} else {				//If pressing shift + tab, set the document's focus to the previous Tablist's $focusedChild					
 					tablistArray.moveThroughTabOrder(true);
 				}
-			}
+				break;
 
 			//Up key - If orientation === vertical move focus to previous sibling
-			case keys.up: {
+			case keys.up:
+				e.preventDefault();		//Stop default action from being carried out
 				if (this.vertical) {
 					this.roveChildren(itemRef, false);
 				}
-			}
+				break;
 
 			//Right key - If orientation === horizontal move focus to next sibling
-			case keys.right: {
+			case keys.right:
+				e.preventDefault();		//Stop default action from being carried out
 				if (this.horizontal) {
 					this.roveChildren(itemRef, true);
 				}
-			}
+				break;
 
 			//Down key - If orientation === vertical move focus to next sibling
-			case keys.down: {
+			case keys.down:
+				e.preventDefault();		//Stop default action from being carried out
 				if (this.vertical) {
 					this.roveChildren(itemRef, true);
 				}
-			}
+				break;
 
 			//Left key - If orientation === horizontal move focus to previous sibling
-			case keys.left: {
+			case keys.left:
+				e.preventDefault();		//Stop default action from being carried out
 				if (this.horizontal) {
 					this.roveChildren(itemRef, false);
 				}
-			}
+				break;
 
-			case (keys.enter || keys.space): {
-				//Click element
-			}
+			//Space key || Enter key - click current item
+			case keys.enter:
+			case keys.space:
+				e.preventDefault();		//Stop default action from being carried out
+				$(itemRef).click();		//Click the item
+				break;
 
-			default: {			//If none of the important keys are pressed
-				return false;	//Exit function and stop propagation
-			}
+			default:			//If none of the important keys are pressed
+				break;			//Do nothing
 		}
 	};
 
