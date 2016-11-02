@@ -70,6 +70,13 @@ var main = function() {
 		this.$children.blur(function() {
 			return self.handleBlur($(this));
 		});
+
+		$(document).keydown(function(e) {
+			//TODO
+			//This gets called three times, once for each Tablist, can be fixed by moving this function to TablistArray
+			return self.returnFromDocument(e);
+			return false;
+		});
 	};
 
 
@@ -82,11 +89,13 @@ var main = function() {
 
 		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
 		//OPTIONAL - Add focus styling to $item
+		$item.css("background-color", "red");
 	};
 
 
 	Tablist.prototype.handleBlur = function($item) {
 		//OPTIONAL - Remove focus styling from $item
+		$item.css("background-color", "transparent");
 	};
 
 
@@ -148,6 +157,7 @@ var main = function() {
 				} else {				//If pressing shift + tab, set the document's focus to the previous Tablist's $focusedChild					
 					tablistArray.moveThroughTabOrder(true);
 				}
+				e.stopPropagation();
 				break;
 
 			//Up key - If orientation === vertical move focus to previous sibling
@@ -191,6 +201,18 @@ var main = function() {
 
 			default:		//If none of the important keys are pressed
 				break;		//Do nothing
+		}
+	};
+
+	//Member function of Tablist prototype
+	//When focused on the document and tab is pressed, return focus to most recently focused item
+	Tablist.prototype.returnFromDocument = function(e) {
+		if (e.which === keys.tab) {
+			//Store the most recently focused item in a variable and return focus to it
+			e.preventDefault;
+			var returnToObject = tablistArray.items[tablistArray.currentTablistIndex].$focusedChild;		
+			returnToObject.focus();
+			this.handleFocus($(returnToObject));
 		}
 	};
 
@@ -249,6 +271,8 @@ var main = function() {
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
 	};
+
+
 
 	//TODO
 	//Add event handlers - $(document).keydown -> tab - return focus to currentTablist $focusedChild
