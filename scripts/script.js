@@ -53,8 +53,6 @@ var main = function() {
 		this.$focusedChild.focus();						//Set the focus to the clicked item
 	};
 
-	//TODO
-	//Does not work when focused on certain items
 	//Member function of Tablist prototype
 	//Used to move to the next or previous child element in the Tablist, depending on the direction the user intends
 	Tablist.prototype.roveChildren = function(itemRef, moveDownList) {
@@ -80,7 +78,7 @@ var main = function() {
 		if (currentIndex === lastIndex) {			//If at the last element (relative to direction)
 			newIndex = firstIndex;					//Move to the first element (relative to direction)
 		} else {
-			newIndex += increment;					//Otherwise, move to the next element (relative to direction)
+			newIndex = currentIndex += increment;	//Otherwise, move to the next element (relative to direction)
 		}
 
 		//TODO
