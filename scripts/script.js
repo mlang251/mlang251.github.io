@@ -53,6 +53,8 @@ var main = function() {
 		this.$focusedChild.focus();						//Set the focus to the clicked item
 	};
 
+	//TODO
+	//Does not work when focused on certain items
 	//Member function of Tablist prototype
 	//Used to move to the next or previous child element in the Tablist, depending on the direction the user intends
 	Tablist.prototype.roveChildren = function(itemRef, moveDownList) {
@@ -94,6 +96,9 @@ var main = function() {
 		switch (e.which) {
 
 			//Tab key without/with shift key causes the document's focus to move to the next/previous Tablist
+			//TODO
+			//Tab key should not iterate only through tablists, it should also move to browser default objects like address bar etc.
+			//This might be handled by making tablistArray into an array that handles all items that are focusable
 			case keys.tab:
 				e.preventDefault();		//Stop default action from being carried out
 				if (!e.shiftKey) {		//If only pressing tab, set the document's focus to the next Tablist's $focusedChild
@@ -224,6 +229,9 @@ var main = function() {
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
 	};
+
+	//TODO
+	//Add event handlers - $(document).keydown -> tab - return focus to currentTablist $focusedChild
 
 
 
