@@ -18,6 +18,7 @@ var main = function() {
 
 
 
+
  	//Constructor to work with interactive tablists with ARIA enabled navigation
  	//The Tablists are container widgets that contain children that either are anchor elements, or have their own children that are anchor elements
 	function Tablist(selector) {
@@ -27,9 +28,11 @@ var main = function() {
 		this.vertical = null;					//Keeps track of aria-orientation
 		this.horizontal = null;					//Keeps track of aria-orientation
 
+		//Call initialization methods
 		this.bindHandlers();
 		this.init();
 	};
+
 
 	//Member function of Tablist prototype
 	//Initializes properties upon construction of Tablist object
@@ -44,7 +47,48 @@ var main = function() {
 		}
 
 		this.$focusedChild = this.$children[0];		//Set this.$focusedChild to be the first child anchor element
-	}
+	};
+
+
+	//Member function of Tablist prototype
+	//Binds event handlers to the children of each constructed Tablist
+	Tablist.prototype.bindHandlers = function() {
+		var self = this;								//To avoid confusion with this, set "self" equal to the Tablist that is currently being constructed
+
+		this.$children.click(function() {				//In Tablist that is currently being constructed, create event handler for each event.
+			return self.handleClick($(this));			//When a child item of the Tablist that is currently being constructed is the target of an event,
+		});												//call the necessary event handler from that same Tablist.
+														//Pass a jQuery element that points to the clicked child element
+		this.$children.keydown(function(e) {
+			return self.handleKeydown(this, e);			//Inside the event handlers, the scope of "this" is equal to the specific element that fired the event
+		});												//This is why self = this at the beginning, so that a reference to the parent Tablist is not lost
+
+		this.$children.focus(function() {				//Pass the event as a second parameter for keydown handler in order to tell which key is pressed
+			return self.handleFocus($(this));			
+		});												//For handleKeydown, need to pass the clicked object by reference
+
+		this.$children.blur(function() {
+			return self.handleBlur($(this));
+		});
+	};
+
+
+	//Member function of Tablist prototype
+	//Sets the tabindex of all children to -1 and then sets the tabindex of the focused item to 0
+	Tablist.prototype.handleFocus = function($item) {
+		this.$children.each(function() {				//Iterates through the children of the parent Tablist
+			$(this).attr("tabindex", "-1");				//Set the tabindex of the current item iteration to -1
+		});
+
+		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
+		//OPTIONAL - Add focus styling to $item
+	};
+
+
+	Tablist.prototype.handleBlur = function($item) {
+		//OPTIONAL - Remove focus styling from $item
+	};
+
 
 	//Member function of Tablist prototype
 	//Gets called when a Tablist child element is clicked
@@ -52,6 +96,7 @@ var main = function() {
 		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
 		this.$focusedChild.focus();						//Set the focus to the clicked item
 	};
+
 
 	//Member function of Tablist prototype
 	//Used to move to the next or previous child element in the Tablist, depending on the direction the user intends
@@ -81,12 +126,11 @@ var main = function() {
 			newIndex = currentIndex += increment;	//Otherwise, move to the next element (relative to direction)
 		}
 
-		//TODO
-		//handleFocus does not get called after .focus(), maybe a reference error
 		this.$focusedChild = this.$children[newIndex];		//Set $focusedChild to the new element
 		this.$focusedChild.focus();							//Focus on the target child element
 		this.handleFocus($(this.$focusedChild));			//Call handleFocus on this.$focusedChild
 	};
+
 
 	//Member function of Tablist prototype
 	//When a key is pressed while focused on a Tablist child element, fulfill the appropriate function
@@ -150,51 +194,21 @@ var main = function() {
 		}
 	};
 
-	//Member function of Tablist prototype
-	//Sets the tabindex of all children to -1 and then sets the tabindex of the focused item to 0
-	Tablist.prototype.handleFocus = function($item) {
-		this.$children.each(function() {				//Iterates through the children of the parent Tablist
-			$(this).attr("tabindex", "-1");				//Set the tabindex of the current item iteration to -1
-		});
-
-		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
-		//OPTIONAL - Add focus styling to $item
-	};
-
-	Tablist.prototype.handleBlur = function($item) {
-		//OPTIONAL - Remove focus styling from $item
-	};
-
-	//Member function of Tablist prototype
-	//Binds event handlers to the children of each constructed Tablist
-	Tablist.prototype.bindHandlers = function() {
-		var self = this;								//To avoid confusion with this, set "self" equal to the Tablist that is currently being constructed
-
-		this.$children.click(function() {				//In Tablist that is currently being constructed, create event handler for each event.
-			return self.handleClick($(this));			//When a child item of the Tablist that is currently being constructed is the target of an event,
-		});												//call the necessary event handler from that same Tablist.
-														//Pass a jQuery element that points to the clicked child element
-		this.$children.keydown(function(e) {
-			return self.handleKeydown(this, e);			//Inside the event handlers, the scope of "this" is equal to the specific element that fired the event
-		});												//This is why self = this at the beginning, so that a reference to the parent Tablist is not lost
-
-		this.$children.focus(function() {				//Pass the event as a second parameter for keydown handler in order to tell which key is pressed
-			return self.handleFocus($(this));			
-		});												//For handleKeydown, need to pass the clicked object by reference
-
-		this.$children.blur(function() {
-			return self.handleBlur($(this));
-		});
-	};
+	//Instantiate a Tablist for each tablist on the page
+	var headerNav = new Tablist("address");								//The main header navigation
+	var pageNav = new Tablist("nav#pageNav ul");						//The main page navigation
+	var resumeNav = new Tablist("aside#resume div[role = 'tablist']");	//The resume section navigation
 
 
-	//Create an array and instantiate an object for each of the tablists on the page
+
+	//Constructor to create an array and instantiate an object for each of the tablists on the page
  	function TablistArray() {
  		this.currentTablistIndex = 0;			//Stores the index of the currently focused Tablist
 		//TODO
 		//Make this prototype inherit from Array and use the Array.length property
  		this.length = 3;
  	};
+
 	
 	//Member function of TablistArray prototype
 	//Used to move to the next or previous Tablist on the page, depending on whether tab or shift + tab was pressed
@@ -202,6 +216,7 @@ var main = function() {
 		var firstIndex = null;		//Stores the first index in the TablistArray (relative to the direction of movement)
 		var lastIndex = null;		//Stores the last index in the TablistArray (relative to the direction of movement)
 		var increment = null;		//Stores the increment, dependant on the direction of movement
+		var newTablist = null;
 
 		if (!shiftPressed) {				//If only pressing tab
 			firstIndex = 0;					//The firstIndex is the first Tablist in the array
@@ -220,30 +235,23 @@ var main = function() {
 			this.currentTablistIndex += increment;					//Otherwise, move to the next Tablist (relative to direction)
 		}
 
-		var newTablist = this[this.currentTablistIndex];			//Store the new Tablist to move to
+		newTablist = this[this.currentTablistIndex];			//Store the new Tablist to move to
  		
- 		//TODO
-	 	//handleFocus does not get called at $focusedChild.focus(), probably need a reference to the newTablist
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
 	};
 
 	//TODO
 	//Add event handlers - $(document).keydown -> tab - return focus to currentTablist $focusedChild
-
-
-
+	//When running tablistArray[1].init(), need to check viewport width and set this.vertical etc. accordingly
+	//Need to write a page resize handler for tablistArray[1] to detect and set aria-orientation
 
 	//Create a TablistArray to keep track of the page's Tablists
 	var tablistArray = new TablistArray();
-	tablistArray[0] = new Tablist("address");								//The main header navigation
-	tablistArray[1] = new Tablist("nav#pageNav ul");						//The main page navigation
-	tablistArray[2] = new Tablist("aside#resume div[role = 'tablist']");	//The resume section navigation
+	tablistArray[0] = headerNav;
+	tablistArray[1] = pageNav;
+	tablistArray[2] = resumeNav;
 
-
-	//TODO
-	//When running tablistArray[1].init(), need to check viewport width and set this.vertical etc. accordingly
-	//Need to write a page resize handler for tablistArray[1] to detect and set aria-orientation
 
 
 
