@@ -37,15 +37,19 @@ var main = function() {
 
 	//Member function of Tablist prototype
 	//Calculates the viewport width and sets the orientation parameters accordingly
+	//During object construction, the horizontal and vertical properties are null, afterwards, they are either true or false
+	//This function is intended to work during construction as well as in a window resize event handler
 	Tablist.prototype.setOrientation = function() {
-		if ($(window).width() >= 975) {						//If viewport is above the medium breakpoint
-			this.$id.attr("aria-orientation", "horizontal")	//Tablist is horizontal
-			this.horizontal = true;
+		if ($(window).width() >= 975 && this.horizontal != true) {	//If viewport is above the medium breakpoint
+			this.$id.attr("aria-orientation", "horizontal")			//And this.horizontal is false or null
+			this.horizontal = true;									//Tablist is horizontal
 			this.vertical = false;
-		} else {											//If viewport is below the medium breakpoint
-			this.$id.attr("aria-orientation", "vertical")	//Tablist is vertical
-			this.horizontal = false;
-			this.vertical = true;			
+		} else {												//If viewport is below the medium breakpoint
+			if (this.vertical != true) {						//If this.vertical is false or null			
+				this.$id.attr("aria-orientation", "vertical")	//Tablist is vertical
+				this.horizontal = false;
+				this.vertical = true;			
+			}
 		}
 	};
 
@@ -90,6 +94,12 @@ var main = function() {
 		this.$children.blur(function() {
 			return self.handleBlur($(this));
 		});
+
+		if (this.isResponsive) {						//If this Tablist responds to viewport width
+			$(window).resize(function() {				//Bind a window resize handler
+				this.setOrientation();
+			});
+		}
 	};
 
 
