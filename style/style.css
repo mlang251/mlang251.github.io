@@ -7,8 +7,8 @@ body {
 
 
 
-/*When viewport >= 975px*/
-@media(min-width: 975px) {
+/*When viewport >= 992px*/
+@media(min-width: 992px) {
 	/*Style the landing nav to be inline-block display items and larger font size*/
 	nav#pageNav li {
 		font-size: 1.8em;
@@ -27,8 +27,8 @@ body {
 	}
 }
 
-/*When viewport width < 975px*/
-@media(max-width: 974px) {
+/*When viewport width < 992px*/
+@media(max-width: 991px) {
 	/*Landing nav list items are block display and smaller font*/
 	nav#pageNav li {
 		font-size: 1.2em;

@@ -40,7 +40,7 @@ var main = function() {
 	//During object construction, the horizontal and vertical properties are null, afterwards, they are either true or false
 	//This function is intended to work during construction as well as in a window resize event handler
 	Tablist.prototype.setOrientation = function() {
-		if ($(window).width() >= 975) {							//If viewport is above the medium breakpoint
+		if ($(window).width() >= 992) {							//If viewport is above the medium breakpoint
 			if (this.horizontal != true) {						//And this.horizontal is false or null
 				this.$id.attr("aria-orientation", "horizontal")	//Tablist is horizontal
 				this.horizontal = true;
