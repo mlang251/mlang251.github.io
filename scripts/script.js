@@ -21,29 +21,49 @@ var main = function() {
 
  	//Constructor to work with interactive tablists with ARIA enabled navigation
  	//The Tablists are container widgets that contain children that either are anchor elements, or have their own children that are anchor elements
-	function Tablist(selector) {
+	function Tablist(selector, isResponsive) {
 		this.$id = $(selector);					//jQuery element for the tablist being constructed
 		this.$children = this.$id.find("a");	//jQuery object that contains child elements - the elements themselves are jQuery objects
 		this.$focusedChild = null;				//Keeps track of the currently focused child
+		this.isResponsive = isResponsive;		//Boolean to keep track of whether or not the Tablist orientation depends on viewport size
 		this.vertical = null;					//Keeps track of aria-orientation
 		this.horizontal = null;					//Keeps track of aria-orientation
 
 		//Call initialization methods
-		this.bindHandlers();
 		this.init();
+		this.bindHandlers();
+	};
+
+
+	//Member function of Tablist prototype
+	//Calculates the viewport width and sets the orientation parameters accordingly
+	Tablist.prototype.setOrientation = function() {
+		if ($(window).width() >= 975) {						//If viewport is above the medium breakpoint
+			this.$id.attr("aria-orientation", "horizontal")	//Tablist is horizontal
+			this.horizontal = true;
+			this.vertical = false;
+		} else {											//If viewport is below the medium breakpoint
+			this.$id.attr("aria-orientation", "vertical")	//Tablist is vertical
+			this.horizontal = false;
+			this.vertical = true;			
+		}
 	};
 
 
 	//Member function of Tablist prototype
 	//Initializes properties upon construction of Tablist object
 	Tablist.prototype.init = function() {
-		//Set this.vertical and this.horizontal properties depending on the aria-orientation
-		if (this.$id.attr("aria-orientation") === "vertical") {
-			this.vertical = true;
-			this.horizontal = false;
-		} else {
-			this.vertical = false;
-			this.horizontal = true;
+		if (!this.isResponsive) {		//If the tablist does not respond to viewport width	
+			//Set this.vertical and this.horizontal properties depending on the aria-orientation
+			if (this.$id.attr("aria-orientation") === "vertical") {
+				this.vertical = true;
+				this.horizontal = false;
+			} else {
+				this.vertical = false;
+				this.horizontal = true;
+			}
+		} else {	//If the Tablist does respond to viewport width
+			this.setOrientation();
 		}
 
 		this.$focusedChild = this.$children[0];		//Set this.$focusedChild to be the first child anchor element
@@ -202,10 +222,11 @@ var main = function() {
 
 
 	//Instantiate a Tablist for each tablist on the page
-	var headerNav = new Tablist("address");								//The main header navigation
-	var pageNav = new Tablist("nav#pageNav ul");						//The main page navigation
-	var resumeNav = new Tablist("aside#resume div[role = 'tablist']");	//The resume section navigation
-
+	var headerNav = new Tablist("address", false);								//The main header navigation
+	var pageNav = new Tablist("nav#pageNav ul", true);							//The main page navigation
+	var resumeNav = new Tablist("aside#resume div[role = 'tablist']", false);	//The resume section navigation
+	//TODO
+	//Need to write a page resize handler for tablistArray.items[1] to detect and set aria-orientation
 
 
 	//Constructor to create an array and instantiate an object for each of the tablists on the page
@@ -213,7 +234,7 @@ var main = function() {
  		this.items = new Array();				//Array that stores the Tablists
  		this.currentTablistIndex = 0;			//Stores the index of the currently focused Tablist
 
- 		//Initialize the TablistArray and fill items with the Tablists
+ 		//Call initialization methods
  		this.init(tablists);
  		this.bindHandlers();
  	};
@@ -280,13 +301,6 @@ var main = function() {
 		returnToTablist.$focusedChild.focus();								//Focus on the item
 		returnToTablist.handleFocus($(returnToTablist.$focusedChild));		//Call the tablist.handleFocus method
 	};
-
-
-
-	//TODO
-	//Add event handlers - $(document).keydown -> tab - return focus to currentTablist $focusedChild
-	//When running tablistArray.items[1].init(), need to check viewport width and set this.vertical etc. accordingly
-	//Need to write a page resize handler for tablistArray.items[1] to detect and set aria-orientation
 
 	//Create a TablistArray to keep track of the page's Tablists
 	var tablistArray = new TablistArray([headerNav, pageNav, resumeNav]);
