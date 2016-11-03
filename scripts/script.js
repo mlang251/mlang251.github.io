@@ -70,13 +70,6 @@ var main = function() {
 		this.$children.blur(function() {
 			return self.handleBlur($(this));
 		});
-
-		$(document).keydown(function(e) {
-			//TODO
-			//This gets called three times, once for each Tablist, can be fixed by moving this function to TablistArray
-			return self.returnFromDocument(e);
-			return false;
-		});
 	};
 
 
@@ -89,13 +82,11 @@ var main = function() {
 
 		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
 		//OPTIONAL - Add focus styling to $item
-		$item.css("background-color", "red");
 	};
 
 
 	Tablist.prototype.handleBlur = function($item) {
 		//OPTIONAL - Remove focus styling from $item
-		$item.css("background-color", "transparent");
 	};
 
 
@@ -132,7 +123,7 @@ var main = function() {
 		if (currentIndex === lastIndex) {			//If at the last element (relative to direction)
 			newIndex = firstIndex;					//Move to the first element (relative to direction)
 		} else {
-			newIndex = currentIndex += increment;	//Otherwise, move to the next element (relative to direction)
+			newIndex = currentIndex + increment;	//Otherwise, move to the next element (relative to direction)
 		}
 
 		this.$focusedChild = this.$children[newIndex];		//Set $focusedChild to the new element
@@ -166,6 +157,7 @@ var main = function() {
 				if (this.vertical) {
 					this.roveChildren(itemRef, false);
 				}
+				e.stopPropagation();
 				break;
 
 			//Right key - If orientation === horizontal move focus to next sibling
@@ -174,6 +166,7 @@ var main = function() {
 				if (this.horizontal) {
 					this.roveChildren(itemRef, true);
 				}
+				e.stopPropagation();
 				break;
 
 			//Down key - If orientation === vertical move focus to next sibling
@@ -182,6 +175,7 @@ var main = function() {
 				if (this.vertical) {
 					this.roveChildren(itemRef, true);
 				}
+				e.stopPropagation();
 				break;
 
 			//Left key - If orientation === horizontal move focus to previous sibling
@@ -190,6 +184,7 @@ var main = function() {
 				if (this.horizontal) {
 					this.roveChildren(itemRef, false);
 				}
+				e.stopPropagation();
 				break;
 
 			//Space key || Enter key - click current item
@@ -197,6 +192,7 @@ var main = function() {
 			case keys.space:
 				e.preventDefault();		//Stop default action from being carried out
 				$(itemRef).click();		//Click the item
+				e.stopPropagation();
 				break;
 
 			default:		//If none of the important keys are pressed
@@ -204,17 +200,6 @@ var main = function() {
 		}
 	};
 
-	//Member function of Tablist prototype
-	//When focused on the document and tab is pressed, return focus to most recently focused item
-	Tablist.prototype.returnFromDocument = function(e) {
-		if (e.which === keys.tab) {
-			//Store the most recently focused item in a variable and return focus to it
-			e.preventDefault;
-			var returnToObject = tablistArray.items[tablistArray.currentTablistIndex].$focusedChild;		
-			returnToObject.focus();
-			this.handleFocus($(returnToObject));
-		}
-	};
 
 	//Instantiate a Tablist for each tablist on the page
 	var headerNav = new Tablist("address");								//The main header navigation
@@ -228,8 +213,9 @@ var main = function() {
  		this.items = new Array();				//Array that stores the Tablists
  		this.currentTablistIndex = 0;			//Stores the index of the currently focused Tablist
 
- 		//Initialize the tablistArray and fill items with the Tablists
+ 		//Initialize the TablistArray and fill items with the Tablists
  		this.init(tablists);
+ 		this.bindHandlers();
  	};
 
  	//Member function of TablistArray prototype
@@ -239,6 +225,19 @@ var main = function() {
  			this.items.push(tablists[i]);			//Push each one to this.items
  		}
  	};
+
+	//Member function of TablistArray prototype
+	//Binds event handlers to the TablistArray or document
+	TablistArray.prototype.bindHandlers = function() {
+		var self = this;	//Store this TablistArray in variable because scope of this inside handler is the object that fired event
+ 		$(document).keydown(function(e) {
+ 			//If the tab key is pressed while focused on the document, return focus to the most recently focused Tablist child element
+ 			if (e.which === keys.tab) {
+				e.preventDefault();			//Stop the tab button from carrying out default action
+				return self.returnFromDocument(e);
+			}
+		});
+	};
 
 	
 	//Member function of TablistArray prototype
@@ -270,6 +269,16 @@ var main = function() {
  		
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
+	};
+
+
+	//Member function of Tablist prototype
+	//When focused on the document and tab is pressed, return focus to most recently focused item
+	TablistArray.prototype.returnFromDocument = function(e) {
+		//Store the most recently focused Tablist in a variable and return focus to it's $focusedChild
+		var returnToTablist = this.items[this.currentTablistIndex];		
+		returnToTablist.$focusedChild.focus();								//Focus on the item
+		returnToTablist.handleFocus($(returnToTablist.$focusedChild));		//Call the tablist.handleFocus method
 	};
 
 
