@@ -99,7 +99,7 @@ var main = function() {
 
 		if (this.isResponsive) {						//If this Tablist responds to viewport width
 			$(window).resize(function() {				//Bind a window resize handler
-				this.setOrientation();
+				return self.setOrientation();
 			});
 		}
 	};
