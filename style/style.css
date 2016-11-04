@@ -93,8 +93,7 @@ article p.col-sm-10 {
 /*Link stylings, with vendor prefixes for color transitions
 Need to override .h2 bootstrap class because it causes the pageHeader email anchor to inherit color from body*/
 a,				a.h2,
-a:visited,		a.h2:visited,
-a:active,		a.h2:active
+a:visited,		a.h2:visited
 {
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
@@ -108,7 +107,9 @@ a:active,		a.h2:active
 
 a.isHoverable:hover,
 a:focus,
-a.h2:focus {
+a.h2:focus,
+a:active,
+a.h2:active {
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
 	    -ms-transition: color 200ms;
@@ -135,7 +136,8 @@ a.isHoverable::after {
 
 /*When links are hovered, the pseudoelement draws an underline under the text*/
 a.isHoverable:hover::after,
-a.isHoverable:focus::after {
+a.isHoverable:focus::after,
+a.isHoverable:active::after {
 	width: 100%;
 	-webkit-transition: width 400ms;
 	   -moz-transition: width 400ms;
