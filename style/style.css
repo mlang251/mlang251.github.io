@@ -14,6 +14,7 @@ body {
 		font-size: 1.8em;
 		display: inline-block;
 		padding: 0 10px;
+		line-height: 1.1;
 	}
 
 	/*Add border between list items to separate them, set line height so border height matches font size*/
@@ -40,6 +41,7 @@ body {
 	nav#pageNav li {
 		font-size: 1.2em;
 		padding: 0 5px;
+		line-height: inherit;
 	}
 
 	/*Get rid of border between list items, inherit line height from body*/
@@ -118,10 +120,10 @@ a.h2:focus {
 	outline: none;
 }
 
-span.underline {
+a::after {
+	content: "";
+	display: block;
 	width: 0;
-	/*display: inline-block;*/
-	white-space: nowrap;
 	border-bottom: 2px solid #702D24;
 	-webkit-transition: width 200ms;
 	   -moz-transition: width 200ms;
@@ -130,14 +132,14 @@ span.underline {
 	     	transition: width 200ms;
 }
 
-a:hover span.underline,
-a:focus span.underline {
+a:hover::after,
+a:focus::after {
 	width: 100%;
 	-webkit-transition: width 400ms;
 	   -moz-transition: width 400ms;
 	    -ms-transition: width 400ms;
 	     -o-transition: width 400ms;
-	     	transition: width 400ms;
+	     	transition: width 400ms;	
 }
 
 
@@ -255,7 +257,8 @@ nav#pageNav ul {
 
 
 nav#pageNav a {
-	display: block;
+	display: inline-block;
+	height: auto;
 }
 
 
