@@ -27,7 +27,7 @@
 					<h1><a href = "#landing" 
 						itemprop = "name"
 						role = "tab"
-						aria-labelledby = "pageNav"
+						aria-label = "Top of page"
 						tabindex = "0"
 						rel = "tag">Mark Lang</a></h1>
 					<a href = "mailto:lang.m@husky.neu.edu" 
@@ -54,7 +54,7 @@
 
 			<nav id = "pageNav" class = "row" aria-label = "Site navigation">
 				<ul role = "tablist"
-					aria-labelledby = "pageNav"
+					aria-label = "Page navigation"
 					tabindex = "0">
 					<li><a href = "#about"  role = "tab" tabindex = "0" rel = "tag">About</a></li>
 					<li><a href = "#goals"  role = "tab" tabindex = "-1" rel = "tag">Goals</a></li>
@@ -83,7 +83,7 @@
 					<div class = "col-sm-offset-2 col-sm-10">
 
 						<!--Image is floated left so that text wraps around it-->
-						<img itemprop = "image" src = "images/headshot.png"/>
+						<img itemprop = "image" src = "images/headshot.png" alt = "Image of Mark Lang"/>
 
 						<p>I have been learning web development since August of 2016, teaching myself and learning all that I can from various online resources and textbooks. So far I have been practicing by recreating existing webpages from scratch, which has been an incredible learning experience because it forces me to learn common practices used in professional website coding.</p>
 
@@ -250,19 +250,22 @@
 					<a href = "attachments/Resume.pdf" 
 						rel = "author external"
 						role = "tab"
+						aria-labelledby = "resumeIMG"
 						tabindex = "0"
 						itemprop = "mainEntityOfPage">
-						<img src = "images/pdf64px.png" /></a>
+						<img id = "resumeIMG" src = "images/pdf64px.png" alt = "View my resume"/></a>
 					<a href = "https://github.com/mlang251" 
 						rel = "author external"
 						role = "tab"
+						aria-labelledby = "GithubIMG"
 						itemprop = "sameAs">
-						<img src = "images/GitHub-Mark-64px.png" /></a>
+						<img id = "GithubIMG" src = "images/GitHub-Mark-64px.png" alt = "Visit my Github"/></a>
 					<a href = "https://www.linkedin.com/in/mark-lang-a05143102" 
 						rel = "author external"
 						role = "tab"
+						aria-labelledby = "LinkedInIMG"
 						itemprop = "sameAs">
-						<img src = "images/linkedin64px.png" /></a>
+						<img id = "LinkedInIMG" src = "images/linkedin64px.png" alt = "Visit my LinkedIn"/></a>
 				</div>
 			</div>
 		
