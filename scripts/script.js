@@ -114,6 +114,8 @@ var main = function() {
 
 		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
 		//OPTIONAL - Add focus styling to $item
+		//TODO
+		//If $item is not visible, scroll until it is visibile
 	};
 
 
