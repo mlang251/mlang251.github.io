@@ -332,7 +332,7 @@ var main = function() {
 
 	//if device does not have touch capability, add a hover class to anchors and page header
 	if(!isTouch()) {
-		$("a").addClass("isHoverable");
+		$("a:not(aside#resume a)").addClass("isHoverable");
 		$("header#pageHeader").addClass("isHoverable");
 	}
 

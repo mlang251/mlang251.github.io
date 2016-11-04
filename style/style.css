@@ -120,7 +120,7 @@ a.h2:focus {
 	outline: none;
 }
 
-a::after {
+a.isHoverable::after {
 	content: "";
 	display: block;
 	width: 0;
@@ -132,8 +132,8 @@ a::after {
 	     	transition: width 200ms;
 }
 
-a:hover::after,
-a:focus::after {
+a.isHoverable:hover::after,
+a.isHoverable:focus::after {
 	width: 100%;
 	-webkit-transition: width 400ms;
 	   -moz-transition: width 400ms;
