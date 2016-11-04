@@ -172,9 +172,6 @@ var main = function() {
 		switch (e.which) {
 
 			//Tab key without/with shift key causes the document's focus to move to the next/previous Tablist
-			//TODO
-			//Tab key should not iterate only through tablists, it should also move to browser default objects like address bar etc.
-			//This might be handled by making tablistArray into an array that handles all items that are focusable
 			case keys.tab:
 				e.preventDefault();		//Stop default action from being carried out
 				if (!e.shiftKey) {		//If only pressing tab, set the document's focus to the next Tablist's $focusedChild
@@ -228,6 +225,8 @@ var main = function() {
 				$(itemRef).click();		//Click the item
 				e.stopPropagation();
 				break;
+				//TODO
+				//External links do not click correctly
 
 			default:		//If none of the important keys are pressed
 				break;		//Do nothing
