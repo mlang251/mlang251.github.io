@@ -375,11 +375,31 @@ td:first-child {
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
+/*When links are not being hovered or focused, images are moderately opaque*/
 aside#resume img {
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	height: 50px;
 	width: 50px;
+	padding: 2px;
+	opacity: 0.6;
+	-webkit-transition: opacity 200ms;
+	   -moz-transition: opacity 200ms;
+	    -ms-transition: opacity 200ms;
+	     -o-transition: opacity 200ms;
+	     	transition: opacity 200ms;
+}
+
+/*When links are hovered or focused, images are not opaque*/
+aside#resume a:hover img,
+aside#resume a:focus img,
+aside#resume a:active img {
+	opacity: 1;
+	-webkit-transition: opacity 400ms;
+	   -moz-transition: opacity 400ms;
+	    -ms-transition: opacity 400ms;
+	     -o-transition: opacity 400ms;
+	     	transition: opacity 400ms;
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
