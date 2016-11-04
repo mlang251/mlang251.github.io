@@ -214,8 +214,14 @@ address {
 	line-height: inherit;
 }
 
-header#pageHeader a {
+address a {
 	display: inline-block;
+}
+
+/*Fix margins on email address so the after element borders don't change the size of the pageHeader*/
+address a.h2 {
+	margin-top: 18px;
+	margin-bottom: 8px;
 }
 
 
