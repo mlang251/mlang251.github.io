@@ -120,6 +120,7 @@ a.h2:focus {
 	outline: none;
 }
 
+/*Create an after pseudoelement that will not appear until hovered*/
 a.isHoverable::after {
 	content: "";
 	display: block;
@@ -132,6 +133,7 @@ a.isHoverable::after {
 	     	transition: width 200ms;
 }
 
+/*When links are hovered, the pseudoelement draws an underline under the text*/
 a.isHoverable:hover::after,
 a.isHoverable:focus::after {
 	width: 100%;
@@ -258,7 +260,6 @@ nav#pageNav ul {
 
 nav#pageNav a {
 	display: inline-block;
-	height: auto;
 }
 
 
