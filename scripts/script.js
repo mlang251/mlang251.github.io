@@ -126,7 +126,7 @@ var main = function() {
 	//Gets called when a Tablist child element is clicked
 	Tablist.prototype.handleClick = function($item) {
 		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
-		this.$focusedChild.focus();						//Set the focus to the clicked item
+		this.$focusedChild.blur();						//Return focus to the document
 	};
 
 
