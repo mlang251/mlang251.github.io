@@ -126,12 +126,21 @@ a.isHoverable::after {
 	content: "";
 	display: block;
 	width: 0;
-	border-bottom: 2px solid #702D24;
 	-webkit-transition: width 200ms;
 	   -moz-transition: width 200ms;
 	    -ms-transition: width 200ms;
 	     -o-transition: width 200ms;
 	     	transition: width 200ms;
+}
+
+/*Pseudoelement underline color for page header items*/
+header#pageHeader a.isHoverable::after {
+	border-bottom: 2px solid #702D24;
+}
+
+/*Pseudoelement underline color for page nav items*/
+nav#pageNav a.isHoverable::after {
+	border-bottom: 2px solid rgb(21, 27, 31);
 }
 
 /*When links are hovered, the pseudoelement draws an underline under the text*/
