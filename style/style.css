@@ -14,6 +14,7 @@ body {
 		font-size: 1.8em;
 		display: inline-block;
 		padding: 0 10px;
+		line-height: 1.1;
 	}
 
 	/*Add border between list items to separate them, set line height so border height matches font size*/
@@ -27,7 +28,7 @@ body {
 		margin-top: 25vh;
 	}
 
-	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
+	/*When scrolling to the top of an article, there is just enough padding to make room for page header*/
 	article h2.col-sm-2,
 	aside#resume h2.col-sm-2 {
 		padding-top: 141px;
@@ -40,6 +41,7 @@ body {
 	nav#pageNav li {
 		font-size: 1.2em;
 		padding: 0 5px;
+		line-height: inherit;
 	}
 
 	/*Get rid of border between list items, inherit line height from body*/
@@ -91,9 +93,7 @@ article p.col-sm-10 {
 /*Link stylings, with vendor prefixes for color transitions
 Need to override .h2 bootstrap class because it causes the pageHeader email anchor to inherit color from body*/
 a,				a.h2,
-a:visited,		a.h2:visited,
-a:active,		a.h2:active,
-a:focus,		a.h2:focus
+a:visited,		a.h2:visited
 {
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
@@ -105,7 +105,11 @@ a:focus,		a.h2:focus
 	text-decoration: none;
 }
 
-a.isHoverable:hover {
+a.isHoverable:hover,
+a:focus,
+a.h2:focus,
+a:active,
+a.h2:active {
 	-webkit-transition: color 200ms;
 	   -moz-transition: color 200ms;
 	    -ms-transition: color 200ms;
@@ -114,7 +118,45 @@ a.isHoverable:hover {
 
 	color: #FFFFFF;
 	text-decoration: none;
+	outline: none;
 }
+
+/*Create an after pseudoelement that will not appear until hovered*/
+a.isHoverable::after {
+	content: "";
+	display: block;
+	width: 0;
+	-webkit-transition: width 200ms;
+	   -moz-transition: width 200ms;
+	    -ms-transition: width 200ms;
+	     -o-transition: width 200ms;
+	     	transition: width 200ms;
+}
+
+/*Pseudoelement underline color for page header items*/
+header#pageHeader a.isHoverable::after {
+	border-bottom: 2px solid #702D24;
+}
+
+/*Pseudoelement underline color for page nav items*/
+nav#pageNav a.isHoverable::after {
+	border-bottom: 2px solid rgb(21, 27, 31);
+}
+
+/*When links are hovered, the pseudoelement draws an underline under the text*/
+a.isHoverable:hover::after,
+a.isHoverable:focus::after,
+a.isHoverable:active::after {
+	width: 100%;
+	-webkit-transition: width 400ms;
+	   -moz-transition: width 400ms;
+	    -ms-transition: width 400ms;
+	     -o-transition: width 400ms;
+	     	transition: width 400ms;	
+}
+
+/*TODO*/
+/*Add focus styling to the resume section links*/
 
 
 
@@ -186,8 +228,14 @@ address {
 	line-height: inherit;
 }
 
-header#pageHeader a {
-	display: block;
+address a {
+	display: inline-block;
+}
+
+/*Fix margins on email address so the after element borders don't change the size of the pageHeader*/
+address a.h2 {
+	margin-top: 18px;
+	margin-bottom: 8px;
 }
 
 
@@ -229,6 +277,10 @@ nav#pageNav ul {
 	padding-right: 15px;
 }
 
+
+nav#pageNav a {
+	display: inline-block;
+}
 
 
 
@@ -323,11 +375,31 @@ td:first-child {
 
 
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
+/*When links are not being hovered or focused, images are moderately opaque*/
 aside#resume img {
 	display: inline-block;
 	margin: 0 10px 10px 0;
 	height: 50px;
 	width: 50px;
+	padding: 2px;
+	opacity: 0.6;
+	-webkit-transition: opacity 200ms;
+	   -moz-transition: opacity 200ms;
+	    -ms-transition: opacity 200ms;
+	     -o-transition: opacity 200ms;
+	     	transition: opacity 200ms;
+}
+
+/*When links are hovered or focused, images are not opaque*/
+aside#resume a:hover img,
+aside#resume a:focus img,
+aside#resume a:active img {
+	opacity: 1;
+	-webkit-transition: opacity 400ms;
+	   -moz-transition: opacity 400ms;
+	    -ms-transition: opacity 400ms;
+	     -o-transition: opacity 400ms;
+	     	transition: opacity 400ms;
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
