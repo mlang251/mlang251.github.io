@@ -128,6 +128,7 @@ var main = function() {
 	//Gets called when a Tablist child element is clicked
 	Tablist.prototype.handleClick = function($item) {
 		this.$focusedChild = $item;						//Store a jQuery object of the clicked item
+		this.$focusedChild.focus();						//Focus on the item so that the tabindex attributes get set
 		this.$focusedChild.blur();						//Return focus to the document
 	};
 
@@ -222,11 +223,9 @@ var main = function() {
 			case keys.enter:
 			case keys.space:
 				e.preventDefault();		//Stop default action from being carried out
-				$(itemRef).click();		//Click the item
+				itemRef.click();		//Click the item
 				e.stopPropagation();
 				break;
-				//TODO
-				//External links do not click correctly
 
 			default:		//If none of the important keys are pressed
 				break;		//Do nothing
