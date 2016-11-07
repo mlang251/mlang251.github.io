@@ -105,6 +105,8 @@ a:visited,		a.h2:visited
 	text-decoration: none;
 }
 
+/*TODO*/
+/*On touchscreen clicked links are inheriting the browser's default link styling*/
 a.isHoverable:hover,
 a:focus,
 a.h2:focus,
