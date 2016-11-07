@@ -90,7 +90,6 @@ article p.col-sm-10 {
 
 
 /*When links are hovered, the pseudoelement draws an underline under the text*/
-/*Create an after pseudoelement that will not appear until hovered*/
 a.isHoverable::after {
 	content: "";
 	display: block;
@@ -112,8 +111,9 @@ nav#pageNav a.isHoverable::after {
 	border-bottom: 2px solid rgb(21, 27, 31);
 }
 
-/*Link stylings, with vendor prefixes for color transitions
-Need to override .h2 bootstrap class because it causes the pageHeader email anchor to inherit color from body*/
+/*Link stylings, with vendor prefixes for color transitions*/
+/*Unfortunately, since there is a styling transition for the links with each of the pseudoclasses as well as a pseudoelement transition
+  for each of the pseudoclasses, the stylings need to be copy and pasted multiple times so that they still follow the LVHA order rules*/
 a,				a.h2,
 a:visited,		a.h2:visited
 {
@@ -126,9 +126,6 @@ a:visited,		a.h2:visited
 	color: #E0E0A0;
 	text-decoration: none;
 }
-
-/*TODO*/
-/*On touchscreen clicked links are inheriting the browser's default link styling*/
 
 a:hover,
 a.h2:hover {
