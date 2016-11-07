@@ -119,8 +119,6 @@ var main = function() {
 				if (scrollLocation + windowHeight > topOffset + itemHeight) {					//If bottom of item is above the bottom of the viewport
 					return false;																//(i.e. item is fully visible) - Do nothing
 				} else {																		//Otherwise, item is below the viewport
-					//TODO
-					//This is not giving the proper buffer when scrolling to the resumeNav
 					$(window).scrollTop(topOffset - windowHeight + itemHeight + buffer);		//Scroll down until item is fully visible
 					return false;
 				}
@@ -324,9 +322,9 @@ var main = function() {
 
 		newTablist = this.items[this.currentTablistIndex];			//Store the new Tablist to move to
  		
+		newTablist.scrollIntoView($(newTablist.$focusedChild));		//Scroll so that the item is visible
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
-		this.scrollIntoView($(returnToTablist.$focusedChild));		//Scroll so that the item is visible
 	};
 
 
@@ -335,9 +333,9 @@ var main = function() {
 	TablistArray.prototype.returnFromDocument = function(e) {
 		//Store the most recently focused Tablist in a variable and return focus to it's $focusedChild
 		var returnToTablist = this.items[this.currentTablistIndex];		
+		returnToTablist.scrollIntoView($(returnToTablist.$focusedChild));	//Scroll so that the item is visible
 		returnToTablist.$focusedChild.focus();								//Focus on the item
 		returnToTablist.handleFocus($(returnToTablist.$focusedChild));		//Call the tablist.handleFocus method
-		returnToTablist.scrollIntoView($(returnToTablist.$focusedChild));	//Scroll so that the item is visible
 	};
 
 	//Create a TablistArray to keep track of the page's Tablists
