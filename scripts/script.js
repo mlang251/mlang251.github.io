@@ -106,6 +106,34 @@ var main = function() {
 
 
 	//Member function of Tablist prototype
+	//Calculates whether or not the item is visible to the user, if it isn't this function puts the item in the visible area of the viewport
+	Tablist.prototype.scrollIntoView = function($item) {
+		if (this != headerNav) {																//This function doesn't apply to headerNav because it is always in view
+			var topOffset = $item.offset().top;													//Stores the offset of the top of the item from the top of the document
+			var itemHeight = $item.height();													//Stores the height of the item
+			var headerHeight = $("header#pageHeader").height();									//Stores the height of the pageHeader
+			var windowHeight = $(window).height();												//Stores the height of the viewport
+			var scrollLocation = $(window).scrollTop()											//Stores the location of the scrollbar
+			var buffer = 100;																	//A buffer for scrolling so items aren't on the edges of the screen
+			if (scrollLocation + headerHeight < topOffset) {									//If item is below the top edge of viewport and below the pageHeader
+				if (scrollLocation + windowHeight > topOffset + itemHeight) {					//If bottom of item is above the bottom of the viewport
+					return false;																//(i.e. item is fully visible) - Do nothing
+				} else {																		//Otherwise, item is below the viewport
+					//TODO
+					//This is not giving the proper buffer when scrolling to the resumeNav
+					$(window).scrollTop(topOffset - windowHeight + itemHeight + buffer);		//Scroll down until item is fully visible
+					return false;
+				}
+			} else {																			//If item is above the top edge of the viewport
+				$(window).scrollTop(topOffset - headerHeight - buffer);							//Scroll up until item is in full view below the pageHeader
+				return false;
+			}
+		}
+		return false;
+	};
+
+
+	//Member function of Tablist prototype
 	//Sets the tabindex of all children to -1 and then sets the tabindex of the focused item to 0
 	Tablist.prototype.handleFocus = function($item) {
 		this.$children.each(function() {				//Iterates through the children of the parent Tablist
@@ -114,8 +142,6 @@ var main = function() {
 
 		$item.attr("tabindex", "0");					//Set the tabindex of the focused item to 0
 		//OPTIONAL - Add focus styling to $item
-		//TODO
-		//If $item is not visible, scroll until it is visibile
 	};
 
 
@@ -300,6 +326,7 @@ var main = function() {
  		
 		newTablist.$focusedChild.focus();							//Focus on the child element of the new Tablist
 		newTablist.handleFocus($(newTablist.$focusedChild));		//Call handleFocus to set the tabindex to 0
+		this.scrollIntoView($(returnToTablist.$focusedChild));		//Scroll so that the item is visible
 	};
 
 
@@ -310,6 +337,7 @@ var main = function() {
 		var returnToTablist = this.items[this.currentTablistIndex];		
 		returnToTablist.$focusedChild.focus();								//Focus on the item
 		returnToTablist.handleFocus($(returnToTablist.$focusedChild));		//Call the tablist.handleFocus method
+		returnToTablist.scrollIntoView($(returnToTablist.$focusedChild));	//Scroll so that the item is visible
 	};
 
 	//Create a TablistArray to keep track of the page's Tablists
