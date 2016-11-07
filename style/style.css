@@ -89,40 +89,7 @@ article p.col-sm-10 {
 }
 
 
-
-/*Link stylings, with vendor prefixes for color transitions
-Need to override .h2 bootstrap class because it causes the pageHeader email anchor to inherit color from body*/
-a,				a.h2,
-a:visited,		a.h2:visited
-{
-	-webkit-transition: color 200ms;
-	   -moz-transition: color 200ms;
-	    -ms-transition: color 200ms;
-	     -o-transition: color 200ms;
-	     	transition: color 200ms;
-
-	color: #E0E0A0;
-	text-decoration: none;
-}
-
-/*TODO*/
-/*On touchscreen clicked links are inheriting the browser's default link styling*/
-a.isHoverable:hover,
-a:focus,
-a.h2:focus,
-a:active,
-a.h2:active {
-	-webkit-transition: color 200ms;
-	   -moz-transition: color 200ms;
-	    -ms-transition: color 200ms;
-	     -o-transition: color 200ms;
-	     	transition: color 200ms;
-
-	color: #FFFFFF;
-	text-decoration: none;
-	outline: none;
-}
-
+/*When links are hovered, the pseudoelement draws an underline under the text*/
 /*Create an after pseudoelement that will not appear until hovered*/
 a.isHoverable::after {
 	content: "";
@@ -145,9 +112,81 @@ nav#pageNav a.isHoverable::after {
 	border-bottom: 2px solid rgb(21, 27, 31);
 }
 
-/*When links are hovered, the pseudoelement draws an underline under the text*/
-a.isHoverable:hover::after,
-a.isHoverable:focus::after,
+/*Link stylings, with vendor prefixes for color transitions
+Need to override .h2 bootstrap class because it causes the pageHeader email anchor to inherit color from body*/
+a,				a.h2,
+a:visited,		a.h2:visited
+{
+	-webkit-transition: color 200ms;
+	   -moz-transition: color 200ms;
+	    -ms-transition: color 200ms;
+	     -o-transition: color 200ms;
+	     	transition: color 200ms;
+
+	color: #E0E0A0;
+	text-decoration: none;
+}
+
+/*TODO*/
+/*On touchscreen clicked links are inheriting the browser's default link styling*/
+
+a:hover,
+a.h2:hover {
+	-webkit-transition: color 200ms;
+	   -moz-transition: color 200ms;
+	    -ms-transition: color 200ms;
+	     -o-transition: color 200ms;
+	     	transition: color 200ms;
+
+	color: #FFFFFF;
+	text-decoration: none;
+	outline: none;
+}
+
+a.isHoverable:hover::after {
+	width: 100%;
+	-webkit-transition: width 400ms;
+	   -moz-transition: width 400ms;
+	    -ms-transition: width 400ms;
+	     -o-transition: width 400ms;
+	     	transition: width 400ms;	
+}
+
+a:focus,
+a.h2:focus {
+	-webkit-transition: color 200ms;
+	   -moz-transition: color 200ms;
+	    -ms-transition: color 200ms;
+	     -o-transition: color 200ms;
+	     	transition: color 200ms;
+
+	color: #FFFFFF;
+	text-decoration: none;
+	outline: none;
+}
+
+a.isHoverable:focus::after {
+	width: 100%;
+	-webkit-transition: width 400ms;
+	   -moz-transition: width 400ms;
+	    -ms-transition: width 400ms;
+	     -o-transition: width 400ms;
+	     	transition: width 400ms;	
+}
+
+a:active,
+a.h2:active {
+	-webkit-transition: color 200ms;
+	   -moz-transition: color 200ms;
+	    -ms-transition: color 200ms;
+	     -o-transition: color 200ms;
+	     	transition: color 200ms;
+
+	color: #FFFFFF;
+	text-decoration: none;
+	outline: none;
+}
+
 a.isHoverable:active::after {
 	width: 100%;
 	-webkit-transition: width 400ms;
