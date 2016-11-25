@@ -40,15 +40,15 @@ var main = function() {
 	//During object construction, the horizontal and vertical properties are null, afterwards, they are either true or false
 	//This function is intended to work during construction as well as in a window resize event handler
 	Tablist.prototype.setOrientation = function() {
-		if ($(window).width() >= 992) {							//If viewport is above the medium breakpoint
-			if (this.horizontal != true) {						//And this.horizontal is false or null
-				this.$id.attr("aria-orientation", "horizontal")	//Tablist is horizontal
+		if ($(window).width() >= 992) {								//If viewport is above the medium breakpoint
+			if (this.horizontal != true) {							//And this.horizontal is false or null
+				this.$id.attr("aria-orientation", "horizontal");	//Tablist is horizontal
 				this.horizontal = true;
 				this.vertical = false;
 			}
 		} else {												//If viewport is below the medium breakpoint
 			if (this.vertical != true) {						//If this.vertical is false or null			
-				this.$id.attr("aria-orientation", "vertical")	//Tablist is vertical
+				this.$id.attr("aria-orientation", "vertical");	//Tablist is vertical
 				this.horizontal = false;
 				this.vertical = true;			
 			}
@@ -113,7 +113,7 @@ var main = function() {
 			var itemHeight = $item.height();													//Stores the height of the item
 			var headerHeight = $("header#pageHeader").height();									//Stores the height of the pageHeader
 			var windowHeight = $(window).height();												//Stores the height of the viewport
-			var scrollLocation = $(window).scrollTop()											//Stores the location of the scrollbar
+			var scrollLocation = $(window).scrollTop();											//Stores the location of the scrollbar
 			var buffer = 100;																	//A buffer for scrolling so items aren't on the edges of the screen
 			if (scrollLocation + headerHeight < topOffset) {									//If item is below the top edge of viewport and below the pageHeader
 				if (scrollLocation + windowHeight > topOffset + itemHeight) {					//If bottom of item is above the bottom of the viewport
