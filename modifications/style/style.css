@@ -1,0 +1,84 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3 {
+	margin: 0;
+}
+
+header#headerNav {
+	display: none;
+}
+
+section#landing {
+	height: 100vh;
+}
+
+section#landing div.row {
+	margin-top: 10vh;
+	margin-bottom: 10vh;
+}
+section#landing header.col-xs-4 {
+	border-right: 1px solid black;
+	height: 80vh;
+}
+
+section#landing h1 {
+	margin-top: 15vh;
+	float: right;
+}
+
+section#landing p {
+	margin-top: 15vh;
+	margin-bottom: 40vh;
+}
+
+section#landing ul {
+	list-style: none;
+	padding: 0;
+}
+
+main > article,
+main > section {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+article#about img {
+	float: right;
+	height: 250px;
+	width: 250px;
+}
+
+aside#otherInterests {
+	padding-top: 50px;
+}
+
+section#skills div.row:first-child {
+	padding-bottom: 50px;
+}
+
+section#skills h2.col-sm-3 {
+	border-right: 1px solid black;
+	padding-right: 5px;
+	text-align: right;
+	margin: 0;
+}
+
+section#skills ul {
+	list-style: none;
+}
+
+section#skills ul.row {
+	padding-left: 0;
+	padding-bottom: 20px;
+}
+
+article#projects > div > div {
+	border-left: 1px solid black;
+}
+
+article#projects section:first-child {
+	padding-bottom: 50px;
+}
