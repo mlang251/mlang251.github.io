@@ -406,6 +406,19 @@ td:first-child {
 
 
 
+/*---EXPERIENCE SECTION---*/
+
+
+section#projects>div div {
+    padding: 20px 15px;
+}
+
+section#projects a {
+    display: inline-block;
+}
+
+
+
 
 /*---RESUME SECTION---*/
 
