@@ -411,11 +411,7 @@ td:first-child {
 /*---EXPERIENCE SECTION---*/
 
 
-section#projects>div div {
-    padding: 20px 15px;
-}
-
-section#projects a {
+section#projects div.inlineLinks a {
     display: inline-block;
 }
 
