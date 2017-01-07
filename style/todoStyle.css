@@ -1,0 +1,197 @@
+/*Initialize global attributes*/
+body {
+    font: 1.6em "Lato", verdana;
+    line-height: 1.6;
+    color: rgb(21, 27, 31);
+    background-color: #06557A;
+}
+
+
+/*Add margin between header and top of todo app*/
+main {
+    margin-top: 140px;
+}
+
+
+
+
+/*When viewport width < 992px*/
+@media(max-width: 991px) {
+    /*Page header is a little bit smaller on mobile*/
+    header#pageHeader h1 {
+        font-size: 30px;
+        margin-top: 10px;
+    }
+
+    header#pageHeader a {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    /*Change the margin between the header and todo app to compensate*/
+    main {
+        margin-top: 120px;
+    }
+}
+
+
+
+/*When links are hovered, the pseudoelement draws an underline under the text*/
+a.isHoverable::after {
+    content: "";
+    display: block;
+    width: 0;
+    -webkit-transition: width 200ms;
+       -moz-transition: width 200ms;
+        -ms-transition: width 200ms;
+         -o-transition: width 200ms;
+             transition: width 200ms;
+}
+
+/*Pseudoelement underline color for page header items*/
+header#pageHeader a.isHoverable::after {
+    border-bottom: 2px solid #702D24;
+}
+
+
+/*Link stylings, with vendor prefixes for color transitions*/
+/*Since there is a styling transition for the links with each of the pseudoclasses as well as a pseudoelement transition
+  for each of the pseudoclasses, the stylings need to be copy and pasted multiple times so that they still follow the LVHA order rules*/
+a,                a.h2,
+a:visited,        a.h2:visited
+{
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
+
+    color: #E0E0A0;
+    text-decoration: none;
+}
+
+a:hover,
+a.h2:hover {
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
+
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: none;
+}
+
+a.isHoverable:hover::after {
+    width: 100%;
+    -webkit-transition: width 400ms;
+       -moz-transition: width 400ms;
+        -ms-transition: width 400ms;
+         -o-transition: width 400ms;
+             transition: width 400ms;
+}
+
+a:focus,
+a.h2:focus {
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
+
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: none;
+}
+
+a.isHoverable:focus::after {
+    width: 100%;
+    -webkit-transition: width 400ms;
+       -moz-transition: width 400ms;
+        -ms-transition: width 400ms;
+         -o-transition: width 400ms;
+             transition: width 400ms;
+}
+
+a:active,
+a.h2:active {
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
+
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: none;
+}
+
+a.isHoverable:active::after {
+    width: 100%;
+    -webkit-transition: width 400ms;
+       -moz-transition: width 400ms;
+        -ms-transition: width 400ms;
+         -o-transition: width 400ms;
+             transition: width 400ms;
+}
+
+
+
+/*---PAGE HEADER---*/
+
+
+/* #pageHeader background color transitions from 80% opaque to 100% when hovering*/
+header#pageHeader {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    -webkit-transition: background-color 400ms;
+       -moz-transition: background-color 400ms;
+        -ms-transition: background-color 400ms;
+         -o-transition: background-color 400ms;
+             transition: background-color 400ms;
+
+    background-color: rgba(21, 27, 31, 0.8);
+    border-bottom: 0.3em solid rgb(21, 27, 31);
+}
+
+/*Transition only applies to devices without touch capability,
+otherwise these hover states would stick when clicked on touchscreen*/
+header#pageHeader.isHoverable:hover {
+    -webkit-transition: background-color 400ms;
+       -moz-transition: background-color 400ms;
+        -ms-transition: background-color 400ms;
+         -o-transition: background-color 400ms;
+             transition: background-color 400ms;
+
+    background-color: rgba(21, 27, 31, 1);
+}
+
+
+
+/*Set spacing and display for page header navigation*/
+header#pageHeader > div {
+    padding-left: 15px;
+    display: table;
+    margin: 0;
+    width: 100%;
+}
+
+/*Override address initial values*/
+address {
+    margin-bottom: 0;
+    line-height: inherit;
+}
+
+address a {
+    display: inline-block;
+}
+
+/*Fix margins on email address so the after element borders don't change the size of the pageHeader*/
+address a.h2 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+}

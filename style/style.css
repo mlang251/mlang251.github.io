@@ -1,74 +1,76 @@
 /*Initialize global attributes*/
 body {
-	font: 1.6em "Lato", verdana;
-	line-height: 1.6;
-	color: #FFFFDD;
+    font: 1.6em "Lato", verdana;
+    line-height: 1.6;
+    color: #FFFFDD;
 }
 
 
 
 /*When viewport >= 992px*/
 @media(min-width: 992px) {
-	/*Style the landing nav to be inline-block display items and larger font size*/
-	nav#pageNav li {
-		font-size: 1.8em;
-		display: inline-block;
-		padding: 0 10px;
-		line-height: 1.1;
-	}
+    /*Style the landing nav to be inline-block display items and larger font size*/
+    nav#pageNav li {
+        font-size: 1.8em;
+        display: inline-block;
+        padding: 0 10px;
+        line-height: 1.1;
+    }
 
-	/*Add border between list items to separate them, set line height so border height matches font size*/
-	nav#pageNav li + li {
-		border-left: 1px solid #FFFFFF;
-		line-height: 1.1;
-	}
+    /*Add border between list items to separate them, set line height so border height matches font size*/
+    nav#pageNav li + li {
+        border-left: 1px solid #FFFFFF;
+        line-height: 1.1;
+    }
 
-	/*Keep objective statement in the center of the screen*/
-	section#landing header{
-		margin-top: 25vh;
-	}
+    /*Keep objective statement in the center of the screen*/
+    section#landing header{
+        margin-top: 25vh;
+    }
 
-	/*When scrolling to the top of an article, there is just enough padding to make room for page header*/
-	article h2.col-sm-2,
-	aside#resume h2.col-sm-2 {
-		padding-top: 141px;
-	}
+    /*When scrolling to the top of an article, there is just enough padding to make room for page header*/
+    article h2.col-sm-2,
+    aside#resume h2.col-sm-2 {
+        padding-top: 141px;
+    }
 }
 
 /*When viewport width < 992px*/
 @media(max-width: 991px) {
-	/*Landing nav list items are block display and smaller font*/
-	nav#pageNav li {
-		font-size: 1.2em;
-		padding: 0 5px;
-		line-height: inherit;
-	}
+    /*Landing nav list items are block display and smaller font*/
+    nav#pageNav li {
+        font-size: 1.2em;
+        padding: 0 5px;
+        line-height: inherit;
+    }
 
-	/*Get rid of border between list items, inherit line height from body*/
-	nav#pageNav li + li {
-		border-left: none;
-		line-height: inherit;
-	}
+    /*Get rid of border between list items, inherit line height from body*/
+    nav#pageNav li + li {
+        border-left: none;
+        line-height: inherit;
+    }
 
-	/*Move objective statement up a bit to make room for mobile device browser controls*/
-	section#landing header {
-		margin-top: 15vh;
-	}
+    /*Move objective statement up a bit to make room for mobile device browser controls*/
+    section#landing header {
+        margin-top: 15vh;
+    }
 
-	/*Page header is a little bit smaller on mobile*/
-	header#pageHeader h1 {
-		font-size: 30px;
-	}
+    /*Page header is a little bit smaller on mobile*/
+    header#pageHeader h1 {
+        font-size: 30px;
+        margin-top: 10px;
+    }
 
-	header#pageHeader a {
-		font-size: 20px;
-	}
+    header#pageHeader a {
+        font-size: 20px;
+        margin-top: 10px;
+    }
 
-	/*When scrolling to the top of a article, there is just enough padding to make room for page header*/
-	article h2.col-sm-2,
-	aside#resume h2.col-sm-2 {
-		padding-top: 124px;
-	}
+    /*When scrolling to the top of a article, there is just enough padding to make room for page header*/
+    article h2.col-sm-2,
+    aside#resume h2.col-sm-2 {
+        padding-top: 124px;
+    }
 }
 
 
@@ -76,121 +78,121 @@ body {
 /*Override Bootstrap default paddings for headings and paragraphs*/
 article h2.col-sm-2,
 aside#resume h2.col-sm-2 {
-	padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 aside h3.col-sm-10,
 aside#resume p.col-sm-10 {
-	padding: 15px;
+    padding: 15px;
 }
 
 article p.col-sm-10 {
-	padding: 10px 15px;
+    padding: 10px 15px;
 }
 
 
 /*When links are hovered, the pseudoelement draws an underline under the text*/
 a.isHoverable::after {
-	content: "";
-	display: block;
-	width: 0;
-	-webkit-transition: width 200ms;
-	   -moz-transition: width 200ms;
-	    -ms-transition: width 200ms;
-	     -o-transition: width 200ms;
-	     	transition: width 200ms;
+    content: "";
+    display: block;
+    width: 0;
+    -webkit-transition: width 200ms;
+       -moz-transition: width 200ms;
+        -ms-transition: width 200ms;
+         -o-transition: width 200ms;
+             transition: width 200ms;
 }
 
 /*Pseudoelement underline color for page header items*/
 header#pageHeader a.isHoverable::after {
-	border-bottom: 2px solid #702D24;
+    border-bottom: 2px solid #702D24;
 }
 
 /*Pseudoelement underline color for page nav items*/
 nav#pageNav a.isHoverable::after {
-	border-bottom: 2px solid rgb(21, 27, 31);
+    border-bottom: 2px solid rgb(21, 27, 31);
 }
 
 /*Link stylings, with vendor prefixes for color transitions*/
-/*Unfortunately, since there is a styling transition for the links with each of the pseudoclasses as well as a pseudoelement transition
+/*Since there is a styling transition for the links with each of the pseudoclasses as well as a pseudoelement transition
   for each of the pseudoclasses, the stylings need to be copy and pasted multiple times so that they still follow the LVHA order rules*/
-a,				a.h2,
-a:visited,		a.h2:visited
+a,                a.h2,
+a:visited,        a.h2:visited
 {
-	-webkit-transition: color 200ms;
-	   -moz-transition: color 200ms;
-	    -ms-transition: color 200ms;
-	     -o-transition: color 200ms;
-	     	transition: color 200ms;
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
 
-	color: #E0E0A0;
-	text-decoration: none;
+    color: #E0E0A0;
+    text-decoration: none;
 }
 
 a:hover,
 a.h2:hover {
-	-webkit-transition: color 200ms;
-	   -moz-transition: color 200ms;
-	    -ms-transition: color 200ms;
-	     -o-transition: color 200ms;
-	     	transition: color 200ms;
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
 
-	color: #FFFFFF;
-	text-decoration: none;
-	outline: none;
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: none;
 }
 
 a.isHoverable:hover::after {
-	width: 100%;
-	-webkit-transition: width 400ms;
-	   -moz-transition: width 400ms;
-	    -ms-transition: width 400ms;
-	     -o-transition: width 400ms;
-	     	transition: width 400ms;	
+    width: 100%;
+    -webkit-transition: width 400ms;
+       -moz-transition: width 400ms;
+        -ms-transition: width 400ms;
+         -o-transition: width 400ms;
+             transition: width 400ms;
 }
 
 a:focus,
 a.h2:focus {
-	-webkit-transition: color 200ms;
-	   -moz-transition: color 200ms;
-	    -ms-transition: color 200ms;
-	     -o-transition: color 200ms;
-	     	transition: color 200ms;
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
 
-	color: #FFFFFF;
-	text-decoration: none;
-	outline: none;
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: none;
 }
 
 a.isHoverable:focus::after {
-	width: 100%;
-	-webkit-transition: width 400ms;
-	   -moz-transition: width 400ms;
-	    -ms-transition: width 400ms;
-	     -o-transition: width 400ms;
-	     	transition: width 400ms;	
+    width: 100%;
+    -webkit-transition: width 400ms;
+       -moz-transition: width 400ms;
+        -ms-transition: width 400ms;
+         -o-transition: width 400ms;
+             transition: width 400ms;
 }
 
 a:active,
 a.h2:active {
-	-webkit-transition: color 200ms;
-	   -moz-transition: color 200ms;
-	    -ms-transition: color 200ms;
-	     -o-transition: color 200ms;
-	     	transition: color 200ms;
+    -webkit-transition: color 200ms;
+       -moz-transition: color 200ms;
+        -ms-transition: color 200ms;
+         -o-transition: color 200ms;
+             transition: color 200ms;
 
-	color: #FFFFFF;
-	text-decoration: none;
-	outline: none;
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: none;
 }
 
 a.isHoverable:active::after {
-	width: 100%;
-	-webkit-transition: width 400ms;
-	   -moz-transition: width 400ms;
-	    -ms-transition: width 400ms;
-	     -o-transition: width 400ms;
-	     	transition: width 400ms;	
+    width: 100%;
+    -webkit-transition: width 400ms;
+       -moz-transition: width 400ms;
+        -ms-transition: width 400ms;
+         -o-transition: width 400ms;
+             transition: width 400ms;
 }
 
 
@@ -199,17 +201,17 @@ a.isHoverable:active::after {
 /*Color scheme for entire document*/
 section#landing,
 article#goals {
-	background-color: #06557A;	
+    background-color: #06557A;
 }
 
 article#about,
 article#experience {
-	background-color: #4E3E35;
+    background-color: #4E3E35;
 }
 
 aside#resume h2,
 aside#resume p.h3 {
-	color: rgb(21, 27, 31);
+    color: rgb(21, 27, 31);
 }
 
 
@@ -221,57 +223,57 @@ aside#resume p.h3 {
 
 /* #pageHeader background color transitions from 80% opaque to 100% when hovering*/
 header#pageHeader {
-	width: 100%;
-	position: fixed;
-	top: 0;
-	z-index: 1000;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 
-	-webkit-transition: background-color 400ms;
-	   -moz-transition: background-color 400ms;
-	    -ms-transition: background-color 400ms;
-	     -o-transition: background-color 400ms;
-	     	transition: background-color 400ms;
+    -webkit-transition: background-color 400ms;
+       -moz-transition: background-color 400ms;
+        -ms-transition: background-color 400ms;
+         -o-transition: background-color 400ms;
+             transition: background-color 400ms;
 
-	background-color: rgba(21, 27, 31, 0.8);
-	border-bottom: 0.3em solid rgb(21, 27, 31);
+    background-color: rgba(21, 27, 31, 0.8);
+    border-bottom: 0.3em solid rgb(21, 27, 31);
 }
 
 /*Transition only applies to devices without touch capability,
 otherwise these hover states would stick when clicked on touchscreen*/
 header#pageHeader.isHoverable:hover {
-	-webkit-transition: background-color 400ms;
-	   -moz-transition: background-color 400ms;
-	    -ms-transition: background-color 400ms;
-	     -o-transition: background-color 400ms;
-	     	transition: background-color 400ms;
+    -webkit-transition: background-color 400ms;
+       -moz-transition: background-color 400ms;
+        -ms-transition: background-color 400ms;
+         -o-transition: background-color 400ms;
+             transition: background-color 400ms;
 
-	background-color: rgba(21, 27, 31, 1);	
+    background-color: rgba(21, 27, 31, 1);
 }
 
 
 
 /*Set spacing and display for page header navigation*/
 header#pageHeader > div {
-	padding-left: 15px;
-	display: table;
-	margin: 0;
-	width: 100%;
+    padding-left: 15px;
+    display: table;
+    margin: 0;
+    width: 100%;
 }
 
 /*Override address initial values*/
 address {
-	margin-bottom: 0;
-	line-height: inherit;
+    margin-bottom: 0;
+    line-height: inherit;
 }
 
 address a {
-	display: inline-block;
+    display: inline-block;
 }
 
 /*Fix margins on email address so the after element borders don't change the size of the pageHeader*/
 address a.h2 {
-	margin-top: 18px;
-	margin-bottom: 8px;
+    margin-top: 18px;
+    margin-bottom: 8px;
 }
 
 
@@ -279,8 +281,8 @@ address a.h2 {
 /*Add border to bottom of all main sections*/
 article,
 section#landing {
-	border-bottom: 0.4em solid #702D24;
-	padding-bottom: 50px
+    border-bottom: 0.4em solid #702D24;
+    padding-bottom: 50px
 }
 
 
@@ -292,30 +294,30 @@ section#landing {
 
 /*Landing takes up 100% of viewport height and responds to window resizes*/
 section#landing {
-	height: 100vh;
+    height: 100vh;
 }
 
 /*center the objective statement vertically*/
 section#landing header {
-	height: 50vh;
+    height: 50vh;
 }
 
 section#landing p {
-	vertical-align: middle;
-	margin-top: 25vh;
-	text-align: left;
+    vertical-align: middle;
+    margin-top: 25vh;
+    text-align: left;
 }
 
 /*Initial styling of navigation list and list items*/
 nav#pageNav ul {
-	list-style: none;
-	text-align: right;
-	padding-right: 15px;
+    list-style: none;
+    text-align: right;
+    padding-right: 15px;
 }
 
 
 nav#pageNav a {
-	display: inline-block;
+    display: inline-block;
 }
 
 
@@ -327,44 +329,44 @@ nav#pageNav a {
 
 /*Style image and float left so text wraps*/
 img[src*= "headshot"] {
-	height: 150px;
-	width: 150px;
-	float: left;
-	margin-right: 10px;
-	border-radius: 7px;
-	box-shadow: 2px 2px rgb(21, 27, 31);
+    height: 150px;
+    width: 150px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 7px;
+    box-shadow: 2px 2px rgb(21, 27, 31);
 }
 
 i#thought {
-	float: right;
-	padding: 15px
+    float: right;
+    padding: 15px
 }
 
 aside#otherInterests {
-	display: block;
-	float: right;
-	margin-top: 40px;
-	border: 1px solid rgb(21, 27, 31);
-	border-radius: 7px;
-	background-color: rgba(21, 27, 31,0.2);
+    display: block;
+    float: right;
+    margin-top: 40px;
+    border: 1px solid rgb(21, 27, 31);
+    border-radius: 7px;
+    background-color: rgba(21, 27, 31,0.2);
 }
 
 aside#otherInterests header,
 aside#otherInterests div {
-	padding: 20px;
+    padding: 20px;
 }
 
 aside#otherInterests ul {
-	list-style: none;
+    list-style: none;
 }
 
 /*List items except the first one will have a top padding, this is so that when the text wraps to a new line on a small viewport it is still readable*/
 aside#otherInterests li + li {
-	padding-top: 5px;
+    padding-top: 5px;
 }
 
 aside#otherInterests h3 {
-	padding: 15px;
+    padding: 15px;
 }
 
 
@@ -374,33 +376,33 @@ aside#otherInterests h3 {
 
 
 table {
-	margin-top: 50px;
-	float: left;
-	width: auto;
-	display: block;
-	padding: 15px;
-	border: 1px solid rgb(21, 27, 31);
-	border-radius: 4px;
-	background-color: rgba(21, 27, 31,0.2);
+    margin-top: 50px;
+    float: left;
+    width: auto;
+    display: block;
+    padding: 15px;
+    border: 1px solid rgb(21, 27, 31);
+    border-radius: 4px;
+    background-color: rgba(21, 27, 31,0.2);
 }
 
 /*Apply border to bottom of table head and vertical divider between columns*/
 thead {
-	font-weight: bold;
-	border-bottom: 2px solid rgb(21, 27, 31);
+    font-weight: bold;
+    border-bottom: 2px solid rgb(21, 27, 31);
 }
 
 col:first-child {
-	border-right: 2px solid rgb(21, 27, 31);
+    border-right: 2px solid rgb(21, 27, 31);
 }
 
 td {
-	padding: 5px 20px;
+    padding: 5px 20px;
 }
 
 /*For all table data cells in the left column*/
 td:first-child {
-	text-align: right;
+    text-align: right;
 }
 
 
@@ -426,33 +428,33 @@ section#projects a {
 /*Links get a bottom padding so that they don't crowd each other when they stack vertically on really tiny viewport*/
 /*When links are not being hovered or focused, images are moderately opaque*/
 aside#resume img {
-	display: inline-block;
-	margin: 0 10px 10px 0;
-	height: 50px;
-	width: 50px;
-	padding: 2px;
-	opacity: 0.6;
-	-webkit-transition: opacity 200ms;
-	   -moz-transition: opacity 200ms;
-	    -ms-transition: opacity 200ms;
-	     -o-transition: opacity 200ms;
-	     	transition: opacity 200ms;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    height: 50px;
+    width: 50px;
+    padding: 2px;
+    opacity: 0.6;
+    -webkit-transition: opacity 200ms;
+       -moz-transition: opacity 200ms;
+        -ms-transition: opacity 200ms;
+         -o-transition: opacity 200ms;
+             transition: opacity 200ms;
 }
 
 /*When links are hovered or focused, images are not opaque*/
 aside#resume a:hover img,
 aside#resume a:focus img,
 aside#resume a:active img {
-	opacity: 1;
-	-webkit-transition: opacity 400ms;
-	   -moz-transition: opacity 400ms;
-	    -ms-transition: opacity 400ms;
-	     -o-transition: opacity 400ms;
-	     	transition: opacity 400ms;
+    opacity: 1;
+    -webkit-transition: opacity 400ms;
+       -moz-transition: opacity 400ms;
+        -ms-transition: opacity 400ms;
+         -o-transition: opacity 400ms;
+             transition: opacity 400ms;
 }
 
 /*Row with the links gets extra padding from the heading and bottom of document*/
 aside#resume > div > div.row {
-	padding-top: 30px;
-	padding-bottom: 35px;
+    padding-top: 30px;
+    padding-bottom: 35px;
 }
