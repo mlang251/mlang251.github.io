@@ -334,7 +334,7 @@ img[src*= "headshot"] {
     float: left;
     margin-right: 10px;
     border-radius: 7px;
-    box-shadow: 2px 2px rgb(21, 27, 31);
+    box-shadow: 0 0 10px rgb(21, 27, 31);
 }
 
 i#thought {
@@ -367,42 +367,6 @@ aside#otherInterests li + li {
 
 aside#otherInterests h3 {
     padding: 15px;
-}
-
-
-
-
-/*---GOALS SECTION---*/
-
-
-table {
-    margin-top: 50px;
-    float: left;
-    width: auto;
-    display: block;
-    padding: 15px;
-    border: 1px solid rgb(21, 27, 31);
-    border-radius: 4px;
-    background-color: rgba(21, 27, 31,0.2);
-}
-
-/*Apply border to bottom of table head and vertical divider between columns*/
-thead {
-    font-weight: bold;
-    border-bottom: 2px solid rgb(21, 27, 31);
-}
-
-col:first-child {
-    border-right: 2px solid rgb(21, 27, 31);
-}
-
-td {
-    padding: 5px 20px;
-}
-
-/*For all table data cells in the left column*/
-td:first-child {
-    text-align: right;
 }
 
 
