@@ -175,55 +175,51 @@
                     <p class = "col-sm-offset-2 col-sm-10">My knowledge of programming began in college, where I took courses in C++. I was attracted to the process of creating a program, from defining the scope, to finding creative ways to work around a problem, and I then taught myself Python as well as all the other web development tools mentioned above. The most valuable, most applicable lesson I learned in school was that if something doesn't come easy at first, then it will be all the more rewarding when you achieve your goal, but it can only be achieved with a hard work ethic and dedication, which are traits that I pride myself in having.</p>
                 </div>
 
-                <table id = "projects" class = "table table-striped table-responsive">
-                    <thead>
-                        <tr>
-                            <th colspan = "2" class = "h3 text-center">Some projects I have worked on:</th>
-                        </tr>
-                    </thead>
+                <section id = "projects">
+                    <header>
+                        <h3 class = "text-center">Some projects I have worked on:</h3>
+                    </header>
 
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>Capstone (Senior Project) - Audio Effects Box</h4>
-                                <a href = "https://github.com/vsuha/AudioEffectsBox/tree/develop_server/server_ui">View the server/UI code in the AudioEffectsBox repository on Github</a>
-                            </td>
-                            <td>
-                                <p>The purpose of my group's Capstone project is to build a tool that can sense a music performer’s hand motions in a three dimensional space, and use the xyz coordinates, as well as hand gestures, to change the parameters of audio effects in real time. This is a work in progress and has been ongoing since May of 2016.</p>
-                                <p>My primary responsibilities include: Team lead for the UI and server portion of the project, working with contributions from 2 other members and managing pull requests. The UI is built with React and the server is built in Node on an Express framework. The server controls the flow of data between multiple client applications (using socket.io and UDP sockets), while the UI is responsible for rendering an intuitive experience for the user to build audio effects chains</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Todo App</h4>
-                                <a href = "pages/todo.html">View my Todo App</a>
-                                <a href = "https://github.com/mlang251/TodoApp">View my TodoApp repository on Github</a>
-                            </td>
-                            <td>
-                                <p>The purpose of this project was to learn how to make dynamic web apps using React. This was my first web app, and I did a lot of research on the parent-child component rendering relationship, state management, component lifecycle, and component organization. I chose to use React because it is gaining tons of traction and popularity, and because there are plenty of resources for learning React. Some of the top skills I learned in the making of this app were state management, separating container and presentational components, creating reusable components, and organizing my code so that it is readable and understandable by anyone.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Tab-navigable accessibility</h4>
-                                <a href = "https://github.com/mlang251/mlang251.github.io/blob/master/scripts/script.js">View the code for keyboard-navigability on my Github</a>
-                            </td>
-                            <td class = "inlineLinks">
-                                <p>I wanted to learn how to make my website more accessible to users with disabilities, so I researched accessibility in the <a href = "https://www.w3.org/TR/2014/REC-wai-aria-20140320/">W3C specification for Accessible Rich Internet Applications</a>, and outfitted this website with <abbr title = "Accessible Rich Internet Applications">ARIA</abbr> roles, properties, and labels. I also ensured that this website's navigation links were fully accessible from the keyboard, using best practices as outlined in the article, <a href  = "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets">Keyboard-navigable Javascript Widgets</a>, published by the Mozilla Development Network. The keyboard-navigability was done using object-oriented Javascript, and had a huge impact on the way people with disabilities can browse my website. Using the tab, arrow, and enter/space keys ensures that people with visual or motor impairements can navigate my webite easily and fluidly.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Batch script for initializing ReactJS projects</h4>
-                                <a href = "https://github.com/mlang251/ReactInit">View my ReactInit repository on Github</a>
-                            </td>
-                            <td class = "inlineLinks">
-                                <p>This project fulfilled two goals of mine: To create a simple way to initialize React projects, and to learn about batch scripting in Windows. To do this, I followed the article, <a href = "https://www.codecademy.com/articles/react-setup-i">React Setup</a>, published by Codecademy.com, to get a step by step guide on what to download, which commands to run, and which files need to be created in order to initalize a React project. I then learned about batch scripting and created a .bat file which automates the entire process. Initializing React projects is now as easy as typing in a single script call to the command line</p>
-                                <p>Fun fact: I created this batch script before I knew <a href = "https://github.com/facebookincubator/create-react-app">Create React App</a> existed.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <div class = "row project">
+                        <header class = "col-sm-3">
+                            <h4>Capstone (Senior Project) - Audio Effects Box</h4>
+                            <a href = "https://github.com/vsuha/AudioEffectsBox/tree/develop_server/server_ui">View the server/UI code in the AudioEffectsBox repository on Github</a>
+                        </header>
+                        <div class = "col-sm-9">
+                            <p>The purpose of my group's Capstone project is to build a tool that can sense a music performer’s hand motions in a three dimensional space, and use the xyz coordinates, as well as hand gestures, to change the parameters of audio effects in real time. This is a work in progress and has been ongoing since May of 2016.</p>
+                            <p>My primary responsibilities include: Team lead for the UI and server portion of the project, working with contributions from 2 other members and managing pull requests. The UI is built with React and the server is built in Node on an Express framework. The server controls the flow of data between multiple client applications (using socket.io and UDP sockets), while the UI is responsible for rendering an intuitive experience for the user to build audio effects chains</p>
+                        </div>
+                    </div>
+                    <div class = "row project">
+                        <header class = "col-sm-3">
+                            <h4>Todo App</h4>
+                            <a href = "pages/todo.html">View my Todo App</a>
+                            <a href = "https://github.com/mlang251/TodoApp">View my TodoApp repository on Github</a>
+                        </header>
+                        <div class = "col-sm-9">
+                            <p>The purpose of this project was to learn how to make dynamic web apps using React. This was my first web app, and I did a lot of research on the parent-child component rendering relationship, state management, component lifecycle, and component organization. I chose to use React because it is gaining tons of traction and popularity, and because there are plenty of resources for learning React. Some of the top skills I learned in the making of this app were state management, separating container and presentational components, creating reusable components, and organizing my code so that it is readable and understandable by anyone.</p>
+                        </div>
+                    </div>
+                    <div class = "row project">
+                        <header class = "col-sm-3">
+                            <h4>Tab-navigable accessibility</h4>
+                            <a href = "https://github.com/mlang251/mlang251.github.io/blob/master/scripts/script.js">View the code for keyboard-navigability on my Github</a>
+                        </header>
+                        <div class = "col-sm-9 inlineLinks">
+                            <p>I wanted to learn how to make my website more accessible to users with disabilities, so I researched accessibility in the <a href = "https://www.w3.org/TR/2014/REC-wai-aria-20140320/">W3C specification for Accessible Rich Internet Applications</a>, and outfitted this website with <abbr title = "Accessible Rich Internet Applications">ARIA</abbr> roles, properties, and labels. I also ensured that this website's navigation links were fully accessible from the keyboard, using best practices as outlined in the article, <a href  = "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets">Keyboard-navigable Javascript Widgets</a>, published by the Mozilla Development Network. The keyboard-navigability was done using object-oriented Javascript, and had a huge impact on the way people with disabilities can browse my website. Using the tab, arrow, and enter/space keys ensures that people with visual or motor impairements can navigate my webite easily and fluidly.</p>
+                        </div>
+                    </div>
+                    <div class = "row project">
+                        <header class = "col-sm-3">
+                            <h4>Batch script for initializing ReactJS projects</h4>
+                            <a href = "https://github.com/mlang251/ReactInit">View my ReactInit repository on Github</a>
+                        </header>
+                        <div class = "col-sm-9 inlineLinks">
+                            <p>This project fulfilled two goals of mine: To create a simple way to initialize React projects, and to learn about batch scripting in Windows. To do this, I followed the article, <a href = "https://www.codecademy.com/articles/react-setup-i">React Setup</a>, published by Codecademy.com, to get a step by step guide on what to download, which commands to run, and which files need to be created in order to initalize a React project. I then learned about batch scripting and created a .bat file which automates the entire process. Initializing React projects is now as easy as typing in a single script call to the command line</p>
+                            <p>Fun fact: I created this batch script before I knew <a href = "https://github.com/facebookincubator/create-react-app">Create React App</a> existed.</p>
+                        </div>
+                    </div>
+                </section>
 
 
             </div>

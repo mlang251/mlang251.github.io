@@ -375,19 +375,24 @@ aside#otherInterests h3 {
 /*---EXPERIENCE SECTION---*/
 
 
-table#projects td.inlineLinks a {
+section#projects div.inlineLinks a {
     display: inline-block;
 }
 
-table#projects h4 {
+section#projects h4 {
     margin-top: 0
 }
 
-table.table-striped>tbody>tr:nth-of-type(odd) {
+div.project {
+    border-top: 1px solid #999;
+    padding-top: 15px;
+}
+
+div.project:nth-of-type(odd) {
     background-color: #685252;
 }
 
-table#projects td:first-child {
+section#projects td:first-child {
     width: 250px;
 }
 
