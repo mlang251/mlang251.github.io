@@ -375,12 +375,20 @@ aside#otherInterests h3 {
 /*---EXPERIENCE SECTION---*/
 
 
-section#projects div.inlineLinks a {
+table#projects td.inlineLinks a {
     display: inline-block;
 }
 
-section#projects h4 {
+table#projects h4 {
     margin-top: 0
+}
+
+table.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #685252;
+}
+
+table#projects td:first-child {
+    width: 250px;
 }
 
 
