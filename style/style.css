@@ -415,7 +415,9 @@ section#projects div.inlineLinks a {
     display: inline-block;
 }
 
-
+section#projects h4 {
+    margin-top: 0
+}
 
 
 /*---RESUME SECTION---*/
