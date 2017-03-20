@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ParameterContainer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ParameterContainer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import Immutable from 'immutable';
+import Parameter from './Parameter';
+
+/**
+ * The ParameterContainer module. Responsible for rendering the parameter, maintaining it's value, and facilitating
+ *     interaction with the parameter. Appears as child component of Effect, child components are Parameter.
+ * @module ParameterContainer
+ * @see module:ParameterContainer
+ * @see module:Parameter
+ */
+
+/** 
+ * Class responsible for rendering the parameter, maintaining it's value, and facilitating interaction with the parameter.
+ * @extends external:ReactPureComponent 
+ */
+class ParameterContainer extends React.PureComponent {
+    /** Creates the ParameterContainer instance. Binds methods to this instance. */
+    constructor() {
+        super();
+        this.handleMappingClick = this.handleMappingClick.bind(this);
+        this.handleDrag = this.handleDrag.bind(this);
+    }
+
+    /**
+     * Retrives the parameter's value and calls this.props.onParameterChange, which is used to update the app state 
+     *     of the parameters, and emit the initial value of the Parameter.
+     */
+    componentWillMount() {
+        const info = this.props.info.set('paramValue', this.props.value);
+        this.props.onParameterChange(Immutable.List([info]));
+    }
+
+    /**
+     * Handles the user interaction of dragging a fader. The value must be between 0 and 1, so it normalizes the yValue
+     *     on this range, rounds it to three decimal places, and calls this.props.onParameterChange to update the
+     *     app state of the parameter, and emit the value of the Parameter.
+     * @param {Number} yValue - The Y value the fader was dragged to
+     * @param {Number} max - Equal to the height of the fader's containing element
+     */
+    handleDrag(yValue, max) {
+        let value =
+            yValue &lt; 0 ? 0
+            : yValue > max ? 1
+            : yValue/max
+        value = Math.round(value * 1000)/1000;
+        const updatedInfo = this.props.info.set('paramValue', value);
+        this.props.onParameterChange(Immutable.List([updatedInfo]));
+    }
+
+    /**
+     * Handles the user interaction of clicking on a Parameter. If the app is currently in mapping mode, clicking on a
+     *     parameter will call props.mapToParameter, which will map the current axis being mapped to the Parameter that
+     *     was clicked.
+     */
+    handleMappingClick() {
+        if (!this.props.isMapping) {
+            return false;
+        } else {
+            this.props.mapToParameter(this.props.info);
+        }
+    }
+
+    /**
+     * Renders a Parameter component.
+     * @see module:Parameter
+     */
+    render() {
+        return (
+            &lt;Parameter
+                handleMappingClick = {this.handleMappingClick}
+                isMapping = {this.props.isMapping}
+                value = {this.props.value}
+                handleDrag = {this.handleDrag}
+                info = {this.props.info} />
+        );
+    }
+}
+
+/** The ParameterContainer component */
+export default ParameterContainer;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-AppContainer.html">AppContainer</a></li><li><a href="module-Display.html">Display</a></li><li><a href="module-Effect.html">Effect</a></li><li><a href="module-EffectContainer.html">EffectContainer</a></li><li><a href="module-InteractionBox.html">InteractionBox</a></li><li><a href="module-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-Parameter.html">Parameter</a></li><li><a href="module-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Sidebar.html">Sidebar</a></li><li><a href="module-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-SignalChain.html">SignalChain</a></li><li><a href="module-SignalChainContainer.html">SignalChainContainer</a></li></ul><h3>Externals</h3><ul><li><a href="external-List.html">List</a></li><li><a href="external-Map.html">Map</a></li><li><a href="external-ReactComponent.html">ReactComponent</a></li><li><a href="external-ReactPureComponent.html">ReactPureComponent</a></li></ul><h3>Classes</h3><ul><li><a href="module-AppContainer-AppContainer.html">AppContainer</a></li><li><a href="module-App-App.html">App</a></li><li><a href="module-Display-Display.html">Display</a></li><li><a href="module-EffectContainer-EffectContainer.html">EffectContainer</a></li><li><a href="module-Effect-Effect.html">Effect</a></li><li><a href="module-InteractionBoxContainer-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-InteractionBox-InteractionBox.html">InteractionBox</a></li><li><a href="module-ParameterContainer-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Parameter-Parameter.html">Parameter</a></li><li><a href="module-SidebarContainer-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-Sidebar-Sidebar.html">Sidebar</a></li><li><a href="module-SignalChainContainer-SignalChainContainer.html">SignalChainContainer</a></li><li><a href="module-SignalChain-SignalChain.html">SignalChain</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Mar 20 2017 00:01:46 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

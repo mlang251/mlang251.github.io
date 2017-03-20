@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: AppContainerState</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: AppContainerState</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-AppContainer.html">module:AppContainer</a>~</span>AppContainerState</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A message to be displayed at the top of the app</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>effects</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-List.html">external:List</a>.&lt;<a href="global.html#Effect">Effect</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable List containing the effects in the signal chain</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usedIDs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-List.html">external:List</a>.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable List of the unique IDs associated with     the effects in the signal chain</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parameterValues</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-Map.html">external:Map</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map containing the default values for effect parameters</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mapping</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-Map.html">external:Map</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map describing the mapping state of the app
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>isMapping</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">True or false depending on whether or not the app is in mapping mode</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currentAxis</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Represents the coordinate axis currently being mapped</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>xyzMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-Map.html">external:Map</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map containing information about coordinate axis mappings
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#AxisMap">AxisMap</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map representing the parameter mapping applied to the x axis</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#AxisMap">AxisMap</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map representing the parameter mapping applied to the y axis</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>z</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#AxisMap">AxisMap</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map representing the parameter mapping applied to the z axis</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>interactionBox</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-Map.html">external:Map</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map representing the state of the InteractionBox
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-List.html">external:List</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable List containing the current x, y, z coordinates</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dimensions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-Map.html">external:Map</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An Immutable Map representing the dimensions of the     InteractionBox as reported by the Leap</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isConnected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">True or false depending on whether or not the Leap is connected</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isInBounds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">True or false depending on whether or not the user's hand is in the    field of view of the Leap</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isTracking</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">True or false depending on whether or not the Leap is tracking    the user's hand motions</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="AppContainer.js.html">AppContainer.js</a>, <a href="AppContainer.js.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-AppContainer.html">AppContainer</a></li><li><a href="module-Display.html">Display</a></li><li><a href="module-Effect.html">Effect</a></li><li><a href="module-EffectContainer.html">EffectContainer</a></li></ul><h3>Externals</h3><ul><li><a href="external-Component.html">Component</a></li><li><a href="external-List.html">List</a></li><li><a href="external-Map.html">Map</a></li><li><a href="external-PureComponent.html">PureComponent</a></li></ul><h3>Classes</h3><ul><li><a href="module-AppContainer-AppContainer.html">AppContainer</a></li><li><a href="module-Display-Display.html">Display</a></li><li><a href="module-EffectContainer-EffectContainer.html">EffectContainer</a></li><li><a href="module-Effect-Effect.html">Effect</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-AppContainer-AppContainerState.html">AppContainerState</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Mar 14 2017 18:12:13 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

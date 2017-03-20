@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: InteractionBoxContainer</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: InteractionBoxContainer</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-InteractionBoxContainer.html">module:InteractionBoxContainer</a>~</span>InteractionBoxContainer</h2>
+        
+            <div class="class-description">Class responsible for displaying the InteractionBox, or the InteractionBoxPlaceholder, depending on whether or not     the Leap is connected. Creates styles for the InteractionBox based on data from the Leap.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="InteractionBoxContainer"><span class="type-signature"></span>new InteractionBoxContainer<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates the InteractionBoxContainer instance. Binds methods to this instance
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="InteractionBoxContainer.js.html">InteractionBoxContainer.js</a>, <a href="InteractionBoxContainer.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="external-ReactPureComponent.html">external:ReactPureComponent</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="createStyles"><span class="type-signature"></span>createStyles<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="external-Map.html">external:Map</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates styles for the InteractionBox, based on the Leap data and status updates. If box dimensions are provided    via props.dimensions, it determines the dimensions, in pixels, with which to render the 3D representation of the    Leap's field of vision. It calculates this using the ratio of the dimensions provided by the Leap, and makes    the 3D representation so that it is as large as possible within the constraints of it's containing block. If    Leap hand tracking data is available, it positions the pointer to show where the user's hand is in relation to     the 3D representation. The pointer is rendered with different colors, depending on the Leap status updates.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="InteractionBoxContainer.js.html">InteractionBoxContainer.js</a>, <a href="InteractionBoxContainer.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - An Immutable Map representing a style object for various components in the InteractionBox
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="external-Map.html">external:Map</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="render"><span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Renders the InteractionBox if the Leap is connected, otherwise, renders the InteractionBoxPlaceholder
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="InteractionBoxContainer.js.html">InteractionBoxContainer.js</a>, <a href="InteractionBoxContainer.js.html#line159">line 159</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-Display.html">module:Display</a></li>
+        
+            <li><a href="module-InteractionBox.html">module:InteractionBox</a></li>
+        
+            <li><a href="module-InteractionBoxPlaceholder.html">module:InteractionBoxPlaceholder</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-AppContainer.html">AppContainer</a></li><li><a href="module-Display.html">Display</a></li><li><a href="module-Effect.html">Effect</a></li><li><a href="module-EffectContainer.html">EffectContainer</a></li><li><a href="module-InteractionBox.html">InteractionBox</a></li><li><a href="module-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-Parameter.html">Parameter</a></li><li><a href="module-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Sidebar.html">Sidebar</a></li><li><a href="module-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-SignalChain.html">SignalChain</a></li><li><a href="module-SignalChainContainer.html">SignalChainContainer</a></li></ul><h3>Externals</h3><ul><li><a href="external-List.html">List</a></li><li><a href="external-Map.html">Map</a></li><li><a href="external-ReactComponent.html">ReactComponent</a></li><li><a href="external-ReactPureComponent.html">ReactPureComponent</a></li></ul><h3>Classes</h3><ul><li><a href="module-AppContainer-AppContainer.html">AppContainer</a></li><li><a href="module-App-App.html">App</a></li><li><a href="module-Display-Display.html">Display</a></li><li><a href="module-EffectContainer-EffectContainer.html">EffectContainer</a></li><li><a href="module-Effect-Effect.html">Effect</a></li><li><a href="module-InteractionBoxContainer-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-InteractionBox-InteractionBox.html">InteractionBox</a></li><li><a href="module-ParameterContainer-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Parameter-Parameter.html">Parameter</a></li><li><a href="module-SidebarContainer-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-Sidebar-Sidebar.html">Sidebar</a></li><li><a href="module-SignalChainContainer-SignalChainContainer.html">SignalChainContainer</a></li><li><a href="module-SignalChain-SignalChain.html">SignalChain</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Mar 20 2017 00:01:46 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

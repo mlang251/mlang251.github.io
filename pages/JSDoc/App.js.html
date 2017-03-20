@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: App.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: App.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import InteractionBoxContainer from './InteractionBoxContainer';
+import SignalChainContainer from './SignalChainContainer';
+import SidebarContainer from './SidebarContainer';
+import Radium from 'radium';
+import AppBar from 'material-ui/AppBar';
+
+/**
+ * The App module. Responsible for rendering the App and child components. Appears as child component of AppContainer,
+ *     child components are InteractionBoxContainer, SignalChainContainer, SidebarContainer.
+ * @module App
+ * @see module:AppContainer
+ * @see module:InteractionBoxContainer
+ * @see module:SignalChainContainer
+ * @see module:SidebarContainer
+ * @see {@link http://www.material-ui.com/#/components/app-bar}
+ */
+
+/**
+ * Class responsible for rendering the App and child components.
+ * @extends external:ReactPureComponent
+ */
+class App extends React.PureComponent {
+    /** Create the App component instance */
+    constructor() {
+        super();
+    }
+
+    /**
+     * Render the App and it's child components.
+     * @see module:InteractionBoxContainer
+     * @see module:SignalChainContainer
+     * @see module:SidebarContainer
+     * @see {@link http://www.material-ui.com/#/components/app-bar}
+     */
+    render() {
+        return (
+            &lt;div>
+                &lt;AppBar 
+                    showMenuIconButton = {false}
+                    title = "Audio Expression Box" />
+                &lt;div 
+                    className = 'container-fluid'
+                    style = {styles.container}>
+                    &lt;div 
+                        className = 'row'
+                        style = {styles.div}>
+                        &lt;div 
+                            className = 'col-sm-10'
+                            style = {styles.div}>
+                            &lt;button
+                                type = 'button'
+                                onClick = {this.props.connectLeap}>Connect Leap&lt;/button>
+                            &lt;button
+                                type = 'button'
+                                onClick = {this.props.demoLeap}>Send Tracking Data&lt;/button>
+                            &lt;p style = {styles.message}>{this.props.message}&lt;/p>
+                            &lt;section style = {styles.interactionBoxContainer}>
+                                &lt;InteractionBoxContainer
+                                    coords = {this.props.interactionBox.get('coords')}
+                                    dimensions = {this.props.interactionBox.get('dimensions')}
+                                    isConnected = {this.props.interactionBox.get('isConnected')}
+                                    isInBounds = {this.props.interactionBox.get('isInBounds')}
+                                    isTracking = {this.props.interactionBox.get('isTracking')} />
+                            &lt;/section>
+                            &lt;section style = {styles.signalChainContainer}>
+                                &lt;SignalChainContainer
+                                    onParameterChange = {this.props.onParameterChange}
+                                    parameterValues = {this.props.parameterValues}
+                                    isMapping = {this.props.isMapping}
+                                    mapToParameter = {this.props.mapToParameter}
+                                    xyzMap = {this.props.xyzMap}
+                                    removeEffect = {this.props.removeEffect}
+                                    toggleBypass = {this.props.toggleBypass}
+                                    toggleSolo = {this.props.toggleSolo}
+                                    removeMapping = {this.props.removeMapping}
+                                    reorderEffects = {this.props.reorderEffects}
+                                    effects = {this.props.effects} />
+                            &lt;/section>
+                        &lt;/div>
+                        &lt;div className = 'col-sm-2'>
+                            &lt;SidebarContainer
+                                handleEffectButtonClick = {this.props.addEffectToChain}
+                                handleAxisButtonClick = {this.props.toggleMapping} />
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+        );
+    }
+}
+
+/**
+ * A style object whose members are passed to components when rendering.
+ * @type {Object}
+ */
+const styles = {
+    container: {
+        height: '90vh'
+    },
+    div: {
+        height: '100%',
+        paddingTop: 5
+    },
+    message: {
+        display: 'inline',
+        textAlign: 'center',
+        color: '#D33',
+        marginBottom: 0,
+        paddingLeft: 10
+    },
+    interactionBoxContainer: {
+        height: '50vh',
+        paddingTop: '5vh',
+        paddingBottom: '5vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    signalChainContainer: {
+        height: '30vh',
+        width: '90%',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+    }
+}
+
+/** The App module */
+export default Radium(App);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-AppContainer.html">AppContainer</a></li><li><a href="module-Display.html">Display</a></li><li><a href="module-Effect.html">Effect</a></li><li><a href="module-EffectContainer.html">EffectContainer</a></li><li><a href="module-InteractionBox.html">InteractionBox</a></li><li><a href="module-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-Parameter.html">Parameter</a></li><li><a href="module-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Sidebar.html">Sidebar</a></li><li><a href="module-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-SignalChain.html">SignalChain</a></li><li><a href="module-SignalChainContainer.html">SignalChainContainer</a></li></ul><h3>Externals</h3><ul><li><a href="external-List.html">List</a></li><li><a href="external-Map.html">Map</a></li><li><a href="external-ReactComponent.html">ReactComponent</a></li><li><a href="external-ReactPureComponent.html">ReactPureComponent</a></li></ul><h3>Classes</h3><ul><li><a href="module-AppContainer-AppContainer.html">AppContainer</a></li><li><a href="module-App-App.html">App</a></li><li><a href="module-Display-Display.html">Display</a></li><li><a href="module-EffectContainer-EffectContainer.html">EffectContainer</a></li><li><a href="module-Effect-Effect.html">Effect</a></li><li><a href="module-InteractionBoxContainer-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-InteractionBox-InteractionBox.html">InteractionBox</a></li><li><a href="module-ParameterContainer-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Parameter-Parameter.html">Parameter</a></li><li><a href="module-SidebarContainer-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-Sidebar-Sidebar.html">Sidebar</a></li><li><a href="module-SignalChainContainer-SignalChainContainer.html">SignalChainContainer</a></li><li><a href="module-SignalChain-SignalChain.html">SignalChain</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Mar 20 2017 00:01:46 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

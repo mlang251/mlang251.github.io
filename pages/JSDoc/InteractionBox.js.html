@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: InteractionBox.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: InteractionBox.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import Radium from 'radium';
+
+/**
+ * The InteractionBox module. Responsible rendering the InteractionBox. This includes the 3D representation of the Leap field of vision,
+ *     as well as the position of the user's hand and the state of the InteractionBox. Appears as a child component of the 
+ *     InteractionBoxContainer component.
+ * @module InteractionBox
+ * @see module:InteractionBoxContainer
+ */
+
+/** 
+ * Class responsible rendering the InteractionBox. This includes the 3D representation of the Leap field of vision,
+ *     as well as the position of the user's hand and the state of the InteractionBox
+ * @extends external:ReactPureComponent 
+ */
+class InteractionBox extends React.PureComponent {
+    /** Create the InteractionBox component */
+    constructor() {
+        super();
+    }
+    
+    /**
+     * Renders the 3D representation of the Leap field of vision as well as pointer representing the location of the user's hand.
+     *     The color of the pointer depends on the current state of the InteractionBox.
+     */
+    render() {
+        const propStyles = this.props.style.toJS();
+        return (
+            &lt;section style = {Object.assign({}, styles.container, propStyles.container)}>
+                &lt;div style = {Object.assign({}, styles.cube, propStyles.cube)}>
+                    &lt;div style = {Object.assign({}, styles.pointer, propStyles.pointer)}>
+                        &lt;span style = {Object.assign({}, styles.shadow, propStyles.shadow)}>&lt;/span>
+                    &lt;/div>
+                    &lt;figure 
+                        id = 'front'
+                        style = {Object.assign({}, styles.figure, styles.front, propStyles.front)}>&lt;/figure>
+                    &lt;figure 
+                        id = 'back'
+                        style = {Object.assign({}, styles.figure, styles.back, propStyles.back)}>&lt;/figure>
+                    &lt;figure 
+                        id = 'right'
+                        style = {Object.assign({}, styles.figure, styles.right, propStyles.right)}>&lt;/figure>
+                    &lt;figure 
+                        id = 'left'
+                        style = {Object.assign({}, styles.figure, styles.left, propStyles.left)}>&lt;/figure>
+                    &lt;figure 
+                        id = 'top'
+                        style = {Object.assign({}, styles.figure, styles.top, propStyles.top)}>&lt;/figure>
+                    &lt;figure 
+                        id = 'bottom'
+                        style = {Object.assign({}, styles.figure, styles.bottom, propStyles.bottom)}>&lt;/figure>
+                &lt;/div>
+            &lt;/section>
+        );
+    }
+}
+
+/**
+ * A style object whose members are passed to elements when rendering.
+ * @type {Object}
+ */
+const styles = {
+    container: {
+        position: 'relative',
+        perspective: 1000,
+        transformStyle: 'preserve-3d',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+    },
+    cube: {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transformStyle: 'preserve-3d',
+    },
+    pointer: {
+        display: 'block',
+        position: 'absolute',
+        borderRadius: '50%',
+        backgroundColor: 'black',
+        bottom: 0,
+        left: 0,
+        margin: 0,
+        transformStyle: 'preserve-3d'
+    },
+    shadow: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 50%)',
+        zIndex: -1
+    },
+    figure: {
+        margin: 0,
+        display: 'block',
+        position: 'absolute',
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderColor: 'black',
+        backgroundImage: `linear-gradient(0deg, transparent 45%, #009 50%, transparent 55%, transparent 100%), 
+            linear-gradient(90deg, transparent 45%, #009 50%, transparent 55%, transparent 100%)`,
+        opacity: 0.5
+    },
+    front: {
+        backgroundColor: '#FFF',
+        backgroundImage: '',
+        opacity: 0.2
+    },
+    back: {
+        backgroundColor: '#AAA'
+    },
+    right: {
+        backgroundColor: '#AAA'
+    },
+    left: {
+        backgroundColor: '#AAA'
+    },
+    top: {
+        backgroundColor: '#EEE',
+        backgroundImage: '',
+        opacity: 0.2
+    },
+    bottom: {
+        backgroundColor: '#EEE'
+    },
+}
+
+/** The InteractionBox component */
+export default Radium(InteractionBox);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-AppContainer.html">AppContainer</a></li><li><a href="module-Display.html">Display</a></li><li><a href="module-Effect.html">Effect</a></li><li><a href="module-EffectContainer.html">EffectContainer</a></li><li><a href="module-InteractionBox.html">InteractionBox</a></li><li><a href="module-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-Parameter.html">Parameter</a></li><li><a href="module-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Sidebar.html">Sidebar</a></li><li><a href="module-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-SignalChain.html">SignalChain</a></li><li><a href="module-SignalChainContainer.html">SignalChainContainer</a></li></ul><h3>Externals</h3><ul><li><a href="external-List.html">List</a></li><li><a href="external-Map.html">Map</a></li><li><a href="external-ReactComponent.html">ReactComponent</a></li><li><a href="external-ReactPureComponent.html">ReactPureComponent</a></li></ul><h3>Classes</h3><ul><li><a href="module-AppContainer-AppContainer.html">AppContainer</a></li><li><a href="module-App-App.html">App</a></li><li><a href="module-Display-Display.html">Display</a></li><li><a href="module-EffectContainer-EffectContainer.html">EffectContainer</a></li><li><a href="module-Effect-Effect.html">Effect</a></li><li><a href="module-InteractionBoxContainer-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-InteractionBox-InteractionBox.html">InteractionBox</a></li><li><a href="module-ParameterContainer-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Parameter-Parameter.html">Parameter</a></li><li><a href="module-SidebarContainer-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-Sidebar-Sidebar.html">Sidebar</a></li><li><a href="module-SignalChainContainer-SignalChainContainer.html">SignalChainContainer</a></li><li><a href="module-SignalChain-SignalChain.html">SignalChain</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Mar 20 2017 00:01:46 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

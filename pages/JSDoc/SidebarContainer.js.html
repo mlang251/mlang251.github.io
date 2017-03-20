@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: SidebarContainer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: SidebarContainer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import Immutable from 'immutable';
+import effects from '../JSON/effects.json';
+import Sidebar from './Sidebar';
+
+/**
+ * The SidebarContainer module. Responsible for creating buttons and styles for it's Sidebar child. Appears
+ *     as a child component of App, child component is Sidebar.
+ * @module SidebarContainer
+ * @see module:App
+ * @see module:Sidebar
+ */
+
+/** 
+ * Class responsible for creating buttons and styles for it's Sidebar child.
+ * @extends external:ReactPureComponent 
+ */
+class SidebarContainer extends React.PureComponent {
+    /** Create the SidebarContainer component instance */
+    constructor() {
+        super();
+    }
+
+    /**
+     * Create the buttons for adding effects to the signal chain. Retrieves a list of available effects by parsing the list
+     *     in effects.json. Creates buttons which add the corresponding effect to the signal chain.
+     */
+    createEffectsButtons() {
+        const effectsList = Immutable.fromJS(effects).get('list');
+        let effectsButtons = Immutable.List([]).asMutable();
+        effectsList.forEach((effectName, index) => {
+            effectsButtons = effectsButtons.push(
+                &lt;button
+                    type = 'button'
+                    key = {effectName}
+                    style = {styles.button}
+                    onClick = {() => this.props.handleEffectButtonClick(effectName.toLowerCase())}>Add {effectName}&lt;/button>
+            );
+        });
+        return effectsButtons.asImmutable();
+    }
+
+    /**
+     * Creates buttons for mapping coordinate axes to effect parameters.
+     */
+    createAxisButtons() {
+        const axesList = ['x', 'y', 'z'];
+        let axisButtons = Immutable.List([]).asMutable();
+        axesList.forEach(axisName => {
+            axisButtons = axisButtons.push(
+                &lt;button
+                    type = 'button'
+                    key = {axisName}
+                    style = {styles.button}
+                    onClick = {() => this.props.handleAxisButtonClick(axisName)}>Map {axisName.toUpperCase()}&lt;/button>
+            );
+        });
+        return axisButtons.asImmutable();
+    }
+
+    /**
+     * Renders the Sidebar component
+     * @see module:Sidebar
+     */
+    render() {
+        return (
+            &lt;Sidebar
+                effectsButtons = {this.createEffectsButtons()}
+                axisButtons = {this.createAxisButtons()} />
+        );
+    }
+}
+
+/**
+ * A style object whose members are passed to elements when rendering.
+ * @type {Object}
+ */
+const styles = {
+    button: {
+        display: 'block',
+        marginBottom: 10
+    }
+}
+
+/** The SidebarContainer component */
+export default SidebarContainer;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-AppContainer.html">AppContainer</a></li><li><a href="module-Display.html">Display</a></li><li><a href="module-Effect.html">Effect</a></li><li><a href="module-EffectContainer.html">EffectContainer</a></li><li><a href="module-InteractionBox.html">InteractionBox</a></li><li><a href="module-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-Parameter.html">Parameter</a></li><li><a href="module-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Sidebar.html">Sidebar</a></li><li><a href="module-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-SignalChain.html">SignalChain</a></li><li><a href="module-SignalChainContainer.html">SignalChainContainer</a></li></ul><h3>Externals</h3><ul><li><a href="external-List.html">List</a></li><li><a href="external-Map.html">Map</a></li><li><a href="external-ReactComponent.html">ReactComponent</a></li><li><a href="external-ReactPureComponent.html">ReactPureComponent</a></li></ul><h3>Classes</h3><ul><li><a href="module-AppContainer-AppContainer.html">AppContainer</a></li><li><a href="module-App-App.html">App</a></li><li><a href="module-Display-Display.html">Display</a></li><li><a href="module-EffectContainer-EffectContainer.html">EffectContainer</a></li><li><a href="module-Effect-Effect.html">Effect</a></li><li><a href="module-InteractionBoxContainer-InteractionBoxContainer.html">InteractionBoxContainer</a></li><li><a href="module-InteractionBoxPlaceholder-InteractionBoxPlaceholder.html">InteractionBoxPlaceholder</a></li><li><a href="module-InteractionBox-InteractionBox.html">InteractionBox</a></li><li><a href="module-ParameterContainer-ParameterContainer.html">ParameterContainer</a></li><li><a href="module-Parameter-Parameter.html">Parameter</a></li><li><a href="module-SidebarContainer-SidebarContainer.html">SidebarContainer</a></li><li><a href="module-Sidebar-Sidebar.html">Sidebar</a></li><li><a href="module-SignalChainContainer-SignalChainContainer.html">SignalChainContainer</a></li><li><a href="module-SignalChain-SignalChain.html">SignalChain</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Mar 20 2017 00:01:46 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
